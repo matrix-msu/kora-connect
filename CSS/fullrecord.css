@@ -1,0 +1,43 @@
+body {
+    background: white;
+    margin: 0;
+    font-family: "Helvetica Neue";
+    src: url('font/HelveticaNeue.otf') format('opentype'),
+		 url('font/HelveticaNeue.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+body > .control_full_value {
+    width: 100%;
+    padding: 50px 0;
+    background-color: rgb(51, 51, 51);
+}
+#backArrow {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    cursor: pointer;
+    box-sizing: border-box;
+    height: 30px;
+    width: 25px;
+}
+    #backArrow > img {
+        height: 25px;
+    }
+.container_full {
+    max-width: 80%;
+    margin: 50px auto;
+}
+    .kc_file_tn {
+        display: flex;
+    }
+    .kc_file_tn > img {
+        max-height: 700px;
+        margin: 0 auto;
+    }
+    .control_full {
+        margin-top: 20px;
+    }
+        .control_full > .control_full_label {
+            font-size: 22px;
+        }

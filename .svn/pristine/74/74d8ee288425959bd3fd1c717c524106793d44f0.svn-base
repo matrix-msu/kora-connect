@@ -1,0 +1,124 @@
+
+<div class="wrap" id="galleries">
+    <h1>Galleries</h1>
+
+    <button class = "addNewGallery" id="addNewGallery">Add New Gallery</button>
+
+
+
+    <h2>Your Galleries</h2>
+	
+	<?php
+    //need to interact with script page
+    global $wpdb;
+    $galleries = $wpdb->prefix . "koragallery";
+    //if empty
+    if(empty($wpdb->get_results("SELECT * FROM $galleries"))){
+    ?>
+	
+	<p>
+		You have no galleries. Add them via the "Add New Gallery" button above in order for 
+		them to appear here!
+	</p>
+	
+	<p>
+		Galleries are sequences of objects grouped together due to content similarities. A 
+		proper description of what galleries are will appear here. This text will be gone 
+		when a gallery is made.
+	</p>
+
+
+    <?php
+    }
+	
+	//if galleries exist, display
+	else {
+    $gal_num = 0;
+    echo "<div class='gal_accordion'>";
+
+    foreach( $wpdb->get_results("SELECT * FROM $galleries") as $key => $row){
+        $gallery_name = $wpdb->prefix .$row->title;
+        echo "<div class='gal_gallery'>";
+        echo "<div class='gal_title'>";
+        echo "<p class='galleryTitle'>".$row->title."</p>";
+        echo "<p class='objectNum'>".count($wpdb->get_results("SELECT * FROM $gallery_name"))." Objects </p>";
+        echo "<p class='addToGallery'><a>ADD TO / EDIT GALLERY</a></p>";
+        echo "<span class='close' id='$gallery_name'><img src='../wp-content/plugins/kora/images/Close.svg'></span>";
+        echo "</div>";
+
+        //var_dump($wpdb->get_results("SELECT * FROM $gallery_name"));
+        echo "<div class='gal_body'>";
+        echo "<div class='gal_koraInfo'>";
+        echo "<p><strong class='gal_grey'>Project: </strong> placeholder </p> ";
+        echo "<p><strong class='gal_grey'>Scheme: </strong> placeholder </p> ";
+        echo "<p><strong class='gal_grey'>Images: </strong> placeholder </p> ";
+        echo "<p>This is a text placeholder This is a text placeholder This is a text placeholder This is a text placeholder 
+		This is a text placeholder This is a text placeholder This is a text placeholder This is a text placeholder 
+		This is a text placeholder This is a text placeholder This is a text placeholder This is a text placeholder 
+		This is a text placeholder This is a text placeholder This is a text placeholder This is a text placeholder 
+		This is a text placeholder This is a text placeholder This is a text placeholder This is a text placeholder 
+		This is a text placeholder This is a text placeholder This is a text placeholder This is a text placeholder </p>";
+        echo "</div>";
+
+
+        echo "<div class='gal_records'>";
+        foreach( $wpdb->get_results("SELECT * FROM $gallery_name") as $key => $row){
+            $file = $row->url;
+            $thumb = preg_replace('/ /','%20',$row->thumb);
+            echo "<div class='gal_record'>";
+			echo "<span class='closePic' id = ".$row->KID."><img src='../wp-content/plugins/kora/images/Close - Tiny.svg'></span>";
+            echo "<div class='gal_image' id = ".$row->KID." >
+            <img src=".$thumb." alt=".$row->KID.">";
+
+            echo"<div class='gal_editDetails'>EDIT DETAILS</div>";
+            echo "</div>";
+            //echo "<div class='gal_recordInfo'>";
+            echo "<p><strong class='gal_grey'>KID: </strong>".$row->KID." </p> ";
+            echo "<p><strong class='gal_grey'>Field Name: </strong> placeholder </p> ";
+            echo "<p><strong class='gal_grey'>Field Name: </strong> placeholder </p> ";
+            echo "<p><strong class='gal_grey'>Field Name: </strong> placeholder </p> ";
+            echo "<p><strong class='gal_grey'>Field Name: </strong> placeholder </p> ";
+            echo "<p><strong class='gal_grey'>Field Name: </strong> placeholder </p> ";
+            //echo "</div>";
+
+            echo "</div>";
+        }
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+        $gal_num ++;
+    }
+    echo "</div>";
+	}
+
+    ?>
+</div>
+
+
+<link rel="stylesheet" href= "<?php echo "../wp-content/plugins/kora/colorbox.css";?>" type="text/css">
+
+<script src="<?php echo "../wp-content/plugins/kora/js/jquery.colorbox-min.js";?>" type="text/javascript"></script>
+<script src="<?php echo "../wp-content/plugins/kora/js/jquery.js";?>" type="text/javascript"></script>
+
+
+<script>
+    $('.gal_accordion .gal_title').click(function(e) {
+
+        //Close all <div> but the <div> right after the clicked <a>
+        $(e.target).parent().siblings().children('.gal_body').slideUp('fast');
+
+        //Toggle open/close on the <div> after the <h3>, opening it if not open.
+        $(e.target).next('.gal_body').slideToggle('fast');
+    });
+    jQuery(document).ready(function($){
+        jQuery('.gal_image').on('click', function(){
+        //var kid = jQuery(this).closest('.lib_obj').find('img').attr('alt');
+        //alert(kid);
+        $('.popupImage').colorbox({ opacity:0.5 , rel:'group1', Width:'800px', Height:'800px' });
+
+        $('.gal_accordion').children().first('.gal_body').slideToggle('fast');
+
+        });
+    });
+</script>
+

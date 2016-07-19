@@ -1,0 +1,19 @@
+<?php
+	//Server Authentication Settings
+	//server username
+	define("kordat_dbuser", 'XXXX');
+	//server password
+	define("kordat_dbpass", "XXXXXXXX");
+	// User Database Settings
+	//hostname
+	define("kordat_dbhostname", "XXXXXX");
+	//db username
+	define("kordat_dbhostuser","XXXXX");
+	//db name
+	define("kordat_dbselectname","XXXX");
+	//db password
+	define("kordat_dbhostpass","XXXXXX");
+
+	define("kora_url","XXXXX");
+
+?>

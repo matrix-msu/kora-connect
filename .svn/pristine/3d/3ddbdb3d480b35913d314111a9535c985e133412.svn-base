@@ -1,0 +1,417 @@
+<?php
+    define('KORA_PLUGIN_PATHBASE', plugin_dir_url(__FILE__));
+    require_once(realpath(dirname(__FILE__) . "/dbconfig.php"));
+    $url_plugin=$_GET['url'];
+?>
+             
+    <script> var url_plugin = '<?php echo KORA_PLUGIN_PATHBASE;?>'; </script>
+    <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+	
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+
+   
+    <script src="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.min.js'); ?>"></script>
+    <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.min.js'); ?>"></script>
+    <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.proto.min.js'); ?>"></script>
+    <script src="<?php echo plugins_url('kora/js/connect.js'); ?>"></script>
+
+    <!--<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css" type="text/css"/>-->
+    <link rel="stylesheet" href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+          type="text/css"/>
+    <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.css'); ?>" type="text/css"/>
+    <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal-default-theme.css'); ?>"
+          type="text/css"/>
+    <link rel="stylesheet" href="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.css'); ?>" type="text/css"/>
+
+<?php
+    $emptys = array();
+    $emptyfunc = function ($bool, $name) use (&$emptys) {
+        if (!$bool) {
+            $emptys[] = $name;
+        }
+    };
+
+    if ($_POST['kordat_hidden'] == 'Y') {
+        ///Form data sent
+        $dbapi = $_POST['kordat_dbapi'];
+        update_option('kordat_dbapi', $dbapi);
+        $emptyfunc($dbapi, "URL of KORA Installation");
+
+        $dbproj = $_POST['kordat_dbproj'];
+        update_option('kordat_dbproj', $dbproj);
+        $emptyfunc($dbproj, "Project ID");
+
+
+        $dbscheme = $_POST['kordat_dbscheme'];
+        update_option('kordat_dbscheme', $dbscheme);
+        $emptyfunc($dbscheme, "Scheme ID");
+
+        $dbtoken = $_POST['kordat_dbtoken'];
+        update_option('kordat_dbtoken', $dbtoken);
+        $emptyfunc($dbtoken, "Token");
+
+        /*$scheme_proj_token = $_POST['kordat_scheme_dbproj_token'];
+        update_option('kordat_scheme_dbproj_token', $scheme_proj_token);
+        $emptyfunc($scheme_proj_token,"Scheme_Project_Token");
+
+        $dbuser = kordat_dbuser;
+        //$dbuser = $_POST['kordat_dbuser'];
+        update_option('kordat_dbuser', $dbuser);
+        $emptyfunc($dbuser,"Server Username");
+
+        $dbpass = kordat_dbpass;
+        //$dbpass = $_POST['kordat_dbpass'];
+        update_option('kordat_dbpass', $dbpass);
+        $emptyfunc($dbpass,"Server Password");
+
+        $dbhostname = kordat_dbhostname;
+        //$dbhostname = $_POST['kordat_dbhostname'];
+        update_option('kordat_dbhostname', $dbhostname);
+        $emptyfunc($dbhostname,"Database Hostname");
+
+        $dbhostuser = kordat_dbhostuser;
+        //$dbhostuser = $_POST['kordat_dbhostuser'];
+        update_option('kordat_dbhostuser', $dbhostuser);
+        $emptyfunc($dbhostuser,"Database Username");
+
+        $dbselectname = kordat_dbselectname;
+        //$dbselectname = $_POST['kordat_dbselectname'];
+        update_option('kordat_dbselectname', $dbselectname);
+        $emptyfunc($dbselectname,"Database name");
+
+        $dbhostpass = kordat_dbhostpass;
+        //$dbhostpass = $_POST['kordat_dbhostpass'];
+        update_option('kordat_dbhostpass', $dbhostpass);
+        $emptyfunc($dbhostpass,"Database Password");*/
+
+        if (($dbapi && $dbscheme && $dbtoken)) {
+            //if ($scheme_proj_token) {
+            echo " <div class='updated'><p><strong>";
+            _e('Options saved.');
+            echo "</strong></p></div>";
+            /*} else {
+                echo "<div class='error'><p><strong>";
+                _e('Please Save Options.' );
+                echo "</strong></p></div>";
+            }	*/
+        } else {
+            echo "<div class='error'><p><strong>All fields below need to be filled: </strong></p>";
+            //var_dump($emptys);
+            if ($dbapi == '') {
+                echo "<p>* URL of Kora Installation</p>";
+            }
+            if ($dbproj[1] === '') {
+                echo "<p>* Project ID</p>";
+            }
+            if ($dbtoken[0] === '') {
+                echo "<p>* Token</p>";
+            }
+            if ($dbscheme[1] == '') {
+                echo "<p>* Scheme ID</p>";
+            }
+            /*	foreach($emptys as $empty){
+                if ($empty != 'Scheme_Project_Token') {
+                    echo "<p>*".$empty."</p>";
+                }
+            } */
+            echo "</div>";
+        }
+    } else {
+
+        ///Normal page display
+        $dbapi = get_option('kordat_dbapi');
+        $dbproj = get_option('kordat_dbproj');
+        $dbscheme = get_option('kordat_dbscheme');
+        $dbtoken = get_option('kordat_dbtoken');
+        /*$scheme_proj_token=get_option('kordat_scheme_dbproj_token');
+        $dbuser = get_option('kordat_dbuser');
+        $dbpass = get_option('kordat_dbpass');
+        $dbhostname = get_option('kordat_dbhostname');
+        $dbhostuser = get_option('kordat_dbhostuser');
+        $dbselectname = get_option('kordat_dbselectname');
+        $dbhostpass = get_option('kordat_dbhostpass');*/
+    }
+
+    //button pos
+    $edit_pos = KORA_PLUGIN_PATHBASE . 'edit.png';
+    $add_pos = KORA_PLUGIN_PATHBASE . 'plus.png';
+    $remove_pos = KORA_PLUGIN_PATHBASE . 'minus.png';
+
+    /* connect to database*/
+    $mysql_hostname = kordat_dbhostname;
+    $mysql_user = kordat_dbhostuser;
+    $mysql_database = kordat_dbselectname;
+    $mysql_password = kordat_dbhostpass;
+
+    @$bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
+    if ($bd->connect_error) {
+        echo "<p class='error'><strong>";
+        echo "Please edit config.php.dist (Kora Host Database Settings) first! Save as config.php!";
+        echo "</strong></p>";
+    } else { 
+                // Get all project id and name in db.
+                $projectID_query = "SELECT pid, name, description FROM project;";
+                $stmt = $bd->prepare($projectID_query) ;
+                $stmt->execute();
+				$stmt->bind_result($pid, $pname, $pdesc);
+				$projectInfo = array();
+                while($stmt->fetch()){ 
+                     $projectInfo[] = array('pid' => $pid, 'projectName' => $pname, 'description' => $pdesc);    
+                }
+                $stmt->close(); 
+                // Get all scheme infromation from db.
+                $query_scheme = "SELECT schemeid, pid, schemeName, description FROM scheme;";
+                $stmt = $bd->prepare($query_scheme) ;
+                $stmt->execute();
+				$stmt->bind_result($sid, $pid, $sname, $sdesc);
+                $schemeInfo = array();
+                while($stmt->fetch()){  
+                     $schemeInfo[] = array('sid' => $sid, 'pid' => $pid, 'schemeName' => $sname, 'description' => $sdesc);                     
+                }
+                //var_dump($schemeInfo);
+                $stmt->close(); 
+        
+        ?>
+
+
+    <div class='wrap'>
+        <h1>KoraConnect</h1>
+
+        <form id='setting_form' name='kordat_form' method='post' action='#'>
+            <input type='hidden' name='kordat_hidden' value='Y'/>
+
+            <h2 id='koraUrlHeader'>URL of Kora Installation</h2>
+			
+            <input id='koraUrl' type='text' name='kordat_dbapi' value='<?php echo $dbapi; ?>'
+                   placeholder='Enter the URL of your Kora installation here (http://kora.example.org/) then click "Update Connection"'/>
+
+
+            <h2 id="ptsHeader">Projects, Tokens, and Schemes</h2>
+
+            <div id="questions">
+                <span id="projectQuestion">Where do I find the Projects?</span>
+                <span id="tokenQuestion">Where do I find the Token?</span>
+                <span id="schemeQuestion">Where do I find the Schemes?</span>
+            </div>
+
+            
+            <div class = "projectBox" id="projectBox">
+            <?php
+
+                    if (is_array($dbproj)) {
+                        
+                         for ($i = 0; $i < count($dbproj) ; $i++) {
+        ?>
+                        <div class = "projectBoxItem">
+                            <select class = 'koraProject' id='koraProject' name='kordat_dbproj[]' <?php  //if ($dbtoken[0] && $dbproj[0]) { echo "readonly"; } ?>
+                                    data-placeholder="Project: Search and select a project" alt='<?php echo $i;?>'>
+                                <option value="default"></option>
+                                <?php
+                                        foreach($projectInfo as $p){ 
+                                            echo '<option value = "'.$p['pid'].'"'; 
+                                            if ($p['pid'] == $dbproj[$i]) {echo 'selected="selected"';   }                                         
+                                            echo '>'.$p['pid'].'---'.$p['projectName'].'---'.$p['description'].'</option>';
+                                           
+                                        }
+                                ?>
+                            </select>
+							<img class='deleteBox' src='<?php echo plugins_url("kora/images/Close.svg"); ?>'
+                                     width='19' height='18' alt='Delete Button'/>
+
+                            <input id='koraToken' type='text' name='kordat_dbtoken[]' value="<?php echo $dbtoken[$i]; ?>"
+                                   onchange='<!--this.form.submit()-->' placeholder='Token: Enter token associated with the project'
+                                   disabled <?php //if ($dbtoken[0] && $dbproj[0]) { echo "readonly"; } ?> />
+            <!-- Scheme -->
+
+
+            <select class = 'koraScheme' id='koraScheme' name='kordat_dbscheme[]' data-placeholder="Scheme(s): Search and select by scheme name or ID" alt='<?php echo $i;?>'  multiple>
+                <option value="default"></option>
+             </select>
+             </div>
+                <?php 
+                    
+                        }
+                    } else { ?>
+              <div class = "projectBoxItem">
+              <select class = 'koraProject' id='koraProject' name='kordat_dbproj[]' <?php  //if ($dbtoken[0] && $dbproj[0]) { echo "readonly"; } ?>
+                                    data-placeholder="Project: Search and select a project">
+                                <option value="default"></option>
+                                <?php
+                                        foreach($projectInfo as $p){ 
+                                            echo '<option value = "'.$p['pid'].'"'; 
+                                            if ($p['pid'] == $dbproj) {echo 'selected="selected"';}                                         
+                                            echo '>'.$p['pid'].'---'.$p['projectName'].'---'.$p['description'].'</option>';
+                                        }
+                                ?>
+                            </select>
+							<img class='deleteBox' src='<?php echo plugins_url("kora/images/Close.svg"); ?>'
+                                     width='19' height='18' alt='Delete Button'/>
+
+                            <input id='koraToken' type='text' name='kordat_dbtoken[]' value="<?php echo $dbtoken; ?>"
+                                   onchange='<!--this.form.submit()-->' placeholder='Token: Enter token associated with the project'
+                                   disabled <?php //if ($dbtoken[0] && $dbproj[0]) { echo "readonly"; } ?> />
+            <!-- Scheme -->
+
+
+            <select class = 'koraScheme' id='koraScheme' name='kordat_dbscheme[]' data-placeholder="Scheme(s): Search and select by scheme name or ID" multiple>
+                <option value="default"></option>
+             </select>
+             </div>
+         <?php  }
+                 ?>
+
+
+  
+      
+            </div>
+
+            <?php
+//                echo "<p>";
+//                if(is_array($scheme_dbproj_token)){
+//                    foreach($scheme_dbproj_token as $value){
+//                        echo "<input type='text' class='scheme_project_token' name='kordat_scheme_dbproj_token[]' value='$value[0]' size='20' style='display:none'>".
+//                        "<input type='text' class='scheme_project_token' name='kordat_scheme_dbproj_token[]' value='$value[1]' size='20' style='display:none'>".
+//                        "<input type='text' class='scheme_project_token' name='kordat_scheme_dbproj_token[]' value='$value[2]' size='20' style='display:none'>".
+//                        "<br/>";
+//                    }
+//                }
+//                echo "</p>";
+//                }
+            ?>
+
+            <div id="appendNewProjects"></div>
+
+            <input id='addNewButton' type='button' value='Add New Project, Token, & Scheme(s)' disabled />
+
+            <input id='updateConnection' type='submit' value='<?php _e('Update Connection', 'kordat_trdom'); ?>'
+                   onchange='this.form.submit()' />
+        </form>
+
+
+        <?php
+//                echo  "<hr>";
+//                echo "<h4>".__( 'Server Authentication Settings', 'kordat_trdom' )."<img src=$edit_pos class='edit_server' name='edit_server'  height='25' width='25' >"."</h4>";
+//
+//                echo "<p>";
+//                _e("Server Username: " );
+//                echo "<input type='text' id='kordat_dbuser_edit' name='kordat_dbuser' value='$dbuser' size='20' readonly style = 'display:none'>";
+//                _e(" <span class='setting_detail'>Server credentials for accessing server-end API (Not your Kora database login</span>)" );
+//                echo "</p>";
+//                echo "<p>";
+//                _e("Server Password: " );
+//                echo "<input type='password' id='kordat_dbpass_edit' name='kordat_dbpass' value='$dbpass' size='20'  readonly  style = 'display:none'>";
+//                _e(" <span class='setting_detail'>Server credentials for accessing server-end API</span>" );
+//                echo "</p>";
+//                  echo __( '** These settings are only necessary if your Kora installation is protected by web-server authentication.  This is not the same as Kora management login information.', 'kordat_trdom' );
+//
+//                echo "<hr>";
+//                echo "<h4>".__( 'User Database Settings', 'kordat_trdom' )."<img src=$edit_pos class='edit_host' name='edit_host'  height='25' width='25' >". "</h4>";
+//                echo "<p>";
+//                _e("Database Hostname: " );
+//                echo "<input type='text' id='kordat_dbhostname_edit' name='kordat_dbhostname' value='$dbhostname' size='20' readonly style = 'display:none'>";
+//                _e(" <span class='setting_detail'>i.e. rush.matrix.msu.edu</span>" );
+//                  echo "</p>";
+//                echo "<p>";
+//                _e("Database Username: " );
+//                echo "<input type='text' id='kordat_dbhostuser_edit' name='kordat_dbhostuser' value='$dbhostuser' size='20' readonly style = 'display:none'>";
+//                  echo "</p>";
+//                echo "<p>";
+//                _e("Database name: " );
+//                echo "<input type='text' id='kordat_dbselectname_edit'name='kordat_dbselectname' value='$dbselectname' size='20' readonly style = 'display:none'>";
+//                  echo "</p>";
+//                  echo "<p>";
+//                  _e("Database Password: " );
+//                echo "<input type='password' id='kordat_dbhostpass_edit' name='kordat_dbhostpass' value='$dbhostpass' size='20' readonly style = 'display:none'>";
+//                  echo "</p>";
+//                echo "<hr>";
+        ?>
+
+    </div><!-- end of .wrap -->
+
+
+<?php
+    }
+
+//    var_dump($dbproj);
+//    var_dump($dbtoken);
+//    var_dump($dbscheme);
+//    if (count(dbscheme) > 0) {
+//        $query_sid_pid = "SELECT schemeid,pid FROM scheme";
+//        $stmt = $bd->prepare($query_sid_pid);
+//        $stmt->execute();
+//        $stmt->bind_result($sids, $pids);
+//        $sid_pid_token = array();
+//        while ($stmt->fetch()) {
+//            $sid = $sids;
+//            $pid = $pids;
+//            //echo $sid." ".$pid."<br>";
+//            if (in_array($sid, $dbscheme) && in_array($pid, $dbproj)) {
+//                $pos = array_search($pid, $dbproj);
+//                $val = $sid . "-" . $pid . "-" . $dbtoken[$pos] . "<br>";
+//                array_push($sid_pid_token, $val);
+//            }
+//        }
+//        $stmt->close();
+//        var_dump($sid_pid_token);
+//    }
+?>
+
+
+<!-- Modals -->
+<div class="remodal" id="projectModal" data-remodal-id="projectModal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+
+    <h2>Finding the project</h2>
+
+    <p>To find the project you wish to connect, navigate to the project selection page
+        within your Kora installation. Your various projects will be listed. You may search
+        via the project name or ID within KoraConnect.
+    </p>
+	
+	<img src="<?php echo plugins_url('/kora/images/finding-the-project.svg'); ?>" 
+		width="452" height="73" alt="How to find the project" />
+</div>
+
+
+<div class="remodal" id="tokenModal" data-remodal-id="tokenModal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+
+    <h2>Finding the token</h2>
+
+    <p>To find the token, navigate to the Manage Search Tokens within your Kora installation.
+        Various tokens will be listed for each project. Look for the project you’re connecting to,
+        and the token key will be in the far left column.
+    </p>
+	
+	<img src="<?php echo plugins_url('/kora/images/finding-the-token.svg'); ?>" 
+		width="456" height="120" alt="How to find the token" />
+		
+	<div id="redCircle"></div>
+</div>
+
+
+<div class="remodal" id="schemeModal" data-remodal-id="schemeModal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+
+    <h2>Finding the scheme</h2>
+
+    <p>To find the scheme you wish to connect, navigate to the project that contains the desired
+        scheme within your Kora installation. The schemes will be listed within the project. You
+        may search by scheme name or ID within KoraConnect.
+    </p>
+	
+	<img src="<?php echo plugins_url('/kora/images/finding-the-scheme.svg'); ?>" 
+		width="452" height="91" alt="How to find the scheme" />
+</div>
+
+
+<div class="remodal" id="deleteModal" data-remodal-id="deleteModal">
+    <button data-remodal-action="close" class="remodal-close"></button>
+
+    <h2>Remove this Project ID, Token, and Scheme?</h2>
+
+    <button class="remove">Remove</button>
+    <button class="cancel">Cancel</button>
+</div>

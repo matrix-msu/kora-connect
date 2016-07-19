@@ -1,0 +1,38 @@
+<?php
+
+require_once("../../../../wp-blog-header.php");
+global $wpdb;
+echo "999999999999";
+if(isset($_REQUEST['kid']) && isset($_REQUEST['gallery_name'])){
+	echo "8888888888";
+	
+		echo $_REQUEST['gallery_name'];
+		$kid = $_REQUEST['kid'];
+		$gallery = $_REQUEST['gallery_name'];
+		//$gallery = $wpdb->prefix . $gallery;
+		echo $kid;
+		echo "DELETE FROM ".$gallery." WHERE KID like '".$kid."'";
+		//var_dump($kid);
+		$wpdb->show_errors();
+		//var_dump($kid);
+		//var_dump($gallery);
+	   $wpdb->query("DELETE FROM ".$gallery." WHERE KID like '".$kid."'");
+
+	/*	$wpdb->query(
+			"DELETE FROM $gallery WHERE KID = $kid"
+		);*/
+		$wpdb->print_error();
+}
+
+if(isset($_REQUEST['gallery']) && isset($_REQUEST['id'])){
+	$gallery_name = $_REQUEST['gallery'];
+	$id = $_REQUEST['id'];
+	var_dump($id);
+	$wpdb->show_errors();
+	$wpdb->query("DROP TABLE ".$gallery_name);
+	//$id = explode('_', $id);
+	$wpdb->query("DELETE FROM ".$wpdb->prefix.koragallery." WHERE id = '".$id."'");
+	$wpdb->print_error();
+}
+
+?>

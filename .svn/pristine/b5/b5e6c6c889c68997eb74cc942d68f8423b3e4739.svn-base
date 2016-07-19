@@ -1,0 +1,202 @@
+<?php
+	require_once("../../../../wp-blog-header.php");
+	require_once( realpath( dirname(__FILE__) . "/../dbconfig.php" ) );
+
+	global $wpdb;
+	
+	if(isset($_GET['chk']) && isset($_GET['schemeid']) && isset($_GET['controlfileds']) ){
+		//Check object isn't already in library
+		$library= $wpdb->prefix . 'koralibrary';
+		$kid = $_GET['chk'];
+        $schemeid = $_GET['schemeid'];
+        $controlfileds  = $_GET['controlfileds'];
+		$query="SELECT * FROM  $library where KID='$kid'";
+      //  echo $kid;
+		if(empty($wpdb->get_results($query))){
+           
+			// connect to database
+            $mysql_hostname = kordat_dbhostname;
+            $mysql_user = kordat_dbhostuser;
+            $mysql_database = kordat_dbselectname;
+            $mysql_password = kordat_dbhostpass;
+	        $bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
+            if ($bd->connect_error) {
+                die("Connection failed: " . $bd->connect_error);
+            }
+		            $dbproj = get_option('kordat_dbproj');
+                    $dbscheme = get_option('kordat_dbscheme');
+                    $dbtoken = get_option('kordat_dbtoken');
+                   // var_dump($controls);
+                    
+                    $query_sid_pid = "SELECT schemeid,pid FROM scheme WHERE schemeid = '".$schemeid."';";
+                    $stmt = $bd->prepare($query_sid_pid) ;
+                    $stmt->execute();
+                    $stmt->bind_result($sids,$pids);
+                    //$sid_pid_token = array();
+                        
+                    while($stmt->fetch()){
+                        $sid = $sids;
+                        $pid = $pids;
+                        //echo $sid." ".$pid."<br>";
+                        if (in_array($sid, $dbscheme) && in_array($pid, $dbproj)){
+                            $pos = array_search($pid, $dbproj);
+                            $sid_pid_token = array('schemeid' => $sid, 'projectid' => $pid, 'token' => $dbtoken[$pos]);
+                           // $val = $sid."-".$pid."-".$dbtoken[$pos];
+                            //array_push($sid_pid_token,$val);
+                        }
+                    }
+                    $stmt->close();
+                
+
+			$user = kordat_dbuser;
+			//$pass = get_option('kordat_dbpass');
+			$pass = kordat_dbpass;
+			//$query = "KID,=,".$kid;
+			if ($kid == "ALL") {
+				$query = "Display,=,"."True";
+			} else {
+				$query = "KID,=,".$kid;
+			}
+			$restful_url = get_option('kordat_dbapi') . KORA_PLUGIN_RESTFUL_SUBPATH;
+			$fields = 'ALL';
+			$display='json';
+
+	
+             if (!empty($sid_pid_token)) {
+                  $url = $restful_url.'?request=GET&pid='.$sid_pid_token['projectid'].'&sid='.$sid_pid_token['schemeid'].'&token='.$sid_pid_token['token'].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+             }
+              
+              //initialize post request to KORA API using curl
+              $ch = curl_init($url);
+              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+              curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
+
+              //capture results and display
+              $obj_json = curl_exec($ch);
+              //convert json string to php array
+              $server_output = json_decode($obj_json, true);
+              
+             /* if ($server_output['Image']['localName']) {
+                         $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$server_output['Image']['localName'];
+              } else if ($server_output['Thumbnail']['localName']) {
+                         $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$server_output['Thumbnail']['localName'];
+              }
+               $src = str_replace("thumbs/", "", $thumb_src);
+               //Get KID from HTML
+               $kid = $server_output['kid'];
+               $title = $server_output['Title'];*/
+              // echo json_encode($server_output);
+                //echo $server_output;
+           //  var_dump($server_output);
+              $control_save = array();
+              $control_format = array();
+              foreach($server_output as $record){
+                    if ($record['Image']['localName']) {
+                         $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$record['Image']['localName'];
+                        $src = str_replace("thumbs/", "", $thumb_src);
+                    } else if ($record['Thumbnail']['localName']) {
+                         $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$record['Thumbnail']['localName'];
+                        $src = str_replace("thumbs/", "", $thumb_src);
+                     } else {
+                        $thumb_src = "http://img.photobucket.com/albums/v516/MizGrace/babyhedgehoginbubblebath.jpg";   
+                        $src = "http://img.photobucket.com/albums/v516/MizGrace/babyhedgehoginbubblebath.jpg";   
+                    }
+                   
+                    
+                                    
+                    //Get KID from HTML
+                    $kid = $record['kid'];
+                    $title = $record['Title'];
+                   
+                    //get all controls need to save in db.
+            
+                    if (is_array($controlfileds) ) {
+                                $i = 0;
+                        foreach($controlfileds as $control) {
+                            $i = $i + 1;
+                            
+                            if ($i != 1) {
+                                if ($control == "KID") {
+                                     $control_save['KID'] = $record['kid'];
+                                } else {
+                                    if (is_array($record[$control])) {
+                                         $control_save[$control] = implode(" ",$record[$control]);
+                                    } else {
+                                         $control_save[$control] = $record[$control];    
+                                    }
+                                    
+                                }
+                               $control_format[] = '%s';
+                            } 
+                        }
+                    } 
+              }
+              $control_save['schemeid'] = $schemeid;
+              $control_format[] = '%s';
+              $control_save['url'] = $src;
+              $control_format[] = '%s';
+              $control_save['thumb'] = $thumb_src;
+              $control_format[] = '%s';
+              $libtable = $wpdb->prefix . "koralibrary";
+             // echo json_encode($wpdb->prefix);
+              //$col_info_table = $wpdb->prefix."information_schema.columns";
+              //$col_query = "select COLUMN_NAME from information_schema.columns where TABLE_NAME = $libtable;";
+             // $col_in_table = $wpdb->query("select COLUMN_NAME from information_schema.columns where TABLE_NAME = $libtable");
+              //$col_in_table = $wpdb->query("select DESCRIPTION from $libtable");
+           
+              
+             // $wpdb->query("select * from information_schema.columns where table_schema = 'your_db' order by table_name,ordinal_position");
+             //ALTER TABLE kai_wu.wp_koralibrary ADD Description VARCHAR(10000) NOT NULL DEFAULT 'NO';
+
+
+               
+              foreach ($control_save as $key => $value) {
+                  if (!$wpdb->query("select $key from $libtable")) {
+                      $wpdb->query("ALTER TABLE $libtable ADD COLUMN `$key` VARCHAR(1000) NOT NULL DEFAULT 'not display' ");
+                      echo json_encode($key);    
+                  }
+             }
+             $wpdb->insert($wpdb->prefix . "koralibrary", $control_save,  $control_format);
+           // $control_save = $server_output;
+
+       //  var_dump($control_save);
+              //echo $kid ;
+            //  $kid = $_GET['chk'];
+	/*		$xpath = new DOMXPath(@DOMDocument::loadHTML($server_output));
+			$thumb_src = $xpath->evaluate("string(//img/@src)");
+			$src = str_replace("thumbs/", "", $thumb_src);
+			$title = $xpath->evaluate("string(/html/body/div/div[3]/div[2])");*/
+            
+            //$wpdb->update( $wpdb->prefix . "koralibrary", array( 'column' => 'foo', 'field' => 1337 ), array( 'ID' => 1 ), array( '%s', '%d' ), array( '%d' ) )
+			
+           /* $wpdb->insert(
+				$wpdb->prefix . "koralibrary",
+				array(
+					'KID' => $kid,
+					'url' => $src,
+					'title' => $title,
+					'thumb' => $thumb_src
+				),
+				array(
+					'%s',
+					'%s',
+					'%s',
+					'%s'
+				)
+			);*/
+			/*$rec=array(
+					'KID' => $kid,
+					'url' => "$src",
+					'title' => $title,
+					'thumb' => $thumb_src
+		    );*/
+               
+			echo json_encode($control_save);    
+            echo json_encode($control_format);    
+          // echo json_encode(true);
+		}else{
+			echo json_encode(false);
+		}
+	}
+	
+?>

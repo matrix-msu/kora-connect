@@ -1,0 +1,751 @@
+<link rel="stylesheet" type="text/css" href="kora.css">
+<?php
+    //where is close icon? or create?
+	require_once( realpath( dirname(__FILE__) . "/../../../wp-includes/wp-db.php" ) );
+	require_once( realpath( dirname(__FILE__) . "/../../../wp-blog-header.php"));
+require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
+
+	global $wpdb;
+	define('KORA_PLUGIN_RESTFUL_SUBPATH', 'api/restful.php');
+    define('KORA_PLUGIN_PATHBASE', plugin_dir_url(__FILE__));
+
+	 /* connect to database*/
+	 $mysql_hostname = kordat_dbhostname;
+     $mysql_user = kordat_dbhostuser;
+     $mysql_database = kordat_dbselectname;
+	 $mysql_password = kordat_dbhostpass;
+	// $mysql_hostname = get_option('kordat_dbhostname');
+     //$mysql_user = get_option('kordat_dbhostuser');
+     //$mysql_database = get_option('kordat_dbselectname');
+	 //$mysql_password = get_option('kordat_dbhostpass');
+	 $projector_id=get_option('kordat_dbproj');
+	 $scheme_id=get_option('kordat_dbscheme');
+	 $n=0;
+	if (is_array($projector_id)) {
+	 foreach($projector_id as $value){
+		if($value !==""){
+			//echo $value;
+			$table[$n]="p".$value."Control";
+			//echo $table[$n];
+			$n=$n+1;
+		}
+	 }
+	}
+	// $table="p".$projector_id."Control";
+     $bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
+     if ($bd->connect_error) {
+      die("Connection failed: " . $bd->connect_error);
+     }
+	 $i=0;
+	 $query_control='';
+	if (is_array($table)) {
+	 foreach($table as $value){
+		if($i!=0){
+			$query_control.= " UNION ALL ";
+		}
+
+		$query_control .= "SELECT name,schemeid FROM $value WHERE name not in ('systimestamp', 'recordowner') AND schemeid in(";
+		$lastScheme = end($scheme_id);
+	  if (is_array($scheme_id)) {
+		foreach($scheme_id as $value){
+		 if($value == $lastScheme){
+			 $query_control.=$value;
+		 }
+		 else{
+			 $query_control.=$value.",";
+		 }
+
+	   }
+	  }
+		$query_control.=")";
+			$i=$i+1;
+	 }
+	}
+	 /*$query_control = "SELECT * FROM $table WHERE name not in ('systimestamp', 'recordowner') AND schemeid in(";
+	 $lastScheme = end($scheme_id);
+    foreach($scheme_id as $value){
+		 if($value == $lastScheme){
+			 $query_control.=$value;
+		 }
+		 else{
+			 $query_control.=$value.",";
+		 }
+
+	 }	 */
+	 $query_control.="  ORDER BY name ASC;";
+
+	$stmt = $bd->prepare($query_control) ;
+	//echo $query_control;
+	?>
+<div class="form_upload">
+  <form action="" method="post">
+  <?php
+    //Get all scheme infromation from db.
+   //$stmt = $bd->prepare($query_scheme) ;
+   // $stmt->execute();
+   // $stmt->bind_result($sid, $pid, $sname, $sdesc);
+   // $schemeInfo = array();
+
+   while($stmt->fetch()){
+        $schemeInfo[] = array('sid' => $sid, 'pid' => $pid, 'schemeName' => $sname, 'description' => $sdesc);
+   }
+   //var_dump($schemeInfo);
+   $stmt->close();
+
+	//echo "<label style = 'font-family:Georgia'>SCHEME ID:</label>";
+	echo "<p><input type='text' placeholder='Title:'/></p>";
+	echo "<p><input type='text' placeholder='Description:'/></p>";
+	echo "<p><select class='chosen_select' id = 'id_scheme' name = 'id_scheme' onchange='this.form.submit()'>";
+	echo "<option value='' selected>  </option>";
+	foreach ($schemeInfo as $value) {
+		$id_scheme = $value['sid'];
+        $name_scheme = $value['schemeName'];
+        $desc_scheme = $value['description'];
+        $pid_scheme = $value['pid'];
+ 			echo '<option value="' . $id_scheme . '"' . ($_POST['id_scheme'] == $id_scheme ? ' selected="selected"' : '') . '>' . $pid_scheme.'---'.$id_scheme.'---'.$name_scheme.'---'.$desc_scheme.'</option>';
+	}
+	echo "</select></p>";
+
+	echo "<p><select class='array_control chosen_select' id = 'fields' name='array_control[]' multiple required>";
+
+	$stmt = $bd->prepare($query_control) ;
+	$stmt->execute();
+	$stmt->bind_result($name,$schemeid);
+	$options = array();
+	while($stmt->fetch()){
+			$select_title_value=$name;
+			$title_value = $_POST['array_control'];
+			$title_value = $title_value[0];
+			// var_dump($title_value);
+			if ( $schemeid == $_POST['id_scheme']) {
+				array_push($options, $name);
+			echo '<option value="' . $select_title_value . '"' . ($title_value == $select_title_value ? ' selected="selected"' : '') . '>' . $select_title_value . '</option>';
+		 }
+
+		/*if ($title_value == $select_title_value) {
+				$select_scheme_id = $schemeid;
+			}*/
+	}
+	$stmt->close();
+	// button file pos
+	$add_pos = KORA_PLUGIN_PATHBASE.'plus.png';
+	$remove_pos =  KORA_PLUGIN_PATHBASE.'minus.png';
+
+	echo '</select></p>';
+	echo "<p><input type='search' name='kid' id='gal_searchBox' placeholder='Search:'><button type='submit' id='gal_search' name='k_search' class='blue-btn' disabled>SEARCH</button></p>";
+
+	echo '</div>';
+	echo "</form>";
+	echo '</div>';
+
+	echo "<select id='objectsPerPage'>";
+	for($pg_op=1;$pg_op<=4;$pg_op++){
+		$pg_num = $pg_op*10;
+		echo "<option value=$pg_num>$pg_num Objects Per Page</option>";
+	}
+	echo "</select>";
+	echo "<button id='selectAll'>Select All $ Objects</button>"
+  ?>
+
+    <?php
+	 //Get all scheme infromation from db.
+   // $stmt = $bd->prepare($query_scheme) ;
+   // $stmt->execute();
+   // $stmt->bind_result($sid, $pid, $sname, $sdesc);
+   // $schemeInfo = array();
+
+   // while($stmt->fetch()){
+        // $schemeInfo[] = array('sid' => $sid, 'pid' => $pid, 'schemeName' => $sname, 'description' => $sdesc);
+   // }
+   //var_dump($schemeInfo);
+   // $stmt->close();
+
+    // echo "<div id=koraNewGallery>";
+    // echo "<p><input type='search' placeholder='Title:'></p>";
+	// echo "<p><input type='search' placeholder='Description:'></p>";
+	// echo "<p><input type='search' placeholder='Title:'></p>";
+
+
+	////echo "<label style = 'font-family:Georgia'>SCHEME ID:</label>";
+	// echo "<p><select class='chosen_select' id = 'id_scheme' name = 'id_scheme' onchange='this.form.submit()'>";
+	// echo "<option value='' selected>  </option>";
+	// foreach ($schemeInfo as $value) {
+		// $id_scheme = $value['sid'];
+        // $name_scheme = $value['schemeName'];
+        // $desc_scheme = $value['description'];
+        // $pid_scheme = $value['pid'];
+ 			// echo '<option value="' . $id_scheme . '"' . ($_POST['id_scheme'] == $id_scheme ? ' selected="selected"' : '') . '>' . $pid_scheme.'---'.$id_scheme.'---'.$name_scheme.'---'.$desc_scheme.'</option>';
+	// }
+	// echo "</select><p>";
+
+	// echo "<p><select class='array_control chosen_select' id = 'fields' name='array_control[]' multiple onchange = 'checkEmpty()'   required>";
+
+	// $stmt = $bd->prepare($query_control) ;
+	// $stmt->execute();
+	// $stmt->bind_result($name,$schemeid);
+	// $options = array();
+	// while($stmt->fetch()){
+			// $select_title_value=$name;
+			// $title_value = $_POST['array_control'];
+			// $title_value = $title_value[0];
+			////var_dump($title_value);
+			// if ( $schemeid == $_POST['id_scheme']) {
+				// array_push($options, $name);
+			// echo '<option value="' . $select_title_value . '"' . ($title_value == $select_title_value ? ' selected="selected"' : '') . '>' . $select_title_value . '</option>';
+		 // }
+
+		// /*if ($title_value == $select_title_value) {
+				// $select_scheme_id = $schemeid;
+			// }*/
+	// }
+	// $stmt->close();
+	////button file pos
+	// $add_pos = KORA_PLUGIN_PATHBASE.'plus.png';
+	// $remove_pos =  KORA_PLUGIN_PATHBASE.'minus.png';
+
+	// echo '</select></p>';
+	// echo "<p><input type='search' name='kid' id='gal_searchBox' placeholder='Search:'><button type='submit' id='gal_search' name='k_search' class='blue-btn' disabled>SEARCH</button></p>";
+
+	// echo '</div>';
+	// echo "</form>";
+	// echo '</div>';
+
+	// $add_pos = KORA_PLUGIN_PATHBASE.'plus.png';
+	// $remove_pos =  KORA_PLUGIN_PATHBASE.'minus.png';
+	// echo "<label style = 'font-family:Georgia'>SCHEME ID:</label>";
+	// echo "<select id = 'id_scheme' name = 'id_scheme' onchange='this.form.submit()'>";
+	// echo "<option value='' selected>  </option>";
+	// foreach ($scheme_id as $value) {
+		// $id_scheme = $value;
+ 			// echo '<option value="' . $id_scheme . '"' . ($_POST['id_scheme'] == $id_scheme ? ' selected="selected"' : '') . '>' . $id_scheme.'</option>';
+	// }
+	// echo "</select>";
+	// echo "<br>";
+  ?>
+<!--<div class="kora_help">
+  Add one or more controls for object search in kora, <strong>first</strong> control will be title control. If user choose <strong>more than one</strong> controls, search logic is based on control 1 has 'obejct keyword' <strong>OR</strong> control 2 has 'object keyword'.
+  </div>-->
+
+		<!--<div class="input_fields_wrap">
+
+			<div>
+
+			<label style = "font-family:Georgia">CONTROL 1:</label>
+			<select class="array_control" name="array_control[]" onchange = 'checkEmpty()'  required>
+			<option disabled selected>  </option>
+			<?php
+				// $stmt->execute();
+				 // $stmt->bind_result($name,$schemeid);
+				 // $options = array();
+				// while($stmt->fetch()){
+						// $select_title_value=$name;
+						 // $title_value = $_POST['array_control'];
+						 // $title_value = $title_value[0];
+						 ////var_dump($title_value);
+						 // if ( $schemeid == $_POST['id_scheme']) {
+							 // array_push($options, $name);
+						// echo '<option value="' . $select_title_value . '"' . ($title_value == $select_title_value ? ' selected="selected"' : '') . '>' . $select_title_value . '</option>';
+					 //}
+					/*
+					 if ($title_value == $select_title_value) {
+							$select_scheme_id = $schemeid;
+						}*/
+				//}
+			?>
+			</select>
+			 <?php //echo "<img src = '$add_pos' class = 'add_field_button' height = '16' width = '16' >"; ?>
+			<?php
+			//	if ($select_scheme_id == $_POST['id_scheme']) {
+					// $add_control = $_POST['array_control'];
+					// $count_addation_control = count($add_control);
+					// for ($i = 1; $i < $count_addation_control; $i++) {
+						// echo "<label style = 'font-family:Georgia'>"."CONTROL ".$i.":"."</label>";
+						// echo "<select class='array_control' name='array_control[]'>";
+						// foreach ($options as $option_value) {
+							// echo "<option value = '$option_value'";
+							// if ($add_control[$i] == $option_value) {
+								// echo "selected=selected";
+							// }
+							// echo ">".$option_value."</option>";
+						// }
+						// echo "</select>";
+					// }
+		//		}
+			?>
+			</div>
+		</div>-->
+
+    <!--<label style = "font-family:Georgia"> SEARCH FOR KORA OBJECT: </label>
+    <input type="text" name="kid" />
+    <button type="submit" id="gal_search" name="k_search" style = "font-family:Georgia" disabled>SEARCH</button>
+  </form>
+<div class="kora_help">
+<strong>Check-mark</strong> objects, then add to a <strong>NEW</strong> or <strong>EXISTING </strong>GALLERY.
+</div>
+  <label style = "font-family:Georgia">SELECT ALL:</label>
+  <input type="checkbox" id="select_all" name="select_all">
+
+<br />
+
+<div id="gallery_select" style="display:none">
+<label style = "font-family:Georgia"> EXISTING GALLERY: </label>
+<select id="Galleries" >-->
+<?php
+//need to interact with script page
+// global $wpdb;
+// $galleries = $wpdb->prefix . "koragallery";
+////if empty
+// if(empty($wpdb->get_results("SELECT * FROM $galleries"))){
+	// $empty="No Existing Galleries";
+	// echo "<option value=$empty>".$empty."</option>";
+// }
+////if galleries exist, display
+// foreach( $wpdb->get_results("SELECT * FROM $galleries") as $key => $row){
+	// $gallery_name = $wpdb->prefix .$row->title;
+	// echo "<option value=$row->title>".$row->title."</option>";
+// }
+?>
+<!--</select>
+
+<button id="galleryadd" style = "font-family:Georgia">
+Add to Existing Gallery
+</button>
+</div>
+    <div id="loading" align="center"></div>
+
+</div>-->
+
+<?php
+	//$token = $_GET['token'];
+	//$pid = $_GET['pid'];
+	//$sid = $_GET['sid'];
+
+	   $dbproj = get_option('kordat_dbproj');
+       $dbscheme = get_option('kordat_dbscheme');
+       $dbtoken = get_option('kordat_dbtoken');
+           //var_dump($dbproj);
+           // var_dump($dbscheme);
+            //var_dump($dbtoken);
+       // if (count(sids) > 0) {
+            $query_sid_pid = "SELECT schemeid,pid FROM scheme";
+            $stmt = $bd->prepare($query_sid_pid) ;
+                        $stmt->execute();
+                        $stmt->bind_result($sids,$pids);
+                        $sid_pid_token = array();
+
+                        while($stmt->fetch()){
+                            $sid = $sids;
+                            $pid = $pids;
+                            //echo $sid." ".$pid."<br>";
+                             if (in_array($sid, $dbscheme) && in_array($pid, $dbproj)){
+                                $pos = array_search($pid, $dbproj);
+                                 $val = $sid."-".$pid."-".$dbtoken[$pos];
+                                 array_push($sid_pid_token,$val);
+                            }
+                        }
+            $stmt->close();
+        //    var_dump($sid_pid_token);
+     //   }
+
+	$user = $_GET['user'];
+	$pass = $_GET['pass'];
+	$restful=$_GET['restful'];
+	$url_plugin=$_GET['url'];?>
+<?php
+	if(isset($_POST['kid'])){
+		$array_control = $_POST['array_control'];
+		$title_form=$array_control[0];
+		$k = $_POST['kid'];
+		$image_control=$_POST['img_c'];
+		$type=$_POST['type'];
+		$desc= $array_control[1];
+
+
+	if ($k!='' and strlen($k) > 1){
+		if($k and ($array_control[0] or $array_control[1])){
+			if (strlen($k)>=2){
+				/*if($array_control[0]){
+					$title_key = "(".$array_control[0].",LIKE,".$k.")";
+				}else{
+					$title_key="";
+				}
+				if($array_control[1]){
+					$des_key = "(".$array_control[1].",LIKE,".$k.")";
+				}else{
+					$des_key="";
+				}*/
+				if (count($array_control) == 1) {
+					$query .= $array_control[0].",LIKE,".$k;
+				} else {
+					for ($i = 0; $i < count($array_control); $i++) {
+							if ($i == 0) {
+								$query .= "(".$array_control[$i].",LIKE,".$k.")";
+							} else {
+
+								$query .= ",OR,"."(".$array_control[$i].",LIKE,".$k.")";
+							}
+					}
+				}
+
+			}
+			//$query = $title_key.",OR,".$des_key;
+			//$query = $title_key.",OR,".$des_key;
+			//$query = $title_form.",LIKE,".$k;
+			$restful_url =$restful . KORA_PLUGIN_RESTFUL_SUBPATH;
+
+			//$fields = 'ALL';
+			$i = 0;
+			$fields = "";
+			$num_option = count($options);
+			foreach($options as $option_value) {
+				if ($i < $num_option - 1) {
+					$fields .= $option_value.',';
+				} else {
+					$fields .= $option_value;
+				}
+				$i += 1;
+			}
+			$display='plugin';
+				/*$scheme_proj_token=get_option('kordat_scheme_dbproj_token');
+				$pos_schemeid = array_search($select_scheme_id, $scheme_proj_token);
+				if(is_array($scheme_proj_token)){
+					//$_limit=sizeof($scheme_proj_token);
+					$_limit=sizeof($pos_schemeid);
+					for($i=0;$i<$_limit;$i=$i+3){
+						if($i==0){
+							///build url
+							$url = array($restful_url.'?request=GET&pid='.$scheme_proj_token[$pos_schemeid+1].'&sid='.$scheme_proj_token[$pos_schemeid].'&token='.$scheme_proj_token[$pos_schemeid+2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query));
+							//$url = array($restful_url.'?request=GET&pid='.$scheme_proj_token[$i+1].'&sid='.$scheme_proj_token[$i].'&token='.$scheme_proj_token[$i+2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query));
+							//$url = $restful_url.'?request=GE T&pid='.$pid[0].'&sid='.$sid[0].'&token='.$token[0].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+
+						}
+						else{
+							$url1 = $restful_url.'?request=GET&pid='.$scheme_proj_token[$pos_schemeid+1].'&sid='.$scheme_proj_token[$pos_schemeid].'&token='.$scheme_proj_token[$pos_schemeid+2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+							//$url1 = $restful_url.'?request=GET&pid='.$scheme_proj_token[$i+1].'&sid='.$scheme_proj_token[$i].'&token='.$scheme_proj_token[$i+2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+							array_push($url,$url1);
+						}
+					}
+				}*/
+
+			$url =array();
+             if (is_array($sid_pid_token)){
+                foreach($sid_pid_token as $vals){
+                    $val = explode("-",$vals);
+                    //var_dump($val);
+                    if ($val[0] == $_POST['id_scheme']){
+                        $url1 = $restful_url.'?request=GET&pid='.$val[1].'&sid='.$val[0].'&token='.$val[2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+                        array_push($url,$url1);
+                    }
+                }
+             }
+				$i=0;
+				if(is_array($url)){
+					foreach($url as $value){
+						///initialize post request to KORA API using curl
+						$ch = curl_init($value);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
+
+						///capture results and display
+						//$server_output = curl_exec($ch);
+					   if($i==0){
+						$server_output=array( curl_exec($ch));
+					   }
+					   else{
+						array_push($server_output,curl_exec($ch));
+					   }
+					   							$char   =  "<br/>";
+							$string = $server_output[$i];
+							$pieces = explode(' ', $string);
+							$last_word = array_pop($pieces);
+
+							if (strpos($last_word,'<br/>') !== false) {
+								$num = substr_count($server_output[$i],'Unknown control:');
+									if ($num > 0) {
+										unset($server_output[$i]);
+									}
+							} else {
+								$char   =  "<div";
+								$strpos = strpos($server_output[$i], $char);
+								$text   = substr($server_output[$i], $strpos + strlen($char));
+								$server_output[$i] = "<div ".$text;
+							}
+							$server_output[$i] = "<div class = 'pagination_hearder' align='right'></div>"."<div class ='koraobejct_container_parent'>".$server_output[$i]."</div>";
+
+							//var_dump($server_output[$i]);
+					   echo $server_output[$i];
+
+					   $i=$i+1;
+					}
+				}
+				else{
+						///initialize post request to KORA API using curl
+						$ch = curl_init($url);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
+
+						///capture results and display
+						$server_output = curl_exec($ch);
+					   				  		$char   =  "<br/>";
+							$string = $server_output;
+							$pieces = explode(' ', $string);
+							$last_word = array_pop($pieces);
+
+							if (strpos($last_word,'<br/>') !== false) {
+								$num = substr_count($server_output,'Unknown control:');
+									if ($num > 0) {
+										unset($server_output);
+									}
+							} else {
+								$char   =  "<div";
+								$strpos = strpos($server_output, $char);
+								$text   = substr($server_output, $strpos + strlen($char));
+								$server_output[$i] = "<div ".$text;
+							}
+					   echo $server_output;
+				}
+
+
+				if(is_array($server_output)){
+					foreach($server_output as $value){
+						//gets url of image
+						if($value == ''){
+							echo "Search Returned No Results, Try Again";
+						}
+						else{
+							$xpath = new DOMXPath(@DOMDocument::loadHTML($value));
+							$thumb_src = $xpath->evaluate("string(//img/@src)");
+							$src = str_replace("thumbs/", "", $thumb_src);
+
+							//Get KID from HTML
+							$kid = $xpath->evaluate("string(/html/body/div/div/div[2])");
+							$title = $xpath->evaluate("string(/html/body/div/div[3]/div[2])");
+
+						}
+					}
+				}
+			}
+		} else {
+
+		    $ppid ="";
+            //$query_sid_pid = "SELECT schemeid,pid FROM scheme";
+            $stmt = $bd->prepare($query_sid_pid) ;
+                        $stmt->execute();
+                        $stmt->bind_result($sids,$pids);
+                        $sid_pid = array();
+                        while($stmt->fetch()){
+                            $sid = $sids;
+                            $pid = $pids;
+                            if($sid == $_POST['id_scheme']) {
+                                $ppid = $pid;
+                            }
+                        }
+            $stmt->close();
+        //var_dump($_POST['array_control']);
+
+        $controlTable = "p".$ppid."Control";
+        $check_control = "SELECT name,schemeid FROM $controlTable WHERE showInResults = 1 AND schemeid in (". $_POST['id_scheme'].")";
+        //var_dump($check_control);
+        $stmt = $bd->prepare($check_control) ;
+                        $stmt->execute();
+                        $stmt->bind_result($controlNames,$ssids);
+                        $controls = array();
+                        while($stmt->fetch()){
+                            $ssid = $ssids;
+                            $controlName = $controlNames;
+                            array_push($controls,$controlName);
+                        }
+            $stmt->close();
+       //var_dump($controls);
+        $check = 1;
+        if (!in_array($_POST['array_control'], $controls)){
+            $check = 0;
+        }
+
+			if(!$k and $array_control[0] and $check){
+							$query = "";
+			$restful_url =$restful . KORA_PLUGIN_RESTFUL_SUBPATH;
+
+			//$fields = 'ALL';
+			$i = 0;
+			$fields = "";
+			$num_option = count($options);
+			foreach($options as $option_value) {
+				if ($i < $num_option - 1) {
+					$fields .= $option_value.',';
+				} else {
+					$fields .= $option_value;
+				}
+				$i += 1;
+			}
+			$display='plugin';
+				/*$scheme_proj_token=get_option('kordat_scheme_dbproj_token');
+				$pos_schemeid = array_search($select_scheme_id, $scheme_proj_token);
+				if(is_array($scheme_proj_token)){
+					//$_limit=sizeof($scheme_proj_token);
+					$_limit=sizeof($pos_schemeid);
+					for($i=0;$i<$_limit;$i=$i+3){
+						if($i==0){
+							///build url
+							$url = array($restful_url.'?request=GET&pid='.$scheme_proj_token[$pos_schemeid+1].'&sid='.$scheme_proj_token[$pos_schemeid].'&token='.$scheme_proj_token[$pos_schemeid+2].'&display='.urlencode($display).'&fields='.urlencode($fields));
+							//$url = array($restful_url.'?request=GET&pid='.$scheme_proj_token[$i+1].'&sid='.$scheme_proj_token[$i].'&token='.$scheme_proj_token[$i+2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query));
+							//$url = $restful_url.'?request=GE T&pid='.$pid[0].'&sid='.$sid[0].'&token='.$token[0].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+
+						}
+						else{
+							$url1 = $restful_url.'?request=GET&pid='.$scheme_proj_token[$pos_schemeid+1].'&sid='.$scheme_proj_token[$pos_schemeid].'&token='.$scheme_proj_token[$pos_schemeid+2].'&display='.urlencode($display).'&fields='.urlencode($fields);
+							//$url1 = $restful_url.'?request=GET&pid='.$scheme_proj_token[$i+1].'&sid='.$scheme_proj_token[$i].'&token='.$scheme_proj_token[$i+2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+							array_push($url,$url1);
+						}
+					}
+				}*/
+				 $url =array();
+             if (is_array($sid_pid_token)){
+                // echo "yes";
+                foreach($sid_pid_token as $vals){
+                    $val = explode("-",$vals);
+                    //var_dump($val);
+                    if ($val[0] == $_POST['id_scheme']){
+                        $url1 = $restful_url.'?request=GET&pid='.$val[1].'&sid='.$val[0].'&token='.$val[2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+                        array_push($url,$url1);
+                    }
+                }
+             }
+				$i=0;
+				if(is_array($url)){
+					foreach($url as $value){
+						///initialize post request to KORA API using curl
+						$ch = curl_init($value);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
+
+						///capture results and display
+						//$server_output = curl_exec($ch);
+					   if($i==0){
+						$server_output=array( curl_exec($ch));
+					   }
+					   else{
+						array_push($server_output,curl_exec($ch));
+					   }
+					   							$char   =  "<br/>";
+							$string = $server_output[$i];
+							$pieces = explode(' ', $string);
+							$last_word = array_pop($pieces);
+
+							if (strpos($last_word,'<br/>') !== false) {
+								$num = substr_count($server_output[$i],'Unknown control:');
+									if ($num > 0) {
+										unset($server_output[$i]);
+									}
+							} else {
+								$char   =  "<div";
+								$strpos = strpos($server_output[$i], $char);
+								$text   = substr($server_output[$i], $strpos + strlen($char));
+								$server_output[$i] = "<div ".$text;
+							}
+										   $server_output[$i] = "<div class = 'pagination_hearder' align='right'></div>"."<div class ='koraobejct_container_parent'>".$server_output[$i]."</div>";
+
+					   echo $server_output[$i];
+
+					   $i=$i+1;
+					}
+				}
+				else{
+						///initialize post request to KORA API using curl
+						$ch = curl_init($url);
+						curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+						curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
+
+						///capture results and display
+						$server_output = curl_exec($ch);
+					   				  		$char   =  "<br/>";
+							$string = $server_output;
+							$pieces = explode(' ', $string);
+							$last_word = array_pop($pieces);
+
+							if (strpos($last_word,'<br/>') !== false) {
+								$num = substr_count($server_output,'Unknown control:');
+									if ($num > 0) {
+										unset($server_output);
+									}
+							} else {
+								$char   =  "<div";
+								$strpos = strpos($server_output, $char);
+								$text   = substr($server_output, $strpos + strlen($char));
+								$server_output[$i] = "<div ".$text;
+							}
+					// $server_output = "<div class = 'pagination_hearder' align='right'></div>"."<div class ='koraobejct_container_parent'>".$server_output."</div>";
+					   echo $server_output;
+				}
+
+
+				if(is_array($server_output)){
+					foreach($server_output as $value){
+						//gets url of image
+						if($value == ''){
+							echo "Search Returned No Results, Try Again";
+						}
+						else{
+							$xpath = new DOMXPath(@DOMDocument::loadHTML($value));
+							$thumb_src = $xpath->evaluate("string(//img/@src)");
+							$src = str_replace("thumbs/", "", $thumb_src);
+
+							//Get KID from HTML
+							$kid = $xpath->evaluate("string(/html/body/div/div/div[2])");
+							$title = $xpath->evaluate("string(/html/body/div/div[3]/div[2])");
+
+						}
+					}
+				}
+			}
+		}
+	}
+
+?>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
+<script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
+
+
+<script src="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.min.js'); ?>"></script>
+<script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.min.js'); ?>"></script>
+<script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.proto.min.js'); ?>"></script>
+<link rel="stylesheet" href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css"
+	  type="text/css"/>
+<link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.css'); ?>" type="text/css"/>
+<link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal-default-theme.css'); ?>"
+	  type="text/css"/>
+
+<link rel="stylesheet" href="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.css?').time(); ?>" type="text/css"/>
+<script>
+
+var url_plugin = '<?php echo $url_plugin;?>';
+var title='<?php echo $title_form;?>';
+var img_c='<?php echo $image_control;?>';
+var desc='<?php echo $desc;?>';
+var type='<?php echo $type;?>';
+$(document).ready(function() {
+    var max_fields      = 10; //maximum input boxes allowed
+    var wrapper         = $(".input_fields_wrap"); //Fields wrapper
+    var add_button      = $(".add_field_button"); //Add button ID
+
+    var x = 1; //initlal text box count
+    $(add_button).click(function(e){ //on add input button click
+        e.preventDefault();
+        if(x < max_fields){ //max input box allowed
+            x++; //text box increment
+            $(wrapper).append('<div><label style = "font-family:Georgia">CONTROL '+x+': </label><select class="array_control" name="array_control[]"  onchange="checkEmpty()" ><option disabled selected>  </option><?php $control_value = $_POST['array_control']; $i = 1; foreach ($options as $name){ echo "<option value=$name"; 	$additon_control_value = $control_value[$i]; if ($name == $additon_control_value) { echo "selected=selected"; }  echo">".$name."</option>"; $i += 1; }?></select>&nbsp;<a href="#" class="remove_field"><img src="<?php echo KORA_PLUGIN_PATHBASE.'minus.png';?>" height="16" width="16" ></a></div>'); //add input box
+		}
+    });
+
+    $(wrapper).on("click",".remove_field", function(e){ //user click on remove text
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    })
+});
+</script>
+<script src="<?php echo KORA_PLUGIN_PATHBASE.'js/jquery.corner.js';?>"></script>
+<script src="<?php echo KORA_PLUGIN_PATHBASE.'js/processbar.js';?>"></script>
+<script src="<?php echo KORA_PLUGIN_PATHBASE.'js/gallery.js';?>"></script>

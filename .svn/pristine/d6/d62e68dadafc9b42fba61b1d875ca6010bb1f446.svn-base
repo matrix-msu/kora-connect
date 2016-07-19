@@ -1,0 +1,17 @@
+<?php
+require_once("../../../../wp-blog-header.php");
+global $wpdb;
+
+$gal= $_GET['gallery'];
+$gallery=$wpdb->prefix.$gal;
+
+	echo '<h3>'.$gal.'</h3>';
+
+if(empty($wpdb->get_results("SELECT * FROM $gallery"))){
+	echo "PLEASE SELECT ONE GALLERY";
+}
+
+foreach($wpdb->get_results("SELECT * FROM $gallery") as $key => $row){
+	$thumb = preg_replace('/ /','%20',$row->thumb);
+	echo "<div class='gal_image'><img src=".$thumb." alt=".$row->KID."></div>";
+}
