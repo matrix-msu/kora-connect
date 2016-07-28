@@ -117,7 +117,7 @@
              if (!empty($sid_pid_token)) {
                   $url = $restful_url.'?request=GET&pid='.$sid_pid_token['projectid'].'&sid='.$sid_pid_token['schemeid'].'&token='.$sid_pid_token['token'].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
              }
-             var_dump($url); 
+             //var_dump($url); 
               //initialize post request to KORA API using curl
               $ch = curl_init($url);
               curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
