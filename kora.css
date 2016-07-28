@@ -1695,6 +1695,15 @@ button#gal_search{
 .gal_body .kora-objs {
 	margin: 10px 20px 10px 20px;
 }
+	.kora-objs .objSpan {
+		width: 100%;
+		flex-grow: 2;
+	}
+		.kora-objs .objSpan #selectAll {
+			margin: 0 0 0 auto;
+			display: block;
+			margin-top: -75px;
+		}
 	.kora-obj {
 		position: relative;
 		width: 100%;

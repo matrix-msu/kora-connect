@@ -303,7 +303,9 @@ $url_plugin=$_GET['url'];
        $totalPages = ceil($total_obj / $objectsPerPage); 
     
        ?>
+       <div class="objSpan">
        <button id="selectAll" align="center" class = "blue-btn" style = "height:54px; width: 300px">Select All <?php echo $total_obj; ?> Objects</button>
+       </div>
        
        <div id="pagination" alt = "<?php echo $total_obj; ?>">
      
@@ -370,8 +372,10 @@ $url_plugin=$_GET['url'];
 
    </div>";  
 }?>
+<div class="objSpan" style="display: flex; justify-content: space-between;">
   <button id="prevPage" align="center" class = "prev" style = "height:54px; width: 300px; color:white; background-color: #57abce; border: 1px solid #57abce">PREV</button>
   <button id="nextPage" align="center" class = "next" style = "height:54px; width: 300px; color:white; background-color: #57abce; border: 1px solid #57abce">NEXT</button>
+</div>
 
                
   <?php    } else {
