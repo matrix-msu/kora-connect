@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="22px" viewBox="0 0 36 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: sketchtool 3.5 (25227) - http://www.bohemiancoding.com/sketch -->
+    <title>Audio Symbol</title>
+    <desc>Created with sketchtool.</desc>
+    <defs></defs>
+    <g id="Galleries" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g sketch:type="MSArtboardGroup" transform="translate(-713.000000, -713.000000)" id="Audio-Symbol" fill="#FFFFFF">
+            <g sketch:type="MSLayerGroup" transform="translate(713.000000, 713.000000)">
+                <path d="M0,22 L4,22 L4,9 L0,9 L0,22 Z" id="Fill-1" sketch:type="MSShapeGroup"></path>
+                <path d="M8,22 L12,22 L12,0 L8,0 L8,22 Z" id="Fill-2" sketch:type="MSShapeGroup"></path>
+                <path d="M16,22 L20,22 L20,9 L16,9 L16,22 Z" id="Fill-3" sketch:type="MSShapeGroup"></path>
+                <path d="M24,22 L28,22 L28,3 L24,3 L24,22 Z" id="Fill-4" sketch:type="MSShapeGroup"></path>
+                <path d="M32,22 L36,22 L36,6 L32,6 L32,22 Z" id="Fill-5" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
