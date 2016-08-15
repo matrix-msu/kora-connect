@@ -168,7 +168,8 @@
                 <?php } ?>
 
             </select>
-            <?php if(isset($_POST['keyword'])){ ?>
+            <?php 
+            if(isset($_POST['keyword'])){ ?>
                 <input type="search" id='searchObjects' name = 'keyword' value=<?php echo $_POST['keyword']?> placeholder="Search Objects" />
             <?php }else{?>
                   <input type="search" id='searchObjects' name = 'keyword' placeholder="Search Objects" />
@@ -251,6 +252,8 @@
                     $query = "";
                     if (isset($_POST['keyword'])) {
                         $k = $_POST['keyword'];
+                        
+                       
                         if (count($controls) == 1) {
                                 $query .= $controls[0].",LIKE,".$k;
                          } else {
@@ -259,7 +262,7 @@
                                             $query .= "(".$controls[$i].",LIKE,".$k.")";
                                         } else {
 
-                                            $query .= ",AND,"."(".$controls[$i].",LIKE,".$k.")";
+                                            $query .= ",OR,"."(".$controls[$i].",LIKE,".$k.")";
                                         }
                                 }
                          }
@@ -282,6 +285,7 @@
                     $obj_json = curl_exec($ch);
                     //convert json string to php array
                     $server_output = json_decode($obj_json, true);
+                   
         if (is_array($server_output)) {
                      
                $total_obj = count($server_output);
