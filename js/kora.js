@@ -343,7 +343,7 @@ jQuery(document).ready(function ($) {
                 // THIS IS FOR KGIS, KGFS WILL OVERWRITE THIS BELOW DUE TO SYNC
                 
 
-                imgsrc='<img class="koraobj_tn koraobj_tn_large" src="'+fbase_+pid+'/'+sid+'/'+'thumbs/'+ obj_[ictrl_].localName+'">';
+                imgsrc='<img class="koraobj_tn koraobj_tn_large" src="'+fbase_+pid+'/'+sid+'/'+ obj_[ictrl_].localName+'">';
                   
             }
 
