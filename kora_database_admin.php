@@ -68,7 +68,7 @@
             if ($dbscheme[1] == '') {
                 echo "<p>* Scheme ID</p>";
             }
-           
+
             echo "</div>";
         }
     } else {
@@ -149,13 +149,21 @@
                     if (is_array($dbproj)) {
                         
                          for ($i = 0; $i < count($dbproj) ; $i++) {
+
+                            if ((empty($dbproj[$i]) || empty($dbscheme[$i]) || empty($dbtoken[$i]))) {
+                                continue;
+                            }
+
         ?>
                         <div class = "projectBoxItem">
+
+
                             <select class = 'koraProject' id='koraProject' name='kordat_dbproj[]' <?php  //if ($dbtoken[0] && $dbproj[0]) { echo "readonly"; } ?>
                                     data-placeholder="Project: Search and select a project" alt='<?php echo $i;?>'>
                                 <option value="default"></option>
                                 <?php
-                                        foreach($projectInfo as $p){ 
+
+                                        foreach($projectInfo as $p){
                                             echo '<option value = "'.$p['pid'].'"'; 
                                             if ($p['pid'] == $dbproj[$i]) {echo 'selected="selected"';   }                                         
                                             echo '>'.$p['pid'].'---'.$p['projectName'].'---'.$p['description'].'</option>';
@@ -163,6 +171,7 @@
                                         }
                                 ?>
                             </select>
+
 							<img class='deleteBox' pid=<?php echo dechex($dbproj[$i]);?> src='<?php echo plugins_url("kora/images/Close.svg"); ?>'
                                      width='19' height='18' alt='Delete Button'/>
 
