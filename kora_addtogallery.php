@@ -139,28 +139,28 @@ $url_plugin=$_GET['url'];
    
 	}
 	echo "</select></p>"; ?>
-               <select id='fields' class = 'array_control chosen_select' name = "controlsImage" data-placeholder="Select Image Field Name">
-               <option value="default"></option>
-                <?php if(isset($_POST['controlsImage'])){?>
-               <option value="<?php echo $_POST['controlsImage']?>" selected><?php echo $_POST['controlsImage']?></option>
-               <?php } ?>
-           </select>
-           <select id='fields' class = 'array_control chosen_select' name = "controlsVideo" data-placeholder="Select Video Field Name">
-               <option value="default"></option>
-                <?php if(isset($_POST['controlsVideo'])){?>
-               <option value="<?php echo $_POST['controlsVideo']?>" selected><?php echo $_POST['controlsVideo']?></option>
-               <?php } ?>
-           </select>
-           <select id='fields' class = 'array_control chosen_select' name = "controlsAudio" data-placeholder="Select Audio Field Name">
-               <option value="default"></option>
-                <?php if(isset($_POST['controlsAudio'])){?>
-               <option value="<?php echo $_POST['controlsAudio']?>" selected><?php echo $_POST['controlsAudio']?></option>
-               <?php } ?>
-           </select>
-    
-	<?php 
-    // control fields list
-    echo "<p><select class='array_control chosen_select' id = 'fields' name='array_control[]' data-placeholder='Field(s): Search and select field(s) for new object(s)'   multiple onchange = 'checkEmpty()'   required>";
+      <p><select id='fields1' class = 'array_control chosen_select' name = "controlsImage" data-placeholder="Select Image Field Name">
+              <option value="default"></option>
+              <?php if(isset($_POST['controlsImage'])){?>
+                  <option value="<?php echo $_POST['controlsImage']?>" selected><?php echo $_POST['controlsImage']?></option>
+              <?php } ?>
+          </select>
+          <select id='fields2' class = 'array_control chosen_select' name = "controlsVideo" data-placeholder="Select Video Field Name">
+              <option value="default"></option>
+              <?php if(isset($_POST['controlsVideo'])){?>
+                  <option value="<?php echo $_POST['controlsVideo']?>" selected><?php echo $_POST['controlsVideo']?></option>
+              <?php } ?>
+          </select>
+          <select id='fields3' class = 'array_control chosen_select' name = "controlsAudio" data-placeholder="Select Audio Field Name">
+              <option value="default"></option>
+              <?php if(isset($_POST['controlsAudio'])){?>
+                  <option value="<?php echo $_POST['controlsAudio']?>" selected><?php echo $_POST['controlsAudio']?></option>
+              <?php } ?>
+          </select></p>
+
+      <?php
+      // control fields list
+      echo "<p><select class='array_control chosen_select' id = 'fields4' name='array_control[]' data-placeholder='Field(s): Search and select field(s) for new object(s)'   multiple onchange = 'checkEmpty()'   required>";
 	echo '<option value="default"></option>';
     if(isset($_POST['array_control'])) 
           foreach ( $_POST['array_control']as $control) {?>
@@ -424,25 +424,26 @@ $url_plugin=$_GET['url'];
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
-
+      <script src="<?php echo KORA_PLUGIN_PATHBASE.'js/addexistinggallery.js';?>"></script>
 
 <script src="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.min.js'); ?>"></script>
 <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.min.js'); ?>"></script>
 <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.proto.min.js'); ?>"></script>
+
 <link rel="stylesheet" href="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/css/bootstrap-multiselect.css" type="text/css"/>
 <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.css'); ?>" type="text/css"/>
 <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal-default-theme.css'); ?>" type="text/css"/>
 
 <link rel="stylesheet" href="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.css?').time(); ?>" type="text/css"/>
+
 <script>
+
 
 var title='<?php echo $title_form;?>';
 //var img_c='<?php echo $image_control;?>';
 var desc='<?php echo $desc;?>';
 var type='<?php echo $type;?>';
 var schemeid = "<?php if (isset($_POST['id_scheme'])) { echo $_POST['id_scheme']; } ?>";
-
-
 </script>
 
-<script src="<?php echo KORA_PLUGIN_PATHBASE.'js/addexistingallery.js';?>"></script>
+

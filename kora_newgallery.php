@@ -38,7 +38,7 @@ var desc='<?php echo $desc;?>';
 var type='<?php echo $type;?>';
 var schemeid = "<?php if (isset($_POST['id_scheme'])) { echo $_POST['id_scheme']; } ?>";
 </script>
-<script src="<?php echo KORA_PLUGIN_PATHBASE.'js/gallery.js';?>"></script>
+
 <?php
    /* connect to database*/
 	 $mysql_hostname = kordat_dbhostname;
@@ -143,35 +143,35 @@ $url_plugin=$_GET['url'];
               echo '<option value="' . $id_scheme . '"' . ($_POST['id_scheme'] == $id_scheme ? ' selected="selected"' : '') . '>' . $pid_scheme.'---'.$pid_name.'---'.$id_scheme.'---'.$name_scheme.'---'.$desc_scheme.'</option>';
       }
 	echo "</select></p>"; ?>
-                <select id='fields' class = 'array_control chosen_select' name = "controlsImage" data-placeholder="Select Image Field Name">
+           <p><select id='fields1' class = 'array_control chosen_select' name = "controlsImage" data-placeholder="Select Image Field Name">
                <option value="default"></option>
                 <?php if(isset($_POST['controlsImage'])){?>
                <option value="<?php echo $_POST['controlsImage']?>" selected><?php echo $_POST['controlsImage']?></option>
                <?php } ?>
            </select>
-           <select id='fields' class = 'array_control chosen_select' name = "controlsVideo" data-placeholder="Select Video Field Name">
+           <select id='fields2' class = 'array_control chosen_select' name = "controlsVideo" data-placeholder="Select Video Field Name">
                <option value="default"></option>
                 <?php if(isset($_POST['controlsVideo'])){?>
                <option value="<?php echo $_POST['controlsVideo']?>" selected><?php echo $_POST['controlsVideo']?></option>
                <?php } ?>
            </select>
-           <select id='fields' class = 'array_control chosen_select' name = "controlsAudio" data-placeholder="Select Audio Field Name">
+           <select id='fields3' class = 'array_control chosen_select' name = "controlsAudio" data-placeholder="Select Audio Field Name">
                <option value="default"></option>
                 <?php if(isset($_POST['controlsAudio'])){?>
                <option value="<?php echo $_POST['controlsAudio']?>" selected><?php echo $_POST['controlsAudio']?></option>
                <?php } ?>
-           </select>
-    
-	<?php 
+           </select></p>
+
+	<?php
     // control fields list
-    echo "<p><select class='array_control chosen_select' id = 'fields' name='array_control[]' data-placeholder='Field(s): Search and select field(s) for new object(s)'   multiple onchange = 'checkEmpty()'   required>";
+    echo "<p><select class='array_control chosen_select' id = 'fields4' name='array_control[]' data-placeholder='Field(s): Search and select field(s) for new object(s)'   multiple onchange = ''   required>";
     echo '<option value="default"></option>';
-      if(isset($_POST['array_control'])) 
-          foreach ( $_POST['array_control']as $control) {?>
+      if(isset($_POST['array_control']))
+          foreach ( $_POST['array_control'] as $control) {?>
           <option value="<?php echo $control?>" selected><?php echo $control?></option>
-        
-       <?php } 
-	  
+
+       <?php }
+
   	echo '</select></p>';
 	// # of object per page
 	echo "<select id='objectsPerPage' name = 'objectsPerPage'>";
@@ -419,3 +419,4 @@ $url_plugin=$_GET['url'];
 
     </div>
 </div>
+      <script src="<?php echo KORA_PLUGIN_PATHBASE.'js/gallery.js';?>"></script>

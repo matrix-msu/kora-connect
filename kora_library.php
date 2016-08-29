@@ -23,116 +23,135 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
      <?php
         }
     ?>
+    <form id ='search_form' name = 'search' method = 'post' action = '#'>
+	    <input id='search_key' type='search' name='keyword' value='' placeholder='Search Library'/>
+    </form>
 
-	<input id='' type='search' name='' value='' placeholder='Search Library'/>
 	<div class='kora-objs'>
     <?php 
      //   var_dump($wpdb->get_results("SELECT * FROM  $library"));
-        foreach( $wpdb->get_results("SELECT * FROM  $library") as $key => $kora_obj) {
-            $kid = $kora_obj -> KID;
-            $display_item = explode(",", $kora_obj -> Display);
+        //$keyword = $_POST['keyword'];
+        //var_dump($keyword);
+        foreach ($wpdb->get_results("SELECT * FROM  $library") as $key => $kora_obj) {
+            $kid = $kora_obj->KID;
+            $display_item = explode(",", $kora_obj->Display);
             $schemeid = explode("_", $display_item[0]);
             $schemeid = $schemeid[1];
             unset($display_item[0]);
             unset($display_item[1]);
 
-			// connect to database
+            // connect to database
             $mysql_hostname = kordat_dbhostname;
             $mysql_user = kordat_dbhostuser;
             $mysql_database = kordat_dbselectname;
             $mysql_password = kordat_dbhostpass;
-	        $bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
+            $bd = new mysqli($mysql_hostname, $mysql_user, $mysql_password, $mysql_database);
 
             if ($bd->connect_error) {
                 die("Connection failed: " . $bd->connect_error);
             }
-		            $dbproj = get_option('kordat_dbproj');
-                    $dbscheme = get_option('kordat_dbscheme');
-                    $dbtoken = get_option('kordat_dbtoken');
-                    
-                    $query_sid_pid = "SELECT schemeid,pid FROM scheme WHERE schemeid = '".$schemeid."';";
-                    $stmt = $bd->prepare($query_sid_pid) ;
-                    $stmt->execute();
-                    $stmt->bind_result($sids,$pids);
-                        
-                    while($stmt->fetch()){
-                        $sid = $sids;
-                        $pid = $pids;
-                        if (in_array($sid, $dbscheme) && in_array($pid, $dbproj)){
-                            $pos = array_search($pid, $dbproj);
-                            $sid_pid_token = array('schemeid' => $sid, 'projectid' => $pid, 'token' => $dbtoken[$pos]);
+            $dbproj = get_option('kordat_dbproj');
+            $dbscheme = get_option('kordat_dbscheme');
+            $dbtoken = get_option('kordat_dbtoken');
+
+            $query_sid_pid = "SELECT schemeid,pid FROM scheme WHERE schemeid = '" . $schemeid . "';";
+            $stmt = $bd->prepare($query_sid_pid);
+            $stmt->execute();
+            $stmt->bind_result($sids, $pids);
+
+            while ($stmt->fetch()) {
+                $sid = $sids;
+                $pid = $pids;
+                if (in_array($sid, $dbscheme) && in_array($pid, $dbproj)) {
+                    $pos = array_search($pid, $dbproj);
+                    $sid_pid_token = array('schemeid' => $sid, 'projectid' => $pid, 'token' => $dbtoken[$pos]);
+                }
+            }
+            $stmt->close();
+
+            $user = kordat_dbuser;
+            $pass = kordat_dbpass;
+            if ($kid == "ALL") {
+                $query = "KID,!=,''";
+            } else {
+                $query = "KID,=," . $kid;
+            }
+            $restful_url = get_option('kordat_dbapi') . KORA_PLUGIN_RESTFUL_SUBPATH;
+            $fields = 'ALL';
+            $display = 'json';
+
+            if (!empty($sid_pid_token)) {
+                $url = $restful_url . '?request=GET&pid=' . $sid_pid_token['projectid'] . '&sid=' . $sid_pid_token['schemeid'] . '&token=' . $sid_pid_token['token'] . '&display=' . urlencode($display) . '&fields=' . urlencode($fields) . '&query=' . urlencode($query);
+            }
+            //initialize post request to KORA API using curl
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_USERPWD, $user . ':' . $pass);
+
+            //capture results and display
+            $obj_json = curl_exec($ch);
+            //convert json string to php array
+            $server_output = json_decode($obj_json, true);
+            /**/
+            if ($kora_obj->thumb) {
+                $pic = $kora_obj->thumb;
+            } else if ($kora_obj->url) {
+                $pic = $kora_obj->url;
+            }
+            //Check to see if a search term was entered
+
+            if (!empty($_POST['keyword'])) {
+                foreach ($display_item as $key) {
+                    if ($key != 'KID') {
+                        //if the keyword is in the kid or the key, continue to the next picture
+                        if (strpos($kid, $_POST['keyword']) === false &&
+                            strpos(strtolower($server_output[$kora_obj->KID][$key]), strtolower($_POST['keyword'])) === false
+                        ) {
+                            continue 2;
                         }
                     }
-           $stmt->close();             
-           
-			$user = kordat_dbuser;
-			$pass = kordat_dbpass;
-			if ($kid == "ALL") {
-				$query = "KID,!=,''";
-			} else {
-				$query = "KID,=,".$kid;
-			}
-			$restful_url = get_option('kordat_dbapi') . KORA_PLUGIN_RESTFUL_SUBPATH;
-			$fields = 'ALL';
-			$display='json';
-  
-             if (!empty($sid_pid_token)) {
-                  $url = $restful_url.'?request=GET&pid='.$sid_pid_token['projectid'].'&sid='.$sid_pid_token['schemeid'].'&token='.$sid_pid_token['token'].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
-             }
-              //initialize post request to KORA API using curl
-              $ch = curl_init($url);
-              curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-              curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
-
-              //capture results and display
-              $obj_json = curl_exec($ch);
-              //convert json string to php array
-              $server_output = json_decode($obj_json, true);            
-           /**/
-           if ($kora_obj -> thumb) {
-               $pic = $kora_obj -> thumb;
-           } else if ($kora_obj -> url) {
-               $pic = $kora_obj -> url;
-           }
-      
-      //check image or video or audio
-      $type = "";
-     
-      if ($kora_obj -> imagefield != 'default' && $kora_obj -> imagefield != '') {
-          $type = 'imagefield';
-         
-      } else if ($kora_obj -> videofield != 'default' && $kora_obj -> videofield != '') {
-          $type = 'videofield';
-         
-      } else if ($kora_obj -> audiofield != 'default' && $kora_obj -> audiofield != '') {
-          $type = 'audiofield';
-         
-      } else {
-          $type = 'null';
-      
-      }
-      
-      echo "<div class='kora-obj' id ='".$kora_obj -> KID."'>
-                <div class='kora-obj-left'>";
-               
-                if ($type = "imagefield" && $server_output[$kora_obj -> KID][$kora_obj -> imagefield]) {
-                    $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/'.$server_output[$kora_obj -> KID][$kora_obj -> imagefield]['localName'];
-                    echo "<img src='".$thumb_src."' alt='".$kora_obj -> KID."'>";
-                } else if ($type = "videofield" && $server_output[$kora_obj -> KID][$kora_obj -> videofield]) {
-                    $videoFile = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/'.$server_output[$kora_obj -> KID][$kora_obj -> videofield]['localName'];
-                    echo '<video width="142" height="110" controls><source src="'.$videoFile.'" type="video/mp4"></video>';
-                                         
-                    
-                } else if ($type = "audiofield" && $server_output[$kora_obj -> KID][$kora_obj -> audiofield]){
-                    $audioFile = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/'.$server_output[$kora_obj -> KID][$kora_obj -> audiofield]['localName'];
-                    echo '<video width="142" height="110" controls><source src="'.$audioFile.'" type="audio/mpeg"></video>';
-                    
-                } else {?>
-                    <img src="<?php echo KORA_PLUGIN_PATHBASE.'images/placeholder_plugin.svg'?>" alt="<?php $kora_obj -> KID?>"> 
-                <?php
                 }
-                    
-                echo   "<input type='button' class = 'edit_detials' id = '".$kora_obj -> KID."' value='edit details'  alt = '".$sid_pid_token['schemeid']."'>
+            }
+
+            //check image or video or audio
+            $type = "";
+
+            if ($kora_obj->imagefield != 'default' && $kora_obj->imagefield != '') {
+                $type = 'imagefield';
+
+            } else if ($kora_obj->videofield != 'default' && $kora_obj->videofield != '') {
+                $type = 'videofield';
+
+            } else if ($kora_obj->audiofield != 'default' && $kora_obj->audiofield != '') {
+                $type = 'audiofield';
+
+            } else {
+                $type = 'null';
+
+            }
+
+            echo "<div class='kora-obj' id ='" . $kora_obj->KID . "'>
+                <div class='kora-obj-left'>";
+
+            if ($type = "imagefield" && $server_output[$kora_obj->KID][$kora_obj->imagefield]) {
+                $thumb_src = get_option('kordat_dbapi') . 'files/' . $sid_pid_token['projectid'] . '/' . $sid_pid_token['schemeid'] . '/' . $server_output[$kora_obj->KID][$kora_obj->imagefield]['localName'];
+                echo "<img src='" . $thumb_src . "' alt='" . $kora_obj->KID . "'>";
+            } else if ($type = "videofield" && $server_output[$kora_obj->KID][$kora_obj->videofield]) {
+                $videoFile = get_option('kordat_dbapi') . 'files/' . $sid_pid_token['projectid'] . '/' . $sid_pid_token['schemeid'] . '/' . $server_output[$kora_obj->KID][$kora_obj->videofield]['localName'];
+                echo '<video width="142" height="110" controls><source src="' . $videoFile . '" type="video/mp4"></video>';
+
+
+            } else if ($type = "audiofield" && $server_output[$kora_obj->KID][$kora_obj->audiofield]) {
+                $audioFile = get_option('kordat_dbapi') . 'files/' . $sid_pid_token['projectid'] . '/' . $sid_pid_token['schemeid'] . '/' . $server_output[$kora_obj->KID][$kora_obj->audiofield]['localName'];
+                echo '<video width="142" height="110" controls><source src="' . $audioFile . '" type="audio/mpeg"></video>';
+
+            } else { ?>
+                <img src="<?php echo KORA_PLUGIN_PATHBASE . 'images/placeholder_plugin.svg' ?>"
+                     alt="<?php $kora_obj->KID ?>">
+                <?php
+            }
+
+            echo "<input type='button' class = 'edit_detials' id = '" . $kora_obj->KID . "' value='edit details'  alt = '" . $sid_pid_token['schemeid'] . "'>
                     
                 </div>
                 <div class='kora-obj-right'>
@@ -140,38 +159,37 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
                         <img src='../wp-content/plugins/kora/images/Close - Tiny.svg' class='closePic'>
                     </div>
                     <ul class='kora-obj-fields'>
-                        <li><span>KID:</span> ".$kora_obj -> KID."</li>";
-                        if (is_array($display_item)) {
-                            foreach ($display_item as $key ) {
-                                if ($key != "KID" ) {
-                                    if (is_array($server_output[$kora_obj -> KID][$key])) {
-                                        echo    "<li><span>".$key."</span>: ";
-                                        foreach($server_output[$kora_obj -> KID][$key] as $k) {
-                                           echo  $k." ";
-                                        }
-                                        echo "</li>";
-                                    } else {
-                                          echo  "<li><span>".$key."</span>: ".$server_output[$kora_obj -> KID][$key]."</li>";
-                                    }
-                                }
+                        <li><span>KID:</span> " . $kora_obj->KID . "</li>";
+            if (is_array($display_item)) {
+                foreach ($display_item as $key) {
+                    if ($key != "KID") {
+                        if (is_array($server_output[$kora_obj->KID][$key])) {
+                            echo "<li><span>" . $key . "</span>: ";
+                            foreach ($server_output[$kora_obj->KID][$key] as $k) {
+                                echo $k . " ";
                             }
+                            echo "</li>";
                         } else {
-                             if ($display_item != "KID" ) {
-                                    if (is_array($server_output[$kora_obj -> KID][$display_item])) {
-                                        echo    "<li><span>".$display_item."</span>: ";
-                                        foreach($server_output[$kora_obj -> KID][$display_item] as $k) {
-                                           echo  $k." ";
-                                        }
-                                        echo "</li>";
-                                    } else {
-                                          echo  "<li><span>".$display_item."</span>: ".$server_output[$kora_obj -> KID][$display_item]."</li>";
-                                    }                             
-                             }
+                            echo "<li><span>" . $key . "</span>: " . $server_output[$kora_obj->KID][$key] . "</li>";
                         }
+                    }
+                }
+            } else {
+                if ($display_item != "KID") {
+                    if (is_array($server_output[$kora_obj->KID][$display_item])) {
+                        echo "<li><span>" . $display_item . "</span>: ";
+                        foreach ($server_output[$kora_obj->KID][$display_item] as $k) {
+                            echo $k . " ";
+                        }
+                        echo "</li>";
+                    } else {
+                        echo "<li><span>" . $display_item . "</span>: " . $server_output[$kora_obj->KID][$display_item] . "</li>";
+                    }
+                }
+            }
 
-                     
-                       
-                   echo " </ul>
+
+            echo " </ul>
                 </div>
             </div>";
         }
@@ -225,6 +243,26 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
 			$('#remove-kora-objs').addClass('slide-remove-objs');
 		}
 	}
+//    $("#search_form").submit(function(e) {
+//        e.preventDefault();
+//        var keyword = $("#search_key").val();
+//        console.log(keyword)
+//
+//
+//        //if (keyword != "") {
+//            $.ajax({
+//                type:"post",
+//                url:"<?php //echo KORA_PLUGIN_PATHBASE . "test.php" ?>//",
+//                dataType: 'json',
+//                data:"keyword="+keyword,
+//                success:function(data){
+//                    console.log(data);
+//                    //$('#search_key').html(data);
+//
+//                }
+//            });
+//        //}
+//    });
 
     $('.blue-btn').click(function(){
         window.location = addNewObjUrl;
