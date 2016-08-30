@@ -47,7 +47,9 @@ if (isset($_GET['galleryid'])) {
      if ($bd->connect_error) {
       die("Connection failed: " . $bd->connect_error);
      }
-
+if (!$scheme_id) {
+    die("Scheme not set in the connect tab");
+}
 $url_plugin=$_GET['url'];
 
 	 $i=0;
@@ -160,7 +162,7 @@ $url_plugin=$_GET['url'];
 
       <?php
       // control fields list
-      echo "<p><select class='array_control chosen_select' id = 'fields4' name='array_control[]' data-placeholder='Field(s): Search and select field(s) for new object(s)'   multiple onchange = 'checkEmpty()'   required>";
+      echo "<p><select class='array_control chosen_select' id = 'fields4' name='array_control[]' data-placeholder='Field(s): Search and select field(s) for new object(s)'   multiple onchange = ''   required>";
 	echo '<option value="default"></option>';
     if(isset($_POST['array_control'])) 
           foreach ( $_POST['array_control']as $control) {?>

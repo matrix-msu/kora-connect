@@ -31,7 +31,7 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
     <?php 
      //   var_dump($wpdb->get_results("SELECT * FROM  $library"));
         //$keyword = $_POST['keyword'];
-        $bool;
+        $bool = true;
         foreach ($wpdb->get_results("SELECT * FROM  $library") as $key => $kora_obj) {
             $kid = $kora_obj->KID;
             $display_item = explode(",", $kora_obj->Display);
@@ -95,6 +95,7 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
                 $obj_json = curl_exec($ch);
                 //convert json string to php array
                 $server_output = json_decode($obj_json, true);
+                //var_dump($server_output[$kora_obj->KID]);
                 /**/
                 if ($kora_obj->thumb) {
                     $pic = $kora_obj->thumb;
@@ -102,27 +103,35 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
                     $pic = $kora_obj->url;
                 }
                 //Check to see if a search term was entered
-
                 if (!empty($_POST['keyword'])) {
                     foreach ($display_item as $key) {
                         if ($key != 'KID') {
                             //if the keyword is in the kid or the key, continue to the next picture
                             if (is_array($server_output[$kora_obj->KID][$key])) {
+                                //var_dump(($server_output[$kora_obj->KID][$key]));
                                 foreach($server_output[$kora_obj->KID][$key] as $k) {
-                                    if (strpos($kid, $_POST['keyword']) !== false &&
-                                        strpos(strtolower($k), strtolower($_POST['keyword'])) !== false) {
-                                        continue 2;
+                                    if (stristr($kid, $_POST['keyword']) !== false ||
+                                        stristr($k, ($_POST['keyword'])) !== false) {
+                                        $bool = true;
+                                        break 2;
                                     }
                                 }
                             }
                             else {
-                                if (strpos($kid, $_POST['keyword']) === false &&
-                                    strpos(strtolower($server_output[$kora_obj->KID][$key]), strtolower($_POST['keyword'])) === false
+                                if (stristr($kid, $_POST['keyword']) !== false ||
+                                    stristr(($server_output[$kora_obj->KID][$key]), ($_POST['keyword'])) !== false
                                 ) {
-                                    continue 2;
+
+                                    break;
+                                }
+                                else {
+                                    $bool = false;
                                 }
                             }
                         }
+                    }
+                    if (!$bool) {
+                        continue;
                     }
                 }
 
