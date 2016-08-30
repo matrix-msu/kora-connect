@@ -426,7 +426,7 @@ $url_plugin=$_GET['url'];
 
 <script src="http://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js"></script>
 <script src="http://cdn.rawgit.com/davidstutz/bootstrap-multiselect/master/dist/js/bootstrap-multiselect.js"></script>
-      <script src="<?php echo KORA_PLUGIN_PATHBASE.'js/addexistinggallery.js';?>"></script>
+      <script src="<?php echo KORA_PLUGIN_PATHBASE.'js/addexistingallery.js';?>"></script>
 
 <script src="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.min.js'); ?>"></script>
 <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.min.js'); ?>"></script>
