@@ -1,7 +1,7 @@
 // hide script from old browsers
 
 jQuery(document).ready(function ($) {
-
+	
 //............
 
     // HAVE TO LOOP HERE TO HANDLE POTENTIAL MULTIPLE GALLERIES

@@ -9,7 +9,7 @@ define('WP_USE_THEMES', true);
 	global $wp, $wp_query, $wp_the_query, $wp_rewrite, $wp_did_header;
 	$user = kordat_dbuser;
 	$pass = kordat_dbpass;
-	$display = 'detail';
+	$display = 'json';
 	$k = $_GET["kid"];
 	$restful_url=$_POST['restful'];
 	$query = "KID,=,".$k;
@@ -34,6 +34,11 @@ define('WP_USE_THEMES', true);
 	 $replace1=str_replace("koraobj_control_label","control_label_full",$replace);
 	 $replace2=str_replace("koraobj_control_value","control_value_full",$replace1);
      echo "<a id='backArrow' href='javascript:history.go(-1)'><img src='images/Arrow-Left.svg'/></a>";
-	echo $replace2;
+	//echo $replace2;
+	
+	$server_output = json_decode($server_output, true);
+	
+	var_dump($k);
+	var_dump($server_output);
 	
 	?>
