@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="kora.css">
+<link rel="stylesheet" type="text/css" href="koraModal.css">
 <link rel="stylesheet" type="text/css" href="chosen_v1.4.2/chosen.css">
   <?php
 require_once( realpath( dirname(__FILE__) . "/../../../wp-includes/wp-db.php" ) );

@@ -11,7 +11,7 @@
 	define('KORA_PLUGIN_RESTFUL_SUBPATH', 'api/restful.php');
   define('KORA_PLUGIN_PATHBASE', plugin_dir_url(__FILE__));?>
 
-<link rel="stylesheet" type="text/css" href="kora.css">
+<link rel="stylesheet" type="text/css" href="koraModal.css">
 
 <script> var url_plugin = '<?php echo KORA_PLUGIN_PATHBASE;?>'; 
         
