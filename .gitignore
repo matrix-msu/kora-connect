@@ -1,3 +1,4 @@
 /.svn/*
 .svn/wc.db
 .DS_Store
+dbconfig.php
