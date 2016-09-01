@@ -1,9 +1,16 @@
 jQuery(document).ready(function() {
 	//// Apply Chosen plugin functionality ////
-	$("select#fields").chosen();
+	var $fields1 = $("select#fields1");
+	var $fields2 = $("select#fields2");
+	var $fields3 = $("select#fields3");
+	var $fields4 = $("select#fields4");
+	$fields1.chosen();
+	$fields2.chosen();
+	$fields3.chosen();
+	$fields4.chosen();
     $("#id_scheme").chosen();
 	$("select#objectsPerPage").chosen();
-     $('#id_scheme').change(function(){
+	$('#id_scheme').change(function(){
          
             schemeid = $(this).val();
             //alert(schemeid); 
@@ -16,32 +23,89 @@ jQuery(document).ready(function() {
                      success: function(data){	
                         
                         // alert(pathbase);
-                         $('select#fields').html(data);  
-                         $('select#fields').trigger("chosen:updated");      
-                
+						 $fields1.html(data);
+						 $fields1.trigger("chosen:updated");
+						 $fields2.html(data);
+						 $fields2.trigger("chosen:updated");
+						 $fields3.html(data);
+						 $fields3.trigger("chosen:updated");
+						 $fields4.html(data);
+						 $fields4.trigger("chosen:updated");
                      }
                });  
         });
+	$('#fields_chosen1').click(function(){
+		if(schemeid!=''){
+			$.ajax({
+				type: "GET",
+				async: false,
+				url: url_plugin  + "ajaxControls.php",
+				data: {"sid" : schemeid },
+				success: function(data){
 
-    $('#fields_chosen').click(function(){
-         
-        if(schemeid!=''){
-              $.ajax({
-                     type: "GET",
-                     async: false,
-                     url: url_plugin  + "ajaxControls.php",
-                     data: {"sid" : schemeid },
-                     success: function(data){	
-                        
-                        // alert(pathbase);
-                         $('select#fields').html(data);  
-                         $('select#fields').trigger("chosen:updated");      
-                
-                     }
-               }); 
-         } 
-    });		
- 
+					// alert(pathbase);
+					$fields1.html(data);
+					$fields1.trigger("chosen:updated");
+
+
+				}
+			});
+		}
+	});
+	$('#fields_chosen2').click(function(){
+		if(schemeid!=''){
+			$.ajax({
+				type: "GET",
+				async: false,
+				url: url_plugin  + "ajaxControls.php",
+				data: {"sid" : schemeid },
+				success: function(data){
+
+					// alert(pathbase);
+					$fields2.html(data);
+					$fields2.trigger("chosen:updated");
+
+
+				}
+			});
+		}
+	});
+	$('#fields_chosen3').click(function(){
+		if(schemeid!=''){
+			$.ajax({
+				type: "GET",
+				async: false,
+				url: url_plugin  + "ajaxControls.php",
+				data: {"sid" : schemeid },
+				success: function(data){
+
+					// alert(pathbase);
+					$fields3.html(data);
+					$fields3.trigger("chosen:updated");
+
+
+				}
+			});
+		}
+	});
+	$('#fields_chosen4').click(function(){
+		if(schemeid!=''){
+			$.ajax({
+				type: "GET",
+				async: false,
+				url: url_plugin  + "ajaxControls.php",
+				data: {"sid" : schemeid },
+				success: function(data){
+
+					// alert(pathbase);
+					$fields4.html(data);
+					$fields4.trigger("chosen:updated");
+
+
+				}
+			});
+		}
+	});
   // pagination part     
   var e = document.getElementById("objectsPerPage"); 
   var nb = e.options[e.selectedIndex].value;         
@@ -164,12 +228,11 @@ jQuery(document).ready(function() {
     
     // add kora object into new gallery
        $('#add-kora-objs').click(function() {
-       
     	   var image_control = $("#image_control").text();
           var video_control = $("#video_control").text();
       	  var audio_control = $("#audio_control").text();
            schemeid = $('#id_scheme').val();
-           var galleryid=$("#galleryid").val();
+            var galleryid=$("#galleryid").val();
             var gallery_name= $('#gallery_name').val();
             var gallery_description = $('#gallery_description').val();
             if(gallery_name.length>0 && gallery_description.length > 0)

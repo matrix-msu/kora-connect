@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="chosen_v1.4.2/chosen.css">
-<link rel="stylesheet" type="text/css" href="kora.css">
+<link rel="stylesheet" type="text/css" href="koraModal.css">
 
 <?php
 	require_once('../../../wp-load.php');

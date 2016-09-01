@@ -603,7 +603,7 @@ function korgallery_getrecords($wpatts) {
 		
 
 	}
-		return "<div class='kora_gallery_infscroll1' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n</div>\n
+		return "<div class='kora_gallery_infscroll1' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n\n
 </div>";
 			break;
 	
