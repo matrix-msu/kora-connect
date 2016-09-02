@@ -7,15 +7,12 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
 define('WP_USE_THEMES', true);
 /** Loads the WordPress Environment and Template */
 	global $wp, $wp_query, $wp_the_query, $wp_rewrite, $wp_did_header;
-	$user = kordat_dbuser;
-	$pass = kordat_dbpass;
+//	$user = kordat_dbuser;
+//	$pass = kordat_dbpass;
 	$display = 'json';
 	$k = $_GET["kid"];
 	$restful_url=$_POST['restful'];
 	$query = "KID,=,".$k;
-	//$fields = 'ALL';
-	
-
 	if(isset($_POST['fields'])){
 		$fields = $_POST['fields'];
 	} else {
@@ -25,7 +22,7 @@ define('WP_USE_THEMES', true);
 	///initialize post request to KORA API using curl
 	$ch = curl_init($url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
+	//curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
 
 	///capture results and display
 	$server_output = curl_exec($ch);
@@ -36,7 +33,7 @@ define('WP_USE_THEMES', true);
 
 
 		//preview of media if present 
-		foreach ($server_output as $kid => $koraobj) {	
+		/*foreach ($server_output as $kid => $koraobj) {	
 				
 			$decKID = explode("-", $k);
 			
@@ -59,7 +56,16 @@ define('WP_USE_THEMES', true);
 				$prevHTML .= '</div></div>';
 				echo($prevHTML);
 			}	
-		}
+		}*/
+		
+		$prevHTML = '<div class="control_full_value">';
+		$prevHTML .= '<div class="kc_file_tn">';
+		$prevHTML .= stripslashes($_POST['media']);
+
+		$prevHTML .= '</div></div>';
+
+		echo($prevHTML);
+
 		?>		
 	
 	<?php //metadata display  ?>
@@ -69,6 +75,7 @@ define('WP_USE_THEMES', true);
 		$htmlout .= "<div class='koraobj_container'>\n";				
 		foreach ($koraobj as $dfield => $dvalue) {	
 			if (is_array($dvalue)) {
+				
 				foreach( $dvalue as $key => $value ) {
 					if ($value != '') {
 						$htmlout .= "\t<div class='koraobj_control control_full koraobj_control_".$key."' ><div class='koraobj_control_label'>".$key."</div>";
