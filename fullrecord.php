@@ -57,7 +57,6 @@ define('WP_USE_THEMES', true);
 				echo($prevHTML);
 			}	
 		}*/
-		
 		$prevHTML = '<div class="control_full_value">';
 		$prevHTML .= '<div class="kc_file_tn">';
 		$prevHTML .= stripslashes($_POST['media']);
