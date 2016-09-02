@@ -78,14 +78,29 @@ define('WP_USE_THEMES', true);
 				
 				foreach( $dvalue as $key => $value ) {
 					if ($value != '') {
+						
+						
 						$htmlout .= "\t<div class='koraobj_control control_full koraobj_control_".$key."' ><div class='koraobj_control_label'>".$key."</div>";
+						$pos = strpos($value, "http");
+						
+					if(is_int($pos)){
+						$htmlout .= "<div class='koraobj_control_value'><a href='" . $value.  "'>".$value."</a></div></div>\n";	
+					}else{
 						$htmlout .= "<div class='koraobj_control_value'>" . $value.  "</div></div>\n";
-					}
+						
+					}					}
 				}
 			} else {
 				if ($dvalue != '') {
+					
 					$htmlout .= "\t<div class='koraobj_control control_full koraobj_control_".$dfield."' ><div class='koraobj_control_label control_full_label'>".$dfield."</div>";
-					$htmlout .= "<div class='koraobj_control_value'>" . $dvalue.  "</div></div>\n";
+					$pos = strpos($dvalue, "http");
+				if(is_int($pos)){
+						$htmlout .= "<div class='koraobj_control_value'><a href='" . $dvalue.  "'>".$dvalue."</a></div></div>\n";	
+					}else{
+						$htmlout .= "<div class='koraobj_control_value'>" . $dvalue.  "</div></div>\n";
+						
+					}
 				}
 			}
 		}
