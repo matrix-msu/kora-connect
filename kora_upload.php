@@ -37,13 +37,18 @@
      }
 	 $i=0;
 	 $query_control='';
+
 	if (is_array($table)) {
 	 foreach($table as $value){
 		if($i!=0){
 			$query_control.= " UNION ALL ";
 		}
 		$query_control .= "SELECT name,schemeid FROM $value WHERE  showInResults = 1 AND schemeid in(";
+		 if (!$scheme_id) {
+			 die("Scheme not set in the connect tab");
+		 }
 		$lastScheme = end($scheme_id);
+
 	  if (is_array($scheme_id)) {
 		foreach($scheme_id as $value){
 		 if($value == $lastScheme){
@@ -111,6 +116,7 @@
     while($scheme_stmt->fetch()){
          $schemeInfo[$sid] = array('sid' => $sid, 'pid' => $pid, 'schemeName' => $sname, 'description' => $sdesc);
     }
+	//var_dump($schemeInfo);
     $scheme_stmt->close();
     
 ?>
@@ -366,7 +372,7 @@ if (!empty($kora_objects)) { // check is the php array made from JSON is empty. 
 <?php	echo "<div class='kora_results_container kora-objs'>";
 	
 	foreach ($kora_objects as $kora_object_kid => $kora_object) {
-		var_dump($kora_object);
+		//var_dump($kora_object);
 		if ($kora_object[$image_control]) {
            $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$kora_object[$image_control]['localName'];
            $media_type = "image";

@@ -42,7 +42,6 @@ jQuery(document).ready(function ($) {
             $.getJSON(
                 tarresturl[i],
                 function (data) {
-                    console.log('hi');
                     $.each(data, function (key, val) {
 
                         var htmlobj = KoraGalleryObjJSONToHtml(val, kg_fspropsobj, kg_imagectl, kg_audioctl, kg_videoctl, kg_titlectl, kg_descctl, kg_sort, kg_order, kg_linkbase, kg_filebase, kg_imagesize, kg_loadimg, kg_baseresturl[i], kg_imageclip, kg_field);
@@ -127,7 +126,7 @@ jQuery(document).ready(function ($) {
         var kg_audioctl = $(this).attr('kgactrl');         //audio control
         var kg_videoctl = $(this).attr('kgvctrl');         //video control
         var kg_titlectl = $(this).attr('kgtctrl');         //title control
-        var kg_descctl = $(this).attr('kgdctrl');         //description control
+        var kg_descctl = $(this).attr('kgdctrl');          //description control
         var kg_linkbase = $(this).attr('kglbase');         //Link
         var kg_filebase = $(this).attr('kgfbase');         //File base
         var kg_imagesize = $(this).attr('kgisize');         //Image size
@@ -163,10 +162,13 @@ jQuery(document).ready(function ($) {
                         
                             return false;
                          }
-                    
+
                         var htmlobj = KoraGalleryObjJSONToHtml(val, kg_fspropsobj, kg_imagectl, kg_audioctl, kg_videoctl, kg_titlectl, kg_descctl, kg_sort, kg_order, kg_linkbase, kg_filebase, kg_imagesize, kg_loadimg, kg_baseresturl[i], kg_imageclip, kg_field, '', '');
+
                         //kg_fspropsobj.children('div.scroll').append("<p>"+htmlobj+"</p>");
                         pics.push(htmlobj);
+
+
                         sum = sum + 1;
                     });
                     
@@ -175,17 +177,22 @@ jQuery(document).ready(function ($) {
                     console.log("error");
                 })
         }
-        
+
         var i = 0;
+        var count = 0;
         if(pics.length>0){
-            while (i < pagesize) {
-                kg_fspropsobj.children('div.scroll').append("<p>" + pics[i] + "</p>" + "<div id = 'loading' align='center'></div>");
+            while (i < pics.length) {
+                if (pics[i] !== 'undefined') {
+                    kg_fspropsobj.children('div.scroll').append("<p>" + pics[i] + "</p>" + "<div id = 'loading' align='center'></div>");
+
+                }
                 i += 1;
             }
         }else{
                kg_fspropsobj.children('div.scroll').append("<p> No results from RestfulAPI</p>" + "<div id = 'loading' align='center'></div>");
              
         }
+
         var opts = {
             lines: 13 // The number of lines to draw
             , length: 28 // The length of each line
@@ -212,7 +219,9 @@ jQuery(document).ready(function ($) {
         function loadMoreContent() {
             additems=i+parseInt(pagesize);
             while (i < additems && i<sum) {
-                kg_fspropsobj.children('div.scroll').append("<p>" + pics[i] + "</p>");
+                if (pics[i] !== 'undefined') {
+                    kg_fspropsobj.children('div.scroll').append("<p>" + pics[i] + "</p>");
+                }
                 i += 1;
                 var target = document.getElementById('loading')
                // var spinner = new Spinner(opts).spin(target);
@@ -328,6 +337,7 @@ jQuery(document).ready(function ($) {
 
     function KoraGalleryObjJSONToHtml(obj_, kgifobj_, ictrl_, actrl_, vctrl_, tctrl_, dctrl_, sort_, order_, lbase_, fbase_, isize_, kg_loadimg_, restbaseurl_, imageclip_, fields, user, pass) {
         var retval = '';
+        var dobj = '';
         retval += "<div class='kgfs_object' kid='" + obj_.kid + "' >";
         // IF WE CAN FIND AN IMAGE
         arpsid=obj_.kid.split('-');       
@@ -429,7 +439,23 @@ jQuery(document).ready(function ($) {
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
-            retval += obj_[dctrl_];
+            var test = '';
+            test += obj_[dctrl_];
+            if (test === '[object Object]') {
+                for (var key in obj_[dctrl_]) {
+
+                    if (!obj_[dctrl_].hasOwnProperty(key)) {
+                        continue;
+                    }
+                    var obj = obj_[dctrl_][key];
+                    dobj += obj + ' ';
+                }
+            }
+            else {
+                dobj = obj_[dctrl_];
+            }
+            retval += dobj;
+
             if ((typeof lbase_ !== 'undefined') && (lbase_ != '')) {
                 retval += "</a>";
             }

@@ -167,21 +167,21 @@ wp_enqueue_script(
 	array('jquery') );
 wp_enqueue_script(
 	'spin',
-	KORA_PLUGIN_PATHBASE.'/js/spin.js',
+	KORA_PLUGIN_PATHBASE.'js/spin.js',
 	array('jquery')	);
 
 wp_enqueue_style(
 	'kora',
-	KORA_PLUGIN_PATHBASE.'/kora.css');
+	KORA_PLUGIN_PATHBASE.'kora.css');
 
 wp_enqueue_script(
 	'kora',
-	KORA_PLUGIN_PATHBASE.'/js/kora.js',
+	KORA_PLUGIN_PATHBASE.'js/kora.js',
 	array('jquery')	);
 
 wp_enqueue_script(
 	'infscroll',
-	KORA_PLUGIN_PATHBASE.'/js/infinitescroll.js',
+	KORA_PLUGIN_PATHBASE.'js/infinitescroll.js',
 	array('jquery')	);
 
 
@@ -233,7 +233,7 @@ add_action('media_buttons', 'add_my_media_button', 15);
 function mediabutton(){
 	wp_enqueue_script('media-upload');
     wp_enqueue_script('thickbox');
-	wp_register_script( 'mediabutton', ''.KORA_PLUGIN_PATHBASE.'addkoraobject.js', array(), null,true);
+	wp_register_script( 'mediabutton', ''.KORA_PLUGIN_PATHBASE.'js/addkoraobject.js', array(), null,true);
     wp_enqueue_script( 'mediabutton');
 	//................
 	$project=get_option('kordat_dbproj');
@@ -384,7 +384,7 @@ function koragallery_handler($incomingfrompost) {
         "kg_videocontrol" => "",
 		"kg_titlecontrol" => "",
 		"kg_desccontrol" => "",
-		"kg_linkbase" => KORA_PLUGIN_PATHBASE."fullrecord.php",
+		"kg_linkbase" => "",
 		"kg_type" => 'flexslider',
 		"kg_imagesize" => 'small',
 		"kg_sort" => "",
@@ -457,7 +457,7 @@ function korgallery_getrecords($wpatts) {
 				$pos = array_search($pidd, $dbproj);
 				$pid = $pidd;
 				$token = $dbtoken[$pos];
-				
+
 			}
 		}
     }
@@ -490,6 +490,7 @@ function korgallery_getrecords($wpatts) {
 		$kg_divtag_opts = '';
 		foreach ($wpatts as $k => $v)
 		{
+
 			// EACH WPATTT THAT STARTS W/ KGFS IS SENT AS PROPERTY...
 			if (preg_match('/^kgis_/', $k))
 			{
@@ -522,6 +523,7 @@ function korgallery_getrecords($wpatts) {
 	$projects = get_option('kordat_dbproj');
 	$token_option = get_option('kordat_dbtoken');
 	foreach ($break_query as $value) {
+
         $kid=explode(',',$value);
         $matches=explode('-',$kid[2]);
 
@@ -529,7 +531,7 @@ function korgallery_getrecords($wpatts) {
 
        $piddec=hexdec($matches[0]);
        $siddec=hexdec($matches[1]);
-      
+
 		$key=array_search($piddec,$projects);
 		array_push($project_id,$piddec);
 		array_push($scheme_id, $siddec);
@@ -538,11 +540,11 @@ function korgallery_getrecords($wpatts) {
 		$tokens[$piddec]=$token_option[$key];
 
 	}
-	
+
 	$num_pics = count($scheme_id);
 	$url=array();
 	foreach($subarrays as $pid=>$sub){
-		
+
 		$new_query='';
 
 		foreach($sub as $sid=>$qu){
@@ -558,6 +560,7 @@ function korgallery_getrecords($wpatts) {
 					}
 					$i++;
 				}
+
 				$url_new = $restful_url.'?request=GET&pid='.$pid.'&sid='.$sid.'&token='.$tokens[$pid].'&display='.urlencode($display).'&query='.urlencode($new_query).'&sort='.urlencode($kg_sort).'&order='.urlencode($kg_order);
 				array_push($url,$url_new);
 			}
@@ -566,7 +569,7 @@ function korgallery_getrecords($wpatts) {
 	//	$url_new = $restful_url.'?request=GET&pid='.$pid.'&sid='.$sid.'&token='.$tokens[$pid].'&display='.urlencode($display).'&query='.urlencode($new_query).'&sort='.urlencode($kg_sort).'&order='.urlencode($kg_order);
 	//	array_push($url,$url_new);
 	}
-	
+
 	$str_url = implode(";", $url);
 	$server_output=array();
 	switch ($kg_type)
@@ -575,7 +578,7 @@ function korgallery_getrecords($wpatts) {
 		///initialize post request to KORA API using curl
 
 	foreach($url as $value){
-		
+
 		$ch = curl_init($value);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
@@ -583,16 +586,16 @@ function korgallery_getrecords($wpatts) {
 		///capture results and display
 		$server_output1 = array(curl_exec($ch));
 		array_push($server_output,$server_output1);
-		
+
 	}
 			return "<div class='kora_gallery_pagination' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n";
 			break;
-	
+
 	case 'infscroll':
 		///initialize post request to KORA API using curl
 
 	foreach($url as $value){
-		
+
 		$ch = curl_init($value);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 		curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
@@ -600,13 +603,14 @@ function korgallery_getrecords($wpatts) {
 		///capture results and display
 		$server_output1 = array(curl_exec($ch));
 		array_push($server_output,$server_output1);
-		
+
 
 	}
+
 		return "<div class='kora_gallery_infscroll1' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n</div>\n
 </div>";
 			break;
-	
+
 	}
 
 }
@@ -679,6 +683,7 @@ function korasearch_getrecords($wpatts) {
 			$server_output1 = array(curl_exec($ch));
 		array_push($server_output,$server_output1);
 		//$server_output = curl_exec($ch);
+
 		return "$server_output\n";
 	}
 
