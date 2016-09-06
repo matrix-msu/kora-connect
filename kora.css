@@ -869,7 +869,9 @@ div#addNewObject.wrap p {
 
 /*** Inputs ***/
 div#addNewObject.wrap form div#newObjectScheme_chosen,
-div#addNewObject.wrap form div#newObjectFields_chosen {
+div#addNewObject.wrap form div#newObjectFields1_chosen,
+div#addNewObject.wrap form div#newObjectFields2_chosen
+{
     width: 100% !important;
     display: block;
 	margin-bottom: 20px;

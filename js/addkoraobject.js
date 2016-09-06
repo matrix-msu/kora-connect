@@ -1,17 +1,17 @@
-$(document).ready(function($) {
+$(document).ready(function() {
     
     var divs = [];
   
        
     //// Apply Chosen plugin functionality ////
     $("select#newObjectScheme").chosen();
-    $("select#newObjectFields").chosen();
-	
+    $("select#newObjectFields1").chosen();
+    $("select#newObjectFields2").chosen();
     $("select#objectsPerPage").chosen({
 		disable_search: true
 	});
 
-    $("select#newObjectScheme, select#newObjectFields, select#searchObjects, select#objectsPerPage").removeAttr('disabled');
+    $("select#newObjectScheme, select#newObjectFields1, select#newObjectFields2, select#searchObjects, select#objectsPerPage").removeAttr('disabled');
 
 
 
