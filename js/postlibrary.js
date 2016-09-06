@@ -106,6 +106,7 @@ $('#insert_shortcode_lib').click(function(){
 		var audio_control = document.getElementById("audio_control").value;
 		var video_control = document.getElementById("video_control").value;
 		var type = jQuery("input[name='type']:checked").val(); // pagination or infscroll
+
 		var pagesize = 5;
 		if ($('#pic_pagesize').val() !== '') {
 			pagesize = $('#pic_pagesize').val();
