@@ -32,6 +32,7 @@
      }
 	 $i=0;
 	 $query_control='';
+
 	if (is_array($table)) {
 	 foreach($table as $value){
 		if($i!=0){
@@ -39,7 +40,11 @@
 		}
 
 		$query_control .= "SELECT name,schemeid FROM $value WHERE name not in ('systimestamp', 'recordowner') AND schemeid in(";
+		 if (!$scheme_id) {
+			 die("Scheme not set in the connect tab");
+		 }
 		$lastScheme = end($scheme_id);
+
 	  if (is_array($scheme_id)) {
 		foreach($scheme_id as $value){
 		 if($value == $lastScheme){
@@ -112,13 +117,14 @@
 	}
 	$scheme_stmt->close();
 	// var_dump($schemeInfo);
-?>
-<!--==============================================================
-              BELOW IS THE START OF THE FORM
-==============================================================-->
+//?>
+<!--==============================================================-->
+<!--              BELOW IS THE START OF THE FORM-->
+<!--==============================================================-->
 <div class="form_upload">
 	<form action="" id="postgalleryform" method="post">
 	<?php
+		//var_dump($scheme_id);
 		echo "<select id = 'id_scheme' name = 'id_scheme' data-placeholder='Scheme: Search and Select Scheme for New Object(s)' onchange='this.form.submit()'>";
 		echo "<option value='default' selected></option>";
 		foreach ($scheme_id as $value) {
@@ -176,6 +182,7 @@
 		<select id="title_control" class="half_width_chosen_container" name="title" data-placeholder="Title Control: Search and Select the Title Control" required>
 			<option value="default" disabled selected>  </option>
 			<?php
+
 				//$result_control=$bd->query($query_control);
 		    /* execute statement */
 				$stmt->execute();
@@ -215,26 +222,26 @@
 			?>
 		</select>
 	</div>
-	<select class="array_control" name="array_control[]" multiple data-placeholder='Field(s): Search and Select Field(s) for New Object(s)' >
-		<option value disabled></option>
-			<?php
-				$stmt->execute();
-			 	$stmt->bind_result($name,$schemeid);
-			 	$options = array();
-				while($stmt->fetch()){
-					$select_title_value=$name;
-					$title_value = $_POST['array_control'];
-					$title_value = $title_value[0];
-					if ( $schemeid == $_POST['id_scheme']) {
-						array_push($options, $name);
-						echo '<option value="' . $select_title_value . '"' . ($title_value == $select_title_value ? ' selected="selected"' : '') . '>' . $select_title_value . '</option>';
-					}
-				/* if ($title_value == $select_title_value) {
-						$select_scheme_id = $schemeid;
-					}*/
-				}
-			?>
-	</select>
+<!--	<select class="array_control" name="array_control[]" multiple data-placeholder='Field(s): Search and Select Field(s) for New Object(s)' >-->
+<!--		<option value disabled></option>-->
+<!--			--><?php
+//				$stmt->execute();
+//			 	$stmt->bind_result($name,$schemeid);
+//			 	$options = array();
+//				while($stmt->fetch()){
+//					$select_title_value=$name;
+//					$title_value = $_POST['array_control'];
+//					$title_value = $title_value[0];
+//					if ( $schemeid == $_POST['id_scheme']) {
+//						array_push($options, $name);
+//						echo '<option value="' . $select_title_value . '"' . ($title_value == $select_title_value ? ' selected="selected"' : '') . '>' . $select_title_value . '</option>';
+//					}
+//				/* if ($title_value == $select_title_value) {
+//						$select_scheme_id = $schemeid;
+//					}*/
+//				}
+//			?>
+<!--	</select>-->
 	<!-- Infinite scroll and pagination -->
 	<div class="split_control">
 			<input id="infscroll" class="radio" type="radio" name="type" value="infscroll" checked />
@@ -259,15 +266,15 @@
 		<input type="checkbox" id="select_all_lib" name="select_all_lib" class="select_all_checkbox">
 		<label for="select_all_lib" class="select_all_btn">Select All [] Object(s)</label> <!-- [] is set by .js file -->
 	</div>
-	<!--
-	<div id=="exsistobj_select" >
-		<button id="shortcode"> Insert Shortcode</button>
-	</div>
-	<div id="loading" align="center"></div> -->
+<!--	<!---->
+<!--	<div id=="exsistobj_select" >-->
+<!--		<button id="shortcode"> Insert Shortcode</button>-->
+<!--	</div>-->
+<!--	<div id="loading" align="center"></div> -->
 	</form>
 </div>
 
-<!-- <div class="kora_results_container_library"> -->
+<!-- <div class="kora_results_container_library">-->
 <div class="kora_results_container kora-objs">
 	<?php
 		require_once( realpath( dirname(__FILE__) . "/../../../wp-includes/wp-db.php" ) );
@@ -276,10 +283,12 @@
 		define('KORA_PLUGIN_RESTFUL_SUBPATH', 'api/restful.php');
 		global $wpdb;
 		$library= $wpdb->prefix . 'koralibrary';
+
         $obj_per_page = $_POST['num_per_page']; //get the number of objects per page to load
         if ($obj_per_page == null) {
             $obj_per_page = 10; //set default
         }
+		//var_dump($wpdb->get_results("SELECT * FROM  $library"));
 		foreach( $wpdb->get_results("SELECT * FROM  $library") as $key => $row) {
 			$url = preg_replace('/ /','%20',$row->url);
 
@@ -306,6 +315,19 @@
 				</div>
 			</div>";
 		}
+//	foreach($wpdb->get_results("SELECT * FROM  $library") as $key => $row) {
+	//		$img_field = $row->imagefield;
+	//		$audio_field = $row->audiofield;
+	//		$video_field = $row->videofield;
+	//		//$sid = $row->
+	//		$title_field = 'Title';
+	//		$description_control = 'Description';
+	//		break;
+	//	}
+	//	foreach ($scheme_id as $scheme) {
+	//		$sid = $scheme;
+	//		break;
+	//	}
 	?>
 </div>
 <div class="pagination_footer"></div>
@@ -328,12 +350,14 @@
 	$("#desc_control").chosen();
 	$(".array_control").chosen();
 	$(".num_per_page").chosen();
-	//=========/CHOSEN=========
+	//=========/CHOSEN=======
 
 	// Global vars used in postlibrary.js
 	var url_plugin = "<?php echo $url_plugin;?>"; // currently, this is not used in postlibrary.js
 	var detailslink = "<?php echo 'wp-content/plugins/kora/fullrecord.php';?>";
     var obj_per_page = <?php echo $obj_per_page;?>;
+
+
 </script>
 <script src="<?php echo KORA_PLUGIN_PATHBASE.'js/postlibrary.js';?>"></script>
 <script src="<?php echo KORA_PLUGIN_PATHBASE.'js/spin.js';?>"></script> <!-- <-- THIS IS LOAD ICON -->
