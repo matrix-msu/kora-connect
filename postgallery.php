@@ -32,6 +32,7 @@ global $wpdb;
      }
 	 $i=0;
 	 $query_control='';
+
 	if (is_array($table)) {
 	 foreach($table as $value){
 		if($i!=0){
@@ -39,7 +40,11 @@ global $wpdb;
 		}
 
 		$query_control .= "SELECT name,schemeid FROM $value WHERE name not in ('systimestamp', 'recordowner') AND schemeid in(";
+		 if (!$scheme_id) {
+			 die("Scheme not set in the connect tab");
+		 }
 		$lastScheme = end($scheme_id);
+
 	  if (is_array($scheme_id)) {
 		foreach($scheme_id as $value){
 		 if($value == $lastScheme){

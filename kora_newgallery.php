@@ -76,6 +76,9 @@ $url_plugin=$_GET['url'];
 		$query_control .= "SELECT name,schemeid FROM $value WHERE showInResults = 1 AND schemeid in(";
 
 		$lastScheme = end($scheme_id);
+         if (!$scheme_id) {
+             die ("Scheme not set in the connect tab");
+         }
 	  if (is_array($scheme_id)) {
 		foreach($scheme_id as $value){
 		 if($value == $lastScheme){
