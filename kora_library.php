@@ -29,7 +29,7 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
 
 	<div class='kora-objs'>
     <?php 
-     //   var_dump($wpdb->get_results("SELECT * FROM  $library"));
+        //var_dump($wpdb->get_results("SELECT * FROM  $library"));
         //$keyword = $_POST['keyword'];
         $bool = true;
         foreach ($wpdb->get_results("SELECT * FROM  $library") as $key => $kora_obj) {
@@ -121,7 +121,7 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
                                 if (stristr($kid, $_POST['keyword']) !== false ||
                                     stristr(($server_output[$kora_obj->KID][$key]), ($_POST['keyword'])) !== false
                                 ) {
-
+                                    $bool = true;
                                     break;
                                 }
                                 else {
