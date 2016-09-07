@@ -1,7 +1,7 @@
 // hide script from old browsers
 
 jQuery(document).ready(function ($) {
-
+	
 //............
 
     // HAVE TO LOOP HERE TO HANDLE POTENTIAL MULTIPLE GALLERIES
@@ -362,6 +362,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
+                "<input type=hidden name='media' value='" + imgsrc + "'/>" +
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -379,6 +380,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
+                 "<input type=hidden name='media' value='" + audiosrc + "'/>" +
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -396,6 +398,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
+                 "<input type=hidden name='media' value='" + videosrc + "'/>" +
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -418,7 +421,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-
+                
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -435,7 +438,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-
+           
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }

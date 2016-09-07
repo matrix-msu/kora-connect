@@ -1,4 +1,4 @@
-<link rel="stylesheet" type="text/css" href="kora.css">
+<link rel="stylesheet" type="text/css" href="koraModal.css">
 <link rel="stylesheet" type="text/css" href="chosen_v1.4.2/chosen.css">
 
 <?php
@@ -372,7 +372,10 @@ if (!empty($kora_objects)) { // check is the php array made from JSON is empty. 
 <?php	echo "<div class='kora_results_container kora-objs'>";
 	
 	foreach ($kora_objects as $kora_object_kid => $kora_object) {
+<<<<<<< HEAD
 		//var_dump($kora_object);
+=======
+>>>>>>> 0715e1f39e10e6278fc264912e125ae5bfe73842
 		if ($kora_object[$image_control]) {
            $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$kora_object[$image_control]['localName'];
            $media_type = "image";
@@ -386,7 +389,7 @@ if (!empty($kora_objects)) { // check is the php array made from JSON is empty. 
           // var_dump($audioFile);
            $media_type = "audio";
        } else {
-           $thumb_src = "http://img.photobucket.com/albums/v516/MizGrace/babyhedgehoginbubblebath.jpg";
+           $thumb_src = KORA_PLUGIN_PATHBASE.'images/placeholder_plugin.svg';
            $media_type = "NULL";
        }	
        
