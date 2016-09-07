@@ -372,10 +372,7 @@ if (!empty($kora_objects)) { // check is the php array made from JSON is empty. 
 <?php	echo "<div class='kora_results_container kora-objs'>";
 	
 	foreach ($kora_objects as $kora_object_kid => $kora_object) {
-<<<<<<< HEAD
 		//var_dump($kora_object);
-=======
->>>>>>> 0715e1f39e10e6278fc264912e125ae5bfe73842
 		if ($kora_object[$image_control]) {
            $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$kora_object[$image_control]['localName'];
            $media_type = "image";
