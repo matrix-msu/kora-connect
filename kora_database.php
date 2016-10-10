@@ -603,6 +603,48 @@ function korgallery_getrecords($wpatts) {
 
 
             }
+            $regex = "/([0-9]+) ([0-9]+) ([0-9]+) (CE|BCE)/";
+            if (preg_match($regex, $kg_dctrl, $matches)) {
+                switch ($matches[1]){
+                    case 1:
+                        $kg_dctrl = $matches[3] . " January " . $matches[2];
+                        break;
+                    case 2:
+                        $kg_dctrl = $matches[3] . " February " . $matches[2];
+                        break;
+                    case 3:
+                        $kg_dctrl = $matches[3] . " March " . $matches[2];
+                        break;
+                    case 4:
+                        $kg_dctrl = $matches[3] . " April " . $matches[2];
+                        break;
+                    case 5:
+                        $kg_dctrl = $matches[3] . " May " . $matches[2];
+                        break;
+                    case 6:
+                        $kg_dctrl = $matches[3] . " June " . $matches[2];
+                        break;
+                    case 7:
+                        $kg_dctrl = $matches[3] . " July " . $matches[2];
+                        break;
+                    case 8:
+                        $kg_dctrl = $matches[3] . " August " . $matches[2];
+                        break;
+                    case 9:
+                        $kg_dctrl = $matches[3] . " September " . $matches[2];
+                        break;
+                    case 10:
+                        $kg_dctrl = $matches[3] . " October " . $matches[2];
+                        break;
+                    case 11:
+                        $kg_dctrl = $matches[3] . " November " . $matches[2];
+                        break;
+                    case 12:
+                        $kg_dctrl = $matches[3] . " December " . $matches[2];
+                        break;
+                }
+
+            }
             return "<div class='kora_gallery_infscroll1' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n\n
 </div>";
             break;
