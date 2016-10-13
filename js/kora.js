@@ -1,7 +1,7 @@
 // hide script from old browsers
 
 jQuery(document).ready(function ($) {
-	
+
 //............
 
     // HAVE TO LOOP HERE TO HANDLE POTENTIAL MULTIPLE GALLERIES
@@ -46,6 +46,45 @@ jQuery(document).ready(function ($) {
 
                         var htmlobj = KoraGalleryObjJSONToHtml(val, kg_fspropsobj, kg_imagectl, kg_audioctl, kg_videoctl, kg_titlectl, kg_descctl, kg_sort, kg_order, kg_linkbase, kg_filebase, kg_imagesize, kg_loadimg, kg_baseresturl[i], kg_imageclip, kg_field);
                         pics.push(htmlobj);
+                        JSON.stringify(pics);
+                        mch = re.exec(pics[sum]);
+                        switch (mch[1]) {
+                            case '1':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " January " + mch[2]);
+                                break;
+                            case '2':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " February " + mch[2]);
+                                break;
+                            case '3':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " March " + mch[2]);
+                                break;
+                            case '4':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " April " + mch[2]);
+                                break;
+                            case '5':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " May " + mch[2]);
+                                break;
+                            case '6':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " June " + mch[2]);
+                                break;
+                            case '7':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " July " + mch[2]);
+                                break;
+                            case '8':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " August " + mch[2]);
+                                break;
+                            case '9':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " September " + mch[2]);
+                                break;
+                            case '10':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " October " + mch[2]);
+                                break;
+                            case '11':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " November " + mch[2]);
+                                break;
+                            case '12':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " December " + mch[2]);
+                        }
                         sum = sum + 1;
                     });
 
@@ -140,6 +179,7 @@ jQuery(document).ready(function ($) {
         //ResutfulAPI setup
         var tarresturl_str = kg_fspropsobj.attr('kgresturl');
         var tarresturl = tarresturl_str.split(";");
+
         //	alert(tarresturl.length);
         var kg_baseresturl = [];
         for (var i = 0; i < tarresturl.length; i++) {
@@ -152,7 +192,10 @@ jQuery(document).ready(function ($) {
         var sum = 0;
         var pos = 0;
         var pagesize = kg_pagesize;
+        var mch;
+        var re = /([0-9][0-9]?) ([0-9][0-9]?) ([0-9][0-9][0-9][0-9])( CE|BCE)?/;
         for (var i = 0; i < tarresturl.length; i++) {
+            tarresturl[i] = 'http://' + tarresturl[i];
             $.getJSON(
                 tarresturl[i],
                 function (data) {
@@ -164,10 +207,47 @@ jQuery(document).ready(function ($) {
                          }
 
                         var htmlobj = KoraGalleryObjJSONToHtml(val, kg_fspropsobj, kg_imagectl, kg_audioctl, kg_videoctl, kg_titlectl, kg_descctl, kg_sort, kg_order, kg_linkbase, kg_filebase, kg_imagesize, kg_loadimg, kg_baseresturl[i], kg_imageclip, kg_field, '', '');
-
                         //kg_fspropsobj.children('div.scroll').append("<p>"+htmlobj+"</p>");
                         pics.push(htmlobj);
-
+                        JSON.stringify(pics);
+                        mch = re.exec(pics[sum]);
+                        switch (mch[1]) {
+                            case '1':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " January " + mch[2]);
+                                break;
+                            case '2':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " February " + mch[2]);
+                                break;
+                            case '3':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " March " + mch[2]);
+                                break;
+                            case '4':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " April " + mch[2]);
+                                break;
+                            case '5':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " May " + mch[2]);
+                                break;
+                            case '6':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " June " + mch[2]);
+                                break;
+                            case '7':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " July " + mch[2]);
+                                break;
+                            case '8':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " August " + mch[2]);
+                                break;
+                            case '9':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " September " + mch[2]);
+                                break;
+                            case '10':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " October " + mch[2]);
+                                break;
+                            case '11':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " November " + mch[2]);
+                                break;
+                            case '12':
+                                pics[sum] = pics[sum].replace(mch[0], mch[3] + " December " + mch[2]);
+                        }
 
                         sum = sum + 1;
                     });
@@ -362,7 +442,6 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-                "<input type=hidden name='media' value='" + imgsrc + "'/>" +
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -380,7 +459,6 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-                 "<input type=hidden name='media' value='" + audiosrc + "'/>" +
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -398,7 +476,6 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-                 "<input type=hidden name='media' value='" + videosrc + "'/>" +
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -421,7 +498,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-                
+
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
@@ -438,7 +515,7 @@ jQuery(document).ready(function ($) {
                 retval += "<form name='detail" + obj_.kid + "' action='" + lbase_ + "?kid=" + obj_.kid + "' method='post' enctype='multipart/form-data'>" +
                 "<input type=hidden name='restful' value='" + restbaseurl_ + "'/>" +
                 "<input type=hidden name='fields' value='" + fields + "'/>" +
-           
+
                 "</form>"
                 + "<a href='#' onclick='document.forms[" + '"detail' + obj_.kid + '"' + "].submit(); return false;'>";
             }
