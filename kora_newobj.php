@@ -12,22 +12,29 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
 
     <script src="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.min.js'); ?>"></script>
+    <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.js'); ?>"></script>
     <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.min.js'); ?>"></script>
     <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.proto.min.js'); ?>"></script>
-    <script> var url_plugin = '<?php echo KORA_PLUGIN_PATHBASE;?>'; 
+    <script> var url_plugin = '<?php echo KORA_PLUGIN_PATHBASE;?>';
              var schemeid = "<?php if (isset($_POST['kid'])) { echo $_POST['kid']; } ?>";
     </script>
+
+
 
     <?php $libraryUrl = admin_url('admin.php?page=Library'); ?>
     <script>
         var libraryUrl = "<?php echo $libraryUrl;?>";
      </script>
-    
+
     <script src="<?php echo plugins_url('kora/js/addkoraobject.js'); ?>"></script>
-    
-    <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.css'); ?>" type="text/css"/>
-    <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal-default-theme.css'); ?>" type="text/css"/>
+
+
+
+<!--    <link rel="stylesheet" href="--><?php //echo plugins_url('kora/remodal_v1.0.6/dist/remodal.css'); ?><!--" type="text/css"/>-->
+<!--    <link rel="stylesheet" href="--><?php //echo plugins_url('kora/remodal_v1.0.6/dist/remodal-default-theme.css'); ?><!--" type="text/css"/>-->
     <link rel="stylesheet" href="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.css'); ?>" type="text/css"/>
+
+
 <?php 
 	 /* connect to database*/
 	 $mysql_hostname = kordat_dbhostname;
@@ -474,7 +481,6 @@
     jQuery(document).ready(function($){
     
        // check if scheme drop list is selected
-      
         $('#newObjectScheme').change(function(){
             var schemeid = $(this).val();
             $.ajax({

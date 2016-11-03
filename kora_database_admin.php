@@ -2,6 +2,7 @@
     define('KORA_PLUGIN_PATHBASE', plugin_dir_url(__FILE__));
     require_once(realpath(dirname(__FILE__) . "/dbconfig.php"));
     $url_plugin=$_GET['url'];
+
 ?>
              
     <script> var url_plugin = '<?php echo KORA_PLUGIN_PATHBASE;?>'; </script>
@@ -106,6 +107,7 @@
                 while($stmt->fetch()){ 
                      $projectInfo[] = array('pid' => $pid, 'projectName' => $pname, 'description' => $pdesc);    
                 }
+
                 $stmt->close(); 
                 // Get all scheme infromation from db.
                 $query_scheme = "SELECT schemeid, pid, schemeName, description FROM scheme;";
@@ -116,7 +118,7 @@
                 while($stmt->fetch()){  
                      $schemeInfo[] = array('sid' => $sid, 'pid' => $pid, 'schemeName' => $sname, 'description' => $sdesc);                     
                 }
-                //var_dump($schemeInfo);
+
                 $stmt->close(); 
     }
         ?>

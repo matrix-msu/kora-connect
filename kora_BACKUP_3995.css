@@ -1,0 +1,3821 @@
+@font-face {
+  font-family: "Helvetica Neue";
+  src: url('font/HelveticaNeue.otf') format('opentype'), url('font/HelveticaNeue.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Helvetica Neue-Light";
+  src: url('font/HelveticaNeue-Light.otf') format('opentype'), url('font/HelveticaNeue-Light.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Helvetica Neue-UltraLight";
+  src: url('font/HelveticaNeue-UltraLight.otf') format('opentype'), url('font/HelveticaNeue-UltraLight.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Helvetica Neue-Italic";
+  src: url('font/HelveticaNeue-Italic.otf') format('opentype'), url('font/HelveticaNeue-Italic.ttf') format('truetype');
+}
+@font-face {
+  font-family: "Open Sans Bold";
+  src: url('font/OpenSans-Bold.ttf') format('truetype');
+  font-weight: bold;
+}
+/*@font-face {
+    font-family: 'montserratregular';
+    src: url('fonts/Montserrat-Regular-webfont.eot');
+    src: url('fonts/Montserrat-Regular-webfont.eot?#iefix') format('embedded-opentype'),
+    url('fonts/Montserrat-Regular-webfont.woff') format('woff'),
+    url('fonts/Montserrat-Regular-webfont.ttf') format('truetype'),
+    url('fonts/Montserrat-Regular-webfont.svg#montserratregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+.toplevel_page_KORA_Settings,
+.koraconnect_page_Galleries,
+.koraconnect_page_Library,
+.koraconnect_page_Add_New_KORA_Object,
+#form_search,
+#TB_window {
+  /****** Globals ******/
+  /*** Page Wrapper ***/
+  /*** Page Titles ***/
+  /*** Section Titles ***/
+  /*** Other Headers ***/
+  /*** Regular Text ***/
+  /*** Inputs ***/
+  /*** Placeholder Text ***/
+  /*** Hover and Focus Effects ***/
+  /*** Remove Default Search Input Styling ***/
+  /*** Buttons ***/
+  /*********************************
+	 Connect Page
+	*********************************/
+  /*** Project boxes ***/
+  /*** Inputs ***/
+  /* Chosen Placeholders */
+  /* X */
+  /*** Buttons ***/
+  /********* Responsiveness *********/
+  /*********************************
+	 Modals
+	*********************************/
+  /* New Post Shortcode popup */
+  /* Need to overwrite default wordpress styles */
+  /* This gets rid of the old close icon */
+  /* radio button styles */
+  /* Style for select all objects checkbox (though technically it's a label style)*/
+  /* pagination footer styles */
+  /* Adust Padding on Delete Modals ONLY */
+  /*** Delete Modal Buttons ***/
+  /***** Add New Kora Object - "Edit Details" Modal *****/
+  /* < Image */
+  /* X Image */
+  /* Object Image */
+  /*** Checkboxes ***/
+  /* First Two Checkboxes */
+  /*** Labels and Descriptions ***/
+  /* First Two Labels */
+  /*** Button ***/
+  /********* Responsiveness *********/
+  /*********************************
+	 Kora Settings Page
+	*********************************/
+  /*********************************
+	 Add New Kora Object Page
+	*********************************/
+  /*** Inputs ***/
+  /*** Results ***/
+  /*** Pagination ***/
+  /* Arrows */
+  /* Numbers */
+  /* 'Add Object(s) to Library' Button */
+  /********* Responsiveness *********/
+  /*********************************
+	 KORA LIBRARY PAGE
+	*********************************/
+  /*********************************
+	 KORA GALLERY PAGE
+	*********************************/
+  /* .lib_obj img {
+		width: 100%;
+		height: auto;
+	} */
+  /*div#galleries.wrap p {
+		margin: 20px 0;
+	    color: #8c8c8c;
+	}*/
+  /* Add New Kora Gallery */
+  /*confirm box */
+  /*********************************
+	 FORM UPLOAD PAGE
+	*********************************/
+  /********************************/
+  /*Full Record Page */
+  /*******************/
+  /*** KORA OBJECT STYLING ***/
+  /*===========================================================*/
+}
+.toplevel_page_KORA_Settings html,
+.koraconnect_page_Galleries html,
+.koraconnect_page_Library html,
+.koraconnect_page_Add_New_KORA_Object html,
+#form_search html,
+#TB_window html {
+  background-color: #ffffff;
+}
+.toplevel_page_KORA_Settings #wpbody,
+.koraconnect_page_Galleries #wpbody,
+.koraconnect_page_Library #wpbody,
+.koraconnect_page_Add_New_KORA_Object #wpbody,
+#form_search #wpbody,
+#TB_window #wpbody {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 14px;
+  color: #454545;
+}
+.toplevel_page_KORA_Settings b,
+.koraconnect_page_Galleries b,
+.koraconnect_page_Library b,
+.koraconnect_page_Add_New_KORA_Object b,
+#form_search b,
+#TB_window b,
+.toplevel_page_KORA_Settings strong,
+.koraconnect_page_Galleries strong,
+.koraconnect_page_Library strong,
+.koraconnect_page_Add_New_KORA_Object strong,
+#form_search strong,
+#TB_window strong {
+  font-family: "Open Sans Bold", "Arial Bold", sans-serif;
+}
+.toplevel_page_KORA_Settings .wrap,
+.koraconnect_page_Galleries .wrap,
+.koraconnect_page_Library .wrap,
+.koraconnect_page_Add_New_KORA_Object .wrap,
+#form_search .wrap,
+#TB_window .wrap {
+  position: relative;
+}
+@media only screen and (min-width: 942px) {
+  .toplevel_page_KORA_Settings .wrap,
+  .koraconnect_page_Galleries .wrap,
+  .koraconnect_page_Library .wrap,
+  .koraconnect_page_Add_New_KORA_Object .wrap,
+  #form_search .wrap,
+  #TB_window .wrap {
+    max-width: 864px;
+  }
+}
+@media only screen and (min-width: 1385px) {
+  .toplevel_page_KORA_Settings .wrap,
+  .koraconnect_page_Galleries .wrap,
+  .koraconnect_page_Library .wrap,
+  .koraconnect_page_Add_New_KORA_Object .wrap,
+  #form_search .wrap,
+  #TB_window .wrap {
+    max-width: 1306px;
+  }
+}
+.toplevel_page_KORA_Settings h1,
+.koraconnect_page_Galleries h1,
+.koraconnect_page_Library h1,
+.koraconnect_page_Add_New_KORA_Object h1,
+#form_search h1,
+#TB_window h1 {
+  padding: 0 !important;
+  margin: 25px 0 40px 0 !important;
+  color: #454545;
+  font-size: 60px !important;
+  line-height: 60px !important;
+  font-family: "Helvetica Neue-UltraLight", "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: normal !important;
+}
+.toplevel_page_KORA_Settings h2,
+.koraconnect_page_Galleries h2,
+.koraconnect_page_Library h2,
+.koraconnect_page_Add_New_KORA_Object h2,
+#form_search h2,
+#TB_window h2 {
+  margin: 20px 0 !important;
+  color: #454545;
+  font-size: 20px !important;
+  line-height: 20px !important;
+  font-family: "Helvetica Neue-Light", "Helvetica Neue", Helvetica, sans-serif !important;
+  font-weight: normal !important;
+}
+.toplevel_page_KORA_Settings h3,
+.koraconnect_page_Galleries h3,
+.koraconnect_page_Library h3,
+.koraconnect_page_Add_New_KORA_Object h3,
+#form_search h3,
+#TB_window h3,
+.toplevel_page_KORA_Settings h4,
+.koraconnect_page_Galleries h4,
+.koraconnect_page_Library h4,
+.koraconnect_page_Add_New_KORA_Object h4,
+#form_search h4,
+#TB_window h4,
+.toplevel_page_KORA_Settings h5,
+.koraconnect_page_Galleries h5,
+.koraconnect_page_Library h5,
+.koraconnect_page_Add_New_KORA_Object h5,
+#form_search h5,
+#TB_window h5,
+.toplevel_page_KORA_Settings h6,
+.koraconnect_page_Galleries h6,
+.koraconnect_page_Library h6,
+.koraconnect_page_Add_New_KORA_Object h6,
+#form_search h6,
+#TB_window h6 {
+  font-family: "Helvetica Neue", Helvetica, sans-serif !important;
+}
+.toplevel_page_KORA_Settings p,
+.koraconnect_page_Galleries p,
+.koraconnect_page_Library p,
+.koraconnect_page_Add_New_KORA_Object p,
+#form_search p,
+#TB_window p {
+  color: #454545;
+  font-size: 13px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-weight: normal;
+}
+.toplevel_page_KORA_Settings input[type=text],
+.koraconnect_page_Galleries input[type=text],
+.koraconnect_page_Library input[type=text],
+.koraconnect_page_Add_New_KORA_Object input[type=text],
+#form_search input[type=text],
+#TB_window input[type=text],
+.toplevel_page_KORA_Settings input[type=button],
+.koraconnect_page_Galleries input[type=button],
+.koraconnect_page_Library input[type=button],
+.koraconnect_page_Add_New_KORA_Object input[type=button],
+#form_search input[type=button],
+#TB_window input[type=button],
+.toplevel_page_KORA_Settings input[type=submit],
+.koraconnect_page_Galleries input[type=submit],
+.koraconnect_page_Library input[type=submit],
+.koraconnect_page_Add_New_KORA_Object input[type=submit],
+#form_search input[type=submit],
+#TB_window input[type=submit],
+.toplevel_page_KORA_Settings input[type=search],
+.koraconnect_page_Galleries input[type=search],
+.koraconnect_page_Library input[type=search],
+.koraconnect_page_Add_New_KORA_Object input[type=search],
+#form_search input[type=search],
+#TB_window input[type=search] {
+  width: 100%;
+  margin: 0;
+  padding: 18px 20px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #454545;
+  font-size: 13px;
+  border: 1px solid #dedede;
+  outline: none;
+}
+.toplevel_page_KORA_Settings input[type=button],
+.koraconnect_page_Galleries input[type=button],
+.koraconnect_page_Library input[type=button],
+.koraconnect_page_Add_New_KORA_Object input[type=button],
+#form_search input[type=button],
+#TB_window input[type=button],
+.toplevel_page_KORA_Settings input[type=submit],
+.koraconnect_page_Galleries input[type=submit],
+.koraconnect_page_Library input[type=submit],
+.koraconnect_page_Add_New_KORA_Object input[type=submit],
+#form_search input[type=submit],
+#TB_window input[type=submit],
+.toplevel_page_KORA_Settings button,
+.koraconnect_page_Galleries button,
+.koraconnect_page_Library button,
+.koraconnect_page_Add_New_KORA_Object button,
+#form_search button,
+#TB_window button {
+  cursor: pointer;
+  -webkit-transition: all ease 0.3s;
+  -moz-transition: all ease 0.3s;
+  -ms-transition: all ease 0.3s;
+  -o-transition: all ease 0.3s;
+  transition: all ease 0.3s;
+}
+.toplevel_page_KORA_Settings input[type=button],
+.koraconnect_page_Galleries input[type=button],
+.koraconnect_page_Library input[type=button],
+.koraconnect_page_Add_New_KORA_Object input[type=button],
+#form_search input[type=button],
+#TB_window input[type=button] {
+  color: #57abce;
+  text-transform: uppercase;
+  background: white;
+  border: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings input[type=submit],
+.koraconnect_page_Galleries input[type=submit],
+.koraconnect_page_Library input[type=submit],
+.koraconnect_page_Add_New_KORA_Object input[type=submit],
+#form_search input[type=submit],
+#TB_window input[type=submit] {
+  margin-top: 40px;
+  color: white;
+  text-transform: uppercase;
+  background: #57abce;
+  border: 1px solid #57abce;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings input::-webkit-input-placeholder,
+.koraconnect_page_Galleries input::-webkit-input-placeholder,
+.koraconnect_page_Library input::-webkit-input-placeholder,
+.koraconnect_page_Add_New_KORA_Object input::-webkit-input-placeholder,
+#form_search input::-webkit-input-placeholder,
+#TB_window input::-webkit-input-placeholder {
+  font-family: "Helvetica Neue-Light", Helvetica, sans-serif;
+  color: #b3b3b3;
+}
+.toplevel_page_KORA_Settings input:-ms-input-placeholder,
+.koraconnect_page_Galleries input:-ms-input-placeholder,
+.koraconnect_page_Library input:-ms-input-placeholder,
+.koraconnect_page_Add_New_KORA_Object input:-ms-input-placeholder,
+#form_search input:-ms-input-placeholder,
+#TB_window input:-ms-input-placeholder {
+  font-family: "Helvetica Neue-Light", Helvetica, sans-serif;
+  color: #b3b3b3;
+}
+.toplevel_page_KORA_Settings input::-moz-placeholder,
+.koraconnect_page_Galleries input::-moz-placeholder,
+.koraconnect_page_Library input::-moz-placeholder,
+.koraconnect_page_Add_New_KORA_Object input::-moz-placeholder,
+#form_search input::-moz-placeholder,
+#TB_window input::-moz-placeholder {
+  font-family: "Helvetica Neue-Light", Helvetica, sans-serif;
+  color: #b3b3b3;
+  opacity: 1;
+}
+.toplevel_page_KORA_Settings input:-moz-placeholder,
+.koraconnect_page_Galleries input:-moz-placeholder,
+.koraconnect_page_Library input:-moz-placeholder,
+.koraconnect_page_Add_New_KORA_Object input:-moz-placeholder,
+#form_search input:-moz-placeholder,
+#TB_window input:-moz-placeholder {
+  font-family: "Helvetica Neue-Light", Helvetica, sans-serif;
+  color: #b3b3b3;
+  opacity: 1;
+}
+.toplevel_page_KORA_Settings input[type=search]::-webkit-input-placeholder,
+.koraconnect_page_Galleries input[type=search]::-webkit-input-placeholder,
+.koraconnect_page_Library input[type=search]::-webkit-input-placeholder,
+.koraconnect_page_Add_New_KORA_Object input[type=search]::-webkit-input-placeholder,
+#form_search input[type=search]::-webkit-input-placeholder,
+#TB_window input[type=search]::-webkit-input-placeholder {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-style: normal;
+  color: #454545;
+}
+.toplevel_page_KORA_Settings input[type=search]:-ms-input-placeholder,
+.koraconnect_page_Galleries input[type=search]:-ms-input-placeholder,
+.koraconnect_page_Library input[type=search]:-ms-input-placeholder,
+.koraconnect_page_Add_New_KORA_Object input[type=search]:-ms-input-placeholder,
+#form_search input[type=search]:-ms-input-placeholder,
+#TB_window input[type=search]:-ms-input-placeholder {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-style: normal;
+  color: #454545;
+}
+.toplevel_page_KORA_Settings input[type=search]::-moz-placeholder,
+.koraconnect_page_Galleries input[type=search]::-moz-placeholder,
+.koraconnect_page_Library input[type=search]::-moz-placeholder,
+.koraconnect_page_Add_New_KORA_Object input[type=search]::-moz-placeholder,
+#form_search input[type=search]::-moz-placeholder,
+#TB_window input[type=search]::-moz-placeholder {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-style: normal;
+  color: #454545;
+  opacity: 1;
+}
+.toplevel_page_KORA_Settings input[type=search]:-moz-placeholder,
+.koraconnect_page_Galleries input[type=search]:-moz-placeholder,
+.koraconnect_page_Library input[type=search]:-moz-placeholder,
+.koraconnect_page_Add_New_KORA_Object input[type=search]:-moz-placeholder,
+#form_search input[type=search]:-moz-placeholder,
+#TB_window input[type=search]:-moz-placeholder {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  font-style: normal;
+  color: #454545;
+  opacity: 1;
+}
+.toplevel_page_KORA_Settings input[type=text]:hover,
+.koraconnect_page_Galleries input[type=text]:hover,
+.koraconnect_page_Library input[type=text]:hover,
+.koraconnect_page_Add_New_KORA_Object input[type=text]:hover,
+#form_search input[type=text]:hover,
+#TB_window input[type=text]:hover,
+.toplevel_page_KORA_Settings input[type=search]:hover,
+.koraconnect_page_Galleries input[type=search]:hover,
+.koraconnect_page_Library input[type=search]:hover,
+.koraconnect_page_Add_New_KORA_Object input[type=search]:hover,
+#form_search input[type=search]:hover,
+#TB_window input[type=search]:hover,
+.toplevel_page_KORA_Settings input[type=text]:focus,
+.koraconnect_page_Galleries input[type=text]:focus,
+.koraconnect_page_Library input[type=text]:focus,
+.koraconnect_page_Add_New_KORA_Object input[type=text]:focus,
+#form_search input[type=text]:focus,
+#TB_window input[type=text]:focus,
+.toplevel_page_KORA_Settings input[type=search]:focus,
+.koraconnect_page_Galleries input[type=search]:focus,
+.koraconnect_page_Library input[type=search]:focus,
+.koraconnect_page_Add_New_KORA_Object input[type=search]:focus,
+#form_search input[type=search]:focus,
+#TB_window input[type=search]:focus,
+.toplevel_page_KORA_Settings input[type=checkbox]:focus,
+.koraconnect_page_Galleries input[type=checkbox]:focus,
+.koraconnect_page_Library input[type=checkbox]:focus,
+.koraconnect_page_Add_New_KORA_Object input[type=checkbox]:focus,
+#form_search input[type=checkbox]:focus,
+#TB_window input[type=checkbox]:focus {
+  border: 1px solid #8c8c8c;
+  position: relative;
+  z-index: 100;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+.toplevel_page_KORA_Settings input[type=search]::-webkit-search-decoration,
+.koraconnect_page_Galleries input[type=search]::-webkit-search-decoration,
+.koraconnect_page_Library input[type=search]::-webkit-search-decoration,
+.koraconnect_page_Add_New_KORA_Object input[type=search]::-webkit-search-decoration,
+#form_search input[type=search]::-webkit-search-decoration,
+#TB_window input[type=search]::-webkit-search-decoration,
+.toplevel_page_KORA_Settings input[type=search]::-webkit-search-cancel-button,
+.koraconnect_page_Galleries input[type=search]::-webkit-search-cancel-button,
+.koraconnect_page_Library input[type=search]::-webkit-search-cancel-button,
+.koraconnect_page_Add_New_KORA_Object input[type=search]::-webkit-search-cancel-button,
+#form_search input[type=search]::-webkit-search-cancel-button,
+#TB_window input[type=search]::-webkit-search-cancel-button,
+.toplevel_page_KORA_Settings input[type=search]::-webkit-search-results-button,
+.koraconnect_page_Galleries input[type=search]::-webkit-search-results-button,
+.koraconnect_page_Library input[type=search]::-webkit-search-results-button,
+.koraconnect_page_Add_New_KORA_Object input[type=search]::-webkit-search-results-button,
+#form_search input[type=search]::-webkit-search-results-button,
+#TB_window input[type=search]::-webkit-search-results-button,
+.toplevel_page_KORA_Settings input[type=search]::-webkit-search-results-decoration,
+.koraconnect_page_Galleries input[type=search]::-webkit-search-results-decoration,
+.koraconnect_page_Library input[type=search]::-webkit-search-results-decoration,
+.koraconnect_page_Add_New_KORA_Object input[type=search]::-webkit-search-results-decoration,
+#form_search input[type=search]::-webkit-search-results-decoration,
+#TB_window input[type=search]::-webkit-search-results-decoration {
+  display: none;
+}
+.toplevel_page_KORA_Settings button,
+.koraconnect_page_Galleries button,
+.koraconnect_page_Library button,
+.koraconnect_page_Add_New_KORA_Object button,
+#form_search button,
+#TB_window button {
+  font-size: 13px;
+  line-height: 13px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  cursor: pointer;
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.toplevel_page_KORA_Settings .blue-btn,
+.koraconnect_page_Galleries .blue-btn,
+.koraconnect_page_Library .blue-btn,
+.koraconnect_page_Add_New_KORA_Object .blue-btn,
+#form_search .blue-btn,
+#TB_window .blue-btn {
+  color: #fff !important;
+  background-color: #57abce !important;
+  border: 1px solid #57abce !important;
+  -webkit-transition: background-color 150ms linear 0s;
+  -moz-transition: background-color 150ms linear 0s;
+  -ms-transition: background-color 150ms linear 0s;
+  -o-transition: background-color 150ms linear 0s;
+  transition: background-color 150ms linear 0s;
+}
+.toplevel_page_KORA_Settings .blue-btn:hover,
+.koraconnect_page_Galleries .blue-btn:hover,
+.koraconnect_page_Library .blue-btn:hover,
+.koraconnect_page_Add_New_KORA_Object .blue-btn:hover,
+#form_search .blue-btn:hover,
+#TB_window .blue-btn:hover {
+  background-color: #3894bb !important;
+}
+.toplevel_page_KORA_Settings h2#koraUrlHeader,
+.koraconnect_page_Galleries h2#koraUrlHeader,
+.koraconnect_page_Library h2#koraUrlHeader,
+.koraconnect_page_Add_New_KORA_Object h2#koraUrlHeader,
+#form_search h2#koraUrlHeader,
+#TB_window h2#koraUrlHeader {
+  margin-top: 0 !important;
+}
+.toplevel_page_KORA_Settings h2#ptsHeader,
+.koraconnect_page_Galleries h2#ptsHeader,
+.koraconnect_page_Library h2#ptsHeader,
+.koraconnect_page_Add_New_KORA_Object h2#ptsHeader,
+#form_search h2#ptsHeader,
+#TB_window h2#ptsHeader {
+  display: inline-block;
+  margin: 40px 25px 0 0 !important;
+  opacity: 0.2;
+}
+.toplevel_page_KORA_Settings div#questions,
+.koraconnect_page_Galleries div#questions,
+.koraconnect_page_Library div#questions,
+.koraconnect_page_Add_New_KORA_Object div#questions,
+#form_search div#questions,
+#TB_window div#questions {
+  display: inline-block;
+  margin: 10px 0 20px 0;
+  opacity: 0.2;
+}
+.toplevel_page_KORA_Settings div#questions span,
+.koraconnect_page_Galleries div#questions span,
+.koraconnect_page_Library div#questions span,
+.koraconnect_page_Add_New_KORA_Object div#questions span,
+#form_search div#questions span,
+#TB_window div#questions span {
+  padding-right: 10px;
+  color: #b3b3b3;
+  font-size: 11px;
+}
+.toplevel_page_KORA_Settings .buttonCont input[type=submit],
+.koraconnect_page_Galleries .buttonCont input[type=submit],
+.koraconnect_page_Library .buttonCont input[type=submit],
+.koraconnect_page_Add_New_KORA_Object .buttonCont input[type=submit],
+#form_search .buttonCont input[type=submit],
+#TB_window .buttonCont input[type=submit] {
+  margin-top: 0;
+  margin-bottom: 25px;
+  color: white;
+  text-transform: uppercase;
+  background: #57abce;
+  border: 1px solid #57abce;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings div#questions span:hover,
+.koraconnect_page_Galleries div#questions span:hover,
+.koraconnect_page_Library div#questions span:hover,
+.koraconnect_page_Add_New_KORA_Object div#questions span:hover,
+#form_search div#questions span:hover,
+#TB_window div#questions span:hover {
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings div#projectBox,
+.koraconnect_page_Galleries div#projectBox,
+.koraconnect_page_Library div#projectBox,
+.koraconnect_page_Add_New_KORA_Object div#projectBox,
+#form_search div#projectBox,
+#TB_window div#projectBox,
+.toplevel_page_KORA_Settings div.newProjectBox,
+.koraconnect_page_Galleries div.newProjectBox,
+.koraconnect_page_Library div.newProjectBox,
+.koraconnect_page_Add_New_KORA_Object div.newProjectBox,
+#form_search div.newProjectBox,
+#TB_window div.newProjectBox {
+  margin-bottom: 20px;
+}
+.toplevel_page_KORA_Settings div#projectBox div.projectBoxItem,
+.koraconnect_page_Galleries div#projectBox div.projectBoxItem,
+.koraconnect_page_Library div#projectBox div.projectBoxItem,
+.koraconnect_page_Add_New_KORA_Object div#projectBox div.projectBoxItem,
+#form_search div#projectBox div.projectBoxItem,
+#TB_window div#projectBox div.projectBoxItem {
+  position: relative;
+  margin-bottom: 25px;
+}
+.toplevel_page_KORA_Settings div#projectBox div.chosen-container,
+.koraconnect_page_Galleries div#projectBox div.chosen-container,
+.koraconnect_page_Library div#projectBox div.chosen-container,
+.koraconnect_page_Add_New_KORA_Object div#projectBox div.chosen-container,
+#form_search div#projectBox div.chosen-container,
+#TB_window div#projectBox div.chosen-container {
+  margin-right: -5px;
+}
+.toplevel_page_KORA_Settings div.newProjectBox div.chosen-container,
+.koraconnect_page_Galleries div.newProjectBox div.chosen-container,
+.koraconnect_page_Library div.newProjectBox div.chosen-container,
+.koraconnect_page_Add_New_KORA_Object div.newProjectBox div.chosen-container,
+#form_search div.newProjectBox div.chosen-container,
+#TB_window div.newProjectBox div.chosen-container {
+  margin-right: -1px;
+}
+.toplevel_page_KORA_Settings div#projectBox div.chosen-container-multi,
+.koraconnect_page_Galleries div#projectBox div.chosen-container-multi,
+.koraconnect_page_Library div#projectBox div.chosen-container-multi,
+.koraconnect_page_Add_New_KORA_Object div#projectBox div.chosen-container-multi,
+#form_search div#projectBox div.chosen-container-multi,
+#TB_window div#projectBox div.chosen-container-multi,
+.toplevel_page_KORA_Settings div.newProjectBox div.chosen-container-multi,
+.koraconnect_page_Galleries div.newProjectBox div.chosen-container-multi,
+.koraconnect_page_Library div.newProjectBox div.chosen-container-multi,
+.koraconnect_page_Add_New_KORA_Object div.newProjectBox div.chosen-container-multi,
+#form_search div.newProjectBox div.chosen-container-multi,
+#TB_window div.newProjectBox div.chosen-container-multi {
+  margin-top: -3px;
+}
+.toplevel_page_KORA_Settings div.chosen-container-single,
+.koraconnect_page_Galleries div.chosen-container-single,
+.koraconnect_page_Library div.chosen-container-single,
+.koraconnect_page_Add_New_KORA_Object div.chosen-container-single,
+#form_search div.chosen-container-single,
+#TB_window div.chosen-container-single,
+.toplevel_page_KORA_Settings input#koraToken,
+.koraconnect_page_Galleries input#koraToken,
+.koraconnect_page_Library input#koraToken,
+.koraconnect_page_Add_New_KORA_Object input#koraToken,
+#form_search input#koraToken,
+#TB_window input#koraToken {
+  height: 55px;
+  display: inline-block;
+  vertical-align: top;
+  opacity: 0.2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings div.chosen-container-single,
+.koraconnect_page_Galleries div.chosen-container-single,
+.koraconnect_page_Library div.chosen-container-single,
+.koraconnect_page_Add_New_KORA_Object div.chosen-container-single,
+#form_search div.chosen-container-single,
+#TB_window div.chosen-container-single {
+  width: 47.54% !important;
+  margin-bottom: 0 !important;
+}
+.toplevel_page_KORA_Settings input#koraToken,
+.koraconnect_page_Galleries input#koraToken,
+.koraconnect_page_Library input#koraToken,
+.koraconnect_page_Add_New_KORA_Object input#koraToken,
+#form_search input#koraToken,
+#TB_window input#koraToken {
+  width: 47.57%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.toplevel_page_KORA_Settings div.chosen-container-multi,
+.koraconnect_page_Galleries div.chosen-container-multi,
+.koraconnect_page_Library div.chosen-container-multi,
+.koraconnect_page_Add_New_KORA_Object div.chosen-container-multi,
+#form_search div.chosen-container-multi,
+#TB_window div.chosen-container-multi {
+  width: 95% !important;
+  min-height: 55px;
+  display: inline-block;
+  opacity: 0.2;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings div.chosen-container-single a.chosen-default span,
+.koraconnect_page_Galleries div.chosen-container-single a.chosen-default span,
+.koraconnect_page_Library div.chosen-container-single a.chosen-default span,
+.koraconnect_page_Add_New_KORA_Object div.chosen-container-single a.chosen-default span,
+#form_search div.chosen-container-single a.chosen-default span,
+#TB_window div.chosen-container-single a.chosen-default span,
+.toplevel_page_KORA_Settings div.chosen-container-multi ul.chosen-choices li.search-field input.default,
+.koraconnect_page_Galleries div.chosen-container-multi ul.chosen-choices li.search-field input.default,
+.koraconnect_page_Library div.chosen-container-multi ul.chosen-choices li.search-field input.default,
+.koraconnect_page_Add_New_KORA_Object div.chosen-container-multi ul.chosen-choices li.search-field input.default,
+#form_search div.chosen-container-multi ul.chosen-choices li.search-field input.default,
+#TB_window div.chosen-container-multi ul.chosen-choices li.search-field input.default {
+  color: #b3b3b3;
+}
+.toplevel_page_KORA_Settings img.deleteBox,
+.koraconnect_page_Galleries img.deleteBox,
+.koraconnect_page_Library img.deleteBox,
+.koraconnect_page_Add_New_KORA_Object img.deleteBox,
+#form_search img.deleteBox,
+#TB_window img.deleteBox {
+  width: 5.05%;
+  height: 112px;
+  float: right;
+  margin-left: -1px;
+  padding: 0 1.5%;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  background: white;
+  border: 1px solid #dedede;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  opacity: 0.2;
+}
+.toplevel_page_KORA_Settings img.deleteBox:hover,
+.koraconnect_page_Galleries img.deleteBox:hover,
+.koraconnect_page_Library img.deleteBox:hover,
+.koraconnect_page_Add_New_KORA_Object img.deleteBox:hover,
+#form_search img.deleteBox:hover,
+#TB_window img.deleteBox:hover {
+  border: 1px solid #8c8c8c;
+  z-index: 100;
+}
+.toplevel_page_KORA_Settings input#addNewButton,
+.koraconnect_page_Galleries input#addNewButton,
+.koraconnect_page_Library input#addNewButton,
+.koraconnect_page_Add_New_KORA_Object input#addNewButton,
+#form_search input#addNewButton,
+#TB_window input#addNewButton {
+  opacity: 0.2;
+  height: 50px;
+}
+.toplevel_page_KORA_Settings input#addNewButton:hover,
+.koraconnect_page_Galleries input#addNewButton:hover,
+.koraconnect_page_Library input#addNewButton:hover,
+.koraconnect_page_Add_New_KORA_Object input#addNewButton:hover,
+#form_search input#addNewButton:hover,
+#TB_window input#addNewButton:hover {
+  background: #f4fcff;
+}
+.toplevel_page_KORA_Settings input#updateConnection:hover,
+.koraconnect_page_Galleries input#updateConnection:hover,
+.koraconnect_page_Library input#updateConnection:hover,
+.koraconnect_page_Add_New_KORA_Object input#updateConnection:hover,
+#form_search input#updateConnection:hover,
+#TB_window input#updateConnection:hover {
+  background: #3894bb;
+}
+@media (max-width: 700px) {
+  .toplevel_page_KORA_Settings div.chosen-container-single,
+  .koraconnect_page_Galleries div.chosen-container-single,
+  .koraconnect_page_Library div.chosen-container-single,
+  .koraconnect_page_Add_New_KORA_Object div.chosen-container-single,
+  #form_search div.chosen-container-single,
+  #TB_window div.chosen-container-single,
+  .toplevel_page_KORA_Settings input#koraToken,
+  .koraconnect_page_Galleries input#koraToken,
+  .koraconnect_page_Library input#koraToken,
+  .koraconnect_page_Add_New_KORA_Object input#koraToken,
+  #form_search input#koraToken,
+  #TB_window input#koraToken,
+  .toplevel_page_KORA_Settings div.chosen-container-multi,
+  .koraconnect_page_Galleries div.chosen-container-multi,
+  .koraconnect_page_Library div.chosen-container-multi,
+  .koraconnect_page_Add_New_KORA_Object div.chosen-container-multi,
+  #form_search div.chosen-container-multi,
+  #TB_window div.chosen-container-multi {
+    width: 93% !important;
+    display: inline-block;
+  }
+  .toplevel_page_KORA_Settings input#koraToken,
+  .koraconnect_page_Galleries input#koraToken,
+  .koraconnect_page_Library input#koraToken,
+  .koraconnect_page_Add_New_KORA_Object input#koraToken,
+  #form_search input#koraToken,
+  #TB_window input#koraToken {
+    margin-top: -1px;
+  }
+  .toplevel_page_KORA_Settings img.deleteBox,
+  .koraconnect_page_Galleries img.deleteBox,
+  .koraconnect_page_Library img.deleteBox,
+  .koraconnect_page_Add_New_KORA_Object img.deleteBox,
+  #form_search img.deleteBox,
+  #TB_window img.deleteBox {
+    width: 7.05%;
+  }
+}
+@media (max-width: 500px) {
+  .toplevel_page_KORA_Settings div.chosen-container-single,
+  .koraconnect_page_Galleries div.chosen-container-single,
+  .koraconnect_page_Library div.chosen-container-single,
+  .koraconnect_page_Add_New_KORA_Object div.chosen-container-single,
+  #form_search div.chosen-container-single,
+  #TB_window div.chosen-container-single,
+  .toplevel_page_KORA_Settings input#koraToken,
+  .koraconnect_page_Galleries input#koraToken,
+  .koraconnect_page_Library input#koraToken,
+  .koraconnect_page_Add_New_KORA_Object input#koraToken,
+  #form_search input#koraToken,
+  #TB_window input#koraToken,
+  .toplevel_page_KORA_Settings div.chosen-container-multi,
+  .koraconnect_page_Galleries div.chosen-container-multi,
+  .koraconnect_page_Library div.chosen-container-multi,
+  .koraconnect_page_Add_New_KORA_Object div.chosen-container-multi,
+  #form_search div.chosen-container-multi,
+  #TB_window div.chosen-container-multi {
+    width: 91% !important;
+  }
+  .toplevel_page_KORA_Settings img.deleteBox,
+  .koraconnect_page_Galleries img.deleteBox,
+  .koraconnect_page_Library img.deleteBox,
+  .koraconnect_page_Add_New_KORA_Object img.deleteBox,
+  #form_search img.deleteBox,
+  #TB_window img.deleteBox {
+    width: 9.05%;
+  }
+}
+.toplevel_page_KORA_Settings .no_results,
+.koraconnect_page_Galleries .no_results,
+.koraconnect_page_Library .no_results,
+.koraconnect_page_Add_New_KORA_Object .no_results,
+#form_search .no_results,
+#TB_window .no_results {
+  color: #df7171;
+  text-transform: capitalize;
+}
+.toplevel_page_KORA_Settings #TB_window,
+.koraconnect_page_Galleries #TB_window,
+.koraconnect_page_Library #TB_window,
+.koraconnect_page_Add_New_KORA_Object #TB_window,
+#form_search #TB_window,
+#TB_window #TB_window {
+  margin-left: 0!important;
+  left: 15%!important;
+  width: 70%!important;
+  height: 80%!important;
+}
+.toplevel_page_KORA_Settings #TB_window > iframe,
+.koraconnect_page_Galleries #TB_window > iframe,
+.koraconnect_page_Library #TB_window > iframe,
+.koraconnect_page_Add_New_KORA_Object #TB_window > iframe,
+#form_search #TB_window > iframe,
+#TB_window #TB_window > iframe {
+  width: 100%!important;
+  height: 100%!important;
+}
+.toplevel_page_KORA_Settings #TB_title,
+.koraconnect_page_Galleries #TB_title,
+.koraconnect_page_Library #TB_title,
+.koraconnect_page_Add_New_KORA_Object #TB_title,
+#form_search #TB_title,
+#TB_window #TB_title {
+  height: 55px!important;
+}
+.toplevel_page_KORA_Settings #TB_ajaxWindowTitle,
+.koraconnect_page_Galleries #TB_ajaxWindowTitle,
+.koraconnect_page_Library #TB_ajaxWindowTitle,
+.koraconnect_page_Add_New_KORA_Object #TB_ajaxWindowTitle,
+#form_search #TB_ajaxWindowTitle,
+#TB_window #TB_ajaxWindowTitle {
+  font-weight: 200!important;
+  line-height: 55px!important;
+  font-size: 18px;
+  width: calc(44%) !important;
+  padding-left: 28px !important;
+}
+.toplevel_page_KORA_Settings .tb-close-icon,
+.koraconnect_page_Galleries .tb-close-icon,
+.koraconnect_page_Library .tb-close-icon,
+.koraconnect_page_Add_New_KORA_Object .tb-close-icon,
+#form_search .tb-close-icon,
+#TB_window .tb-close-icon {
+  border: 1px solid #dfdfdf;
+  background: url(images/Close.svg) no-repeat center;
+  width: 54px!important;
+  height: 54px!important;
+}
+.toplevel_page_KORA_Settings .tb-close-icon::before,
+.koraconnect_page_Galleries .tb-close-icon::before,
+.koraconnect_page_Library .tb-close-icon::before,
+.koraconnect_page_Add_New_KORA_Object .tb-close-icon::before,
+#form_search .tb-close-icon::before,
+#TB_window .tb-close-icon::before {
+  content: none!important;
+}
+.toplevel_page_KORA_Settings .form_upload,
+.koraconnect_page_Galleries .form_upload,
+.koraconnect_page_Library .form_upload,
+.koraconnect_page_Add_New_KORA_Object .form_upload,
+#form_search .form_upload,
+#TB_window .form_upload {
+  margin: 20px;
+  font-size: 13px;
+  color: #454545;
+  font-family: "Helvetica Neue-Light", "Helvetica Neue", Helvetica, sans-serif;
+}
+.toplevel_page_KORA_Settings .form_upload p,
+.koraconnect_page_Galleries .form_upload p,
+.koraconnect_page_Library .form_upload p,
+.koraconnect_page_Add_New_KORA_Object .form_upload p,
+#form_search .form_upload p,
+#TB_window .form_upload p {
+  margin: 0;
+}
+.toplevel_page_KORA_Settings .form_upload p input,
+.koraconnect_page_Galleries .form_upload p input,
+.koraconnect_page_Library .form_upload p input,
+.koraconnect_page_Add_New_KORA_Object .form_upload p input,
+#form_search .form_upload p input,
+#TB_window .form_upload p input {
+  margin: 10px 0;
+}
+.toplevel_page_KORA_Settings .form_upload #gallery_description,
+.koraconnect_page_Galleries .form_upload #gallery_description,
+.koraconnect_page_Library .form_upload #gallery_description,
+.koraconnect_page_Add_New_KORA_Object .form_upload #gallery_description,
+#form_search .form_upload #gallery_description,
+#TB_window .form_upload #gallery_description {
+  margin-bottom: 0;
+}
+.toplevel_page_KORA_Settings .form_upload div.chosen-container-single,
+.koraconnect_page_Galleries .form_upload div.chosen-container-single,
+.koraconnect_page_Library .form_upload div.chosen-container-single,
+.koraconnect_page_Add_New_KORA_Object .form_upload div.chosen-container-single,
+#form_search .form_upload div.chosen-container-single,
+#TB_window .form_upload div.chosen-container-single,
+.toplevel_page_KORA_Settings .form_upload div.chosen-container-multi,
+.koraconnect_page_Galleries .form_upload div.chosen-container-multi,
+.koraconnect_page_Library .form_upload div.chosen-container-multi,
+.koraconnect_page_Add_New_KORA_Object .form_upload div.chosen-container-multi,
+#form_search .form_upload div.chosen-container-multi,
+#TB_window .form_upload div.chosen-container-multi {
+  width: 100% !important;
+  display: block;
+  margin: 20px auto;
+  opacity: 1.0;
+}
+.toplevel_page_KORA_Settings .split_control,
+.koraconnect_page_Galleries .split_control,
+.koraconnect_page_Library .split_control,
+.koraconnect_page_Add_New_KORA_Object .split_control,
+#form_search .split_control,
+#TB_window .split_control {
+  display: flex;
+  margin: 20px auto;
+}
+.toplevel_page_KORA_Settings .split_control > div,
+.koraconnect_page_Galleries .split_control > div,
+.koraconnect_page_Library .split_control > div,
+.koraconnect_page_Add_New_KORA_Object .split_control > div,
+#form_search .split_control > div,
+#TB_window .split_control > div {
+  margin: 0!important;
+}
+.toplevel_page_KORA_Settings .half_width_chosen_container + div.chosen-container,
+.koraconnect_page_Galleries .half_width_chosen_container + div.chosen-container,
+.koraconnect_page_Library .half_width_chosen_container + div.chosen-container,
+.koraconnect_page_Add_New_KORA_Object .half_width_chosen_container + div.chosen-container,
+#form_search .half_width_chosen_container + div.chosen-container,
+#TB_window .half_width_chosen_container + div.chosen-container {
+  width: 49% !important;
+}
+.toplevel_page_KORA_Settings #video_control + div.chosen-container,
+.koraconnect_page_Galleries #video_control + div.chosen-container,
+.koraconnect_page_Library #video_control + div.chosen-container,
+.koraconnect_page_Add_New_KORA_Object #video_control + div.chosen-container,
+#form_search #video_control + div.chosen-container,
+#TB_window #video_control + div.chosen-container {
+  margin-left: auto!important;
+}
+.toplevel_page_KORA_Settings #desc_control + div.chosen-container,
+.koraconnect_page_Galleries #desc_control + div.chosen-container,
+.koraconnect_page_Library #desc_control + div.chosen-container,
+.koraconnect_page_Add_New_KORA_Object #desc_control + div.chosen-container,
+#form_search #desc_control + div.chosen-container,
+#TB_window #desc_control + div.chosen-container {
+  margin-left: auto!important;
+}
+.toplevel_page_KORA_Settings .button_radio,
+.koraconnect_page_Galleries .button_radio,
+.koraconnect_page_Library .button_radio,
+.koraconnect_page_Add_New_KORA_Object .button_radio,
+#form_search .button_radio,
+#TB_window .button_radio {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px 0;
+  width: 50%;
+  height: 55px;
+  line-height: 33px;
+  display: inline-block;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: center;
+  text-transform: uppercase;
+}
+.toplevel_page_KORA_Settings .button_radio:hover,
+.koraconnect_page_Galleries .button_radio:hover,
+.koraconnect_page_Library .button_radio:hover,
+.koraconnect_page_Add_New_KORA_Object .button_radio:hover,
+#form_search .button_radio:hover,
+#TB_window .button_radio:hover {
+  border-color: rgba(0, 0, 0, 0.5);
+}
+.toplevel_page_KORA_Settings input[type=radio]:checked + .button_radio,
+.koraconnect_page_Galleries input[type=radio]:checked + .button_radio,
+.koraconnect_page_Library input[type=radio]:checked + .button_radio,
+.koraconnect_page_Add_New_KORA_Object input[type=radio]:checked + .button_radio,
+#form_search input[type=radio]:checked + .button_radio,
+#TB_window input[type=radio]:checked + .button_radio {
+  background-color: rgba(87, 171, 206, 0.05);
+  border-color: #57abce;
+}
+.toplevel_page_KORA_Settings input[type=radio].radio,
+.koraconnect_page_Galleries input[type=radio].radio,
+.koraconnect_page_Library input[type=radio].radio,
+.koraconnect_page_Add_New_KORA_Object input[type=radio].radio,
+#form_search input[type=radio].radio,
+#TB_window input[type=radio].radio {
+  display: none;
+}
+.toplevel_page_KORA_Settings .search-field,
+.koraconnect_page_Galleries .search-field,
+.koraconnect_page_Library .search-field,
+.koraconnect_page_Add_New_KORA_Object .search-field,
+#form_search .search-field,
+#TB_window .search-field {
+  height: 58px;
+  display: flex;
+}
+.toplevel_page_KORA_Settings .search-field .searchObjects,
+.koraconnect_page_Galleries .search-field .searchObjects,
+.koraconnect_page_Library .search-field .searchObjects,
+.koraconnect_page_Add_New_KORA_Object .search-field .searchObjects,
+#form_search .search-field .searchObjects,
+#TB_window .search-field .searchObjects {
+  width: 80%;
+}
+.toplevel_page_KORA_Settings .search-field .search_button,
+.koraconnect_page_Galleries .search-field .search_button,
+.koraconnect_page_Library .search-field .search_button,
+.koraconnect_page_Add_New_KORA_Object .search-field .search_button,
+#form_search .search-field .search_button,
+#TB_window .search-field .search_button {
+  width: 20%;
+  margin-top: 0;
+}
+.toplevel_page_KORA_Settings .form_upload form div#objectsPerPage_chosen,
+.koraconnect_page_Galleries .form_upload form div#objectsPerPage_chosen,
+.koraconnect_page_Library .form_upload form div#objectsPerPage_chosen,
+.koraconnect_page_Add_New_KORA_Object .form_upload form div#objectsPerPage_chosen,
+#form_search .form_upload form div#objectsPerPage_chosen,
+#TB_window .form_upload form div#objectsPerPage_chosen {
+  margin: 0 auto 20px auto;
+  height: 55px;
+  display: inline-block;
+  opacity: 1.0;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings .form_upload ul.chosen-choices,
+.koraconnect_page_Galleries .form_upload ul.chosen-choices,
+.koraconnect_page_Library .form_upload ul.chosen-choices,
+.koraconnect_page_Add_New_KORA_Object .form_upload ul.chosen-choices,
+#form_search .form_upload ul.chosen-choices,
+#TB_window .form_upload ul.chosen-choices {
+  padding: 0 !important;
+}
+.toplevel_page_KORA_Settings #insert_shortcode_gallery,
+.koraconnect_page_Galleries #insert_shortcode_gallery,
+.koraconnect_page_Library #insert_shortcode_gallery,
+.koraconnect_page_Add_New_KORA_Object #insert_shortcode_gallery,
+#form_search #insert_shortcode_gallery,
+#TB_window #insert_shortcode_gallery {
+  margin-top: 0;
+}
+.toplevel_page_KORA_Settings #searchObjects-lib,
+.koraconnect_page_Galleries #searchObjects-lib,
+.koraconnect_page_Library #searchObjects-lib,
+.koraconnect_page_Add_New_KORA_Object #searchObjects-lib,
+#form_search #searchObjects-lib,
+#TB_window #searchObjects-lib {
+  margin-right: auto;
+  width: 49% !important;
+}
+.toplevel_page_KORA_Settings #num_per_page_lib + .chosen-container,
+.koraconnect_page_Galleries #num_per_page_lib + .chosen-container,
+.koraconnect_page_Library #num_per_page_lib + .chosen-container,
+.koraconnect_page_Add_New_KORA_Object #num_per_page_lib + .chosen-container,
+#form_search #num_per_page_lib + .chosen-container,
+#TB_window #num_per_page_lib + .chosen-container {
+  width: 49% !important;
+}
+.toplevel_page_KORA_Settings #num_per_page_new + .chosen-container,
+.koraconnect_page_Galleries #num_per_page_new + .chosen-container,
+.koraconnect_page_Library #num_per_page_new + .chosen-container,
+.koraconnect_page_Add_New_KORA_Object #num_per_page_new + .chosen-container,
+#form_search #num_per_page_new + .chosen-container,
+#TB_window #num_per_page_new + .chosen-container {
+  width: 49% !important;
+}
+.toplevel_page_KORA_Settings #select_all_search + .select_all_btn,
+.koraconnect_page_Galleries #select_all_search + .select_all_btn,
+.koraconnect_page_Library #select_all_search + .select_all_btn,
+.koraconnect_page_Add_New_KORA_Object #select_all_search + .select_all_btn,
+#form_search #select_all_search + .select_all_btn,
+#TB_window #select_all_search + .select_all_btn,
+.toplevel_page_KORA_Settings #select_all_scheme + .select_all_btn,
+.koraconnect_page_Galleries #select_all_scheme + .select_all_btn,
+.koraconnect_page_Library #select_all_scheme + .select_all_btn,
+.koraconnect_page_Add_New_KORA_Object #select_all_scheme + .select_all_btn,
+#form_search #select_all_scheme + .select_all_btn,
+#TB_window #select_all_scheme + .select_all_btn {
+  margin-left: auto;
+  width: 24% !important;
+}
+.toplevel_page_KORA_Settings #select_all_lib + .select_all_btn,
+.koraconnect_page_Galleries #select_all_lib + .select_all_btn,
+.koraconnect_page_Library #select_all_lib + .select_all_btn,
+.koraconnect_page_Add_New_KORA_Object #select_all_lib + .select_all_btn,
+#form_search #select_all_lib + .select_all_btn,
+#TB_window #select_all_lib + .select_all_btn {
+  margin-left: auto;
+  width: 49% !important;
+}
+.toplevel_page_KORA_Settings .chosen-results,
+.koraconnect_page_Galleries .chosen-results,
+.koraconnect_page_Library .chosen-results,
+.koraconnect_page_Add_New_KORA_Object .chosen-results,
+#form_search .chosen-results,
+#TB_window .chosen-results {
+  padding: 0 !important;
+}
+.toplevel_page_KORA_Settings .select_all_btn,
+.koraconnect_page_Galleries .select_all_btn,
+.koraconnect_page_Library .select_all_btn,
+.koraconnect_page_Add_New_KORA_Object .select_all_btn,
+#form_search .select_all_btn,
+#TB_window .select_all_btn {
+  cursor: pointer;
+  box-sizing: border-box;
+  padding: 10px 20px;
+  width: 50%;
+  height: 55px;
+  line-height: 33px;
+  font-size: 13px;
+  text-transform: uppercase;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-block;
+  color: #57abce !important;
+  background-color: white !important;
+  border: 1px solid #57abce !important;
+  -webkit-transition: background-color 150ms linear 0s;
+  -moz-transition: background-color 150ms linear 0s;
+  -ms-transition: background-color 150ms linear 0s;
+  -o-transition: background-color 150ms linear 0s;
+  transition: background-color 150ms linear 0s;
+}
+.toplevel_page_KORA_Settings .select_all_btn:hover,
+.koraconnect_page_Galleries .select_all_btn:hover,
+.koraconnect_page_Library .select_all_btn:hover,
+.koraconnect_page_Add_New_KORA_Object .select_all_btn:hover,
+#form_search .select_all_btn:hover,
+#TB_window .select_all_btn:hover {
+  color: white !important;
+  background-color: #57abce !important;
+}
+.toplevel_page_KORA_Settings .select_all_checkbox,
+.koraconnect_page_Galleries .select_all_checkbox,
+.koraconnect_page_Library .select_all_checkbox,
+.koraconnect_page_Add_New_KORA_Object .select_all_checkbox,
+#form_search .select_all_checkbox,
+#TB_window .select_all_checkbox {
+  display: none;
+}
+<<<<<<< HEAD
+
+/* pagination footer styles */
+
+.kora_results_container + .pagination_footer {
+    margin-top: -70px;
+    margin-bottom: 70px;
+    display: flex;
+    justify-content: flex-end;
+}
+    .pagination_footer > div {
+        padding: 10px 14px;
+    }
+    .border_arrow {
+        cursor: pointer;
+        border: 1px solid #dedede;
+    }
+        .border_arrow:hover {
+            background: #fafafa;
+        }
+
+/* Adust Padding on Delete Modals ONLY */
+div#deleteModal.remodal, div#deleteObjectModal.remodal {
+    padding: 40px 40px 30px 40px;
+}
+
+div#projectModal, div#tokenModal, div#schemeModal, div#deleteModal,
+div#deleteObjectModal, div#editObjectModal {
+    margin: 0 auto;
+    text-align: left;
+    border: 1px solid #dedede;
+}
+
+div#projectModal h2, div#tokenModal h2, div#schemeModal h2, div#deleteModal h2,
+div#deleteObjectModal h2 {
+	margin: 0 !important;
+}
+
+div#projectModal p, div#tokenModal p, div#schemeModal p, div#deleteModal p {
+	margin: 30px 0 15px 0;
+}
+
+div#deleteObjectModal p {
+	color: #8c8c8c;
+	margin: 30px 0 0 0;
+}
+
+div#tokenModal div#redCircle {
+	width: 129px;
+	height: 98px;
+	position: absolute;
+	top: 198px;
+	left: 36px;
+	border: 1px solid #ffc6c6;
+	border-radius: 50%;
+}
+
+/*** Delete Modal Buttons ***/
+div.remodal button.remove, div.remodal button.cancel {
+    padding: 10px 10px 10px 0;
+    margin: 40px 40px 0 0;
+    border: none;
+    background: none;
+    text-transform: uppercase;
+}
+
+div.remodal button.remove {
+    color: #df7171;
+}
+
+div.remodal button.cancel {
+    color: #8c8c8c;
+}
+
+/***** Add New Kora Object - "Edit Details" Modal *****/
+.remodal-wrapper.remodal-is-opened.largeModal {
+    top: 10%;
+}
+
+div#editObjectModal.remodal {
+    padding: 15px 20px 20px 20px;
+}
+
+div#editObjectModal h2 {
+    display: inline-block;
+    margin: 0 0 15px 15px !important;
+    vertical-align: top;
+}
+
+/* < Image */
+div#editObjectModal img#backArrow {
+    padding-right: 5px;
+    cursor: pointer;
+}
+
+/* X Image */
+div#editObjectModal button.remodal-close {
+    top: 0;
+    right: 0;
+    padding: 24.5px;
+    border-left: 1px solid #dedede;
+}
+
+/* Object Image */
+div#editObjectModal img#objectImage {
+    width: 104.3%;
+    height: 392px;
+    display: block;
+	object-fit: cover;
+	-o-object-fit: cover;
+    margin: 0 0 20px -19px;
+}
+
+/*** Checkboxes ***/
+div#editObjectModal form input[type=checkbox] {
+    margin: 0 5px 0 0;
+	border: solid 1px #dedede;
+    outline: none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+div#editObjectModal form input[type=checkbox]:checked:before {
+    content: "";
+	color: transparent;
+}
+
+div#editObjectModal form input[type=checkbox]:checked {
+    background: #454545;
+}
+
+/* First Two Checkboxes */
+div#editObjectModal form input[type=checkbox]:nth-child(1),
+div#editObjectModal form input[type=checkbox]:nth-child(3) {
+    margin-bottom: 40px;
+}
+
+/*** Labels and Descriptions ***/
+div#editObjectModal form label {
+    color: #8c8c8c;
+    font-size: 16px;
+    font-weight: normal;
+    font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+
+div#editObjectModal form label.activeLabel {
+    color: #454545;
+}
+
+div#editObjectModal form p {
+	color: #8c8c8c;
+    margin: 2px 0 20px 25px;
+}
+
+div#editObjectModal form p.activeParagraph {
+    color: #454545;
+}
+
+/* First Two Labels */
+div#editObjectModal form label:nth-child(2),
+div#editObjectModal form label:nth-child(4) {
+	display: inline-block;
+    margin-bottom: 40px;
+}
+
+div#editObjectModal form label:nth-child(2) {
+    margin-right: 40px;
+}
+
+/*** Button ***/
+div#editObjectModal form input[type=submit] {
+    margin-top: 20px;
+}
+
+div#editObjectModal form input[type=submit]:hover {
+    background: #3894bb;
+}
+
+
+/********* Responsiveness *********/
+@media( max-width: 540px ) {
+	div#projectModal img, div#tokenModal img, div#schemeModal img,
+	div#deleteModal img {
+		width: 100%;
+		height: auto;
+	}
+}
+
+
+.multiselect {
+    width:20em;
+    height:15em;
+    border:solid 1px #c0c0c0;
+    overflow:auto;
+}
+
+.multiselect label {
+    display:block;
+}
+
+.multiselect-on {
+    color:#ffffff;
+    background-color:#000099;
+}
+
+.flexslider {
+	margin: 0;
+	background: #fff;
+	border: none;
+	position: relative;
+	zoom: 1;
+}
+.kgis_loading {
+	width: 220px;
+}
+#nomore {
+	position: fixed;
+	bottom: 0;
+	left: 50%;
+	padding: 20px;
+	margin-top: -25px;
+	margin-left: -75px;
+	width: 200px;
+	height: 50px;
+	background-color: #fff;
+	opacity: .7;
+}
+.kora_help {
+	font-size: 13px;
+	padding: 0 0 10px 0;
+	font-style: italic;
+	color: #999;
+	clear: both;
+}
+
+
+/*********************************
+ Kora Settings Page
+*********************************/
+.setting_detail {
+	font-style: italic;
+}
+#kora-upload {
+	margin-right: 5px;
+}
+#kora-library {
+	margin-right: 5px;
+}
+#kora-gallery {
+	margin-right: 5px;
+}
+
+
+/*********************************
+ Add New Kora Object Page
+*********************************/
+div#addNewObject.wrap p {
+    margin: 0 0 40px 0;
+    color: #8c8c8c;
+}
+
+/*** Inputs ***/
+div#addNewObject.wrap form div#newObjectScheme_chosen,
+div#addNewObject.wrap form div#newObjectFields1_chosen,
+div#addNewObject.wrap form div#newObjectFields2_chosen
+{
+=======
+.toplevel_page_KORA_Settings .kora_results_container + .pagination_footer,
+.koraconnect_page_Galleries .kora_results_container + .pagination_footer,
+.koraconnect_page_Library .kora_results_container + .pagination_footer,
+.koraconnect_page_Add_New_KORA_Object .kora_results_container + .pagination_footer,
+#form_search .kora_results_container + .pagination_footer,
+#TB_window .kora_results_container + .pagination_footer {
+  margin-top: -70px;
+  margin-bottom: 70px;
+  display: flex;
+  justify-content: flex-end;
+}
+.toplevel_page_KORA_Settings .pagination_footer > div,
+.koraconnect_page_Galleries .pagination_footer > div,
+.koraconnect_page_Library .pagination_footer > div,
+.koraconnect_page_Add_New_KORA_Object .pagination_footer > div,
+#form_search .pagination_footer > div,
+#TB_window .pagination_footer > div {
+  padding: 10px 14px;
+}
+.toplevel_page_KORA_Settings .border_arrow,
+.koraconnect_page_Galleries .border_arrow,
+.koraconnect_page_Library .border_arrow,
+.koraconnect_page_Add_New_KORA_Object .border_arrow,
+#form_search .border_arrow,
+#TB_window .border_arrow {
+  cursor: pointer;
+  border: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings .border_arrow:hover,
+.koraconnect_page_Galleries .border_arrow:hover,
+.koraconnect_page_Library .border_arrow:hover,
+.koraconnect_page_Add_New_KORA_Object .border_arrow:hover,
+#form_search .border_arrow:hover,
+#TB_window .border_arrow:hover {
+  background: #fafafa;
+}
+.toplevel_page_KORA_Settings div#deleteModal.remodal,
+.koraconnect_page_Galleries div#deleteModal.remodal,
+.koraconnect_page_Library div#deleteModal.remodal,
+.koraconnect_page_Add_New_KORA_Object div#deleteModal.remodal,
+#form_search div#deleteModal.remodal,
+#TB_window div#deleteModal.remodal,
+.toplevel_page_KORA_Settings div#deleteObjectModal.remodal,
+.koraconnect_page_Galleries div#deleteObjectModal.remodal,
+.koraconnect_page_Library div#deleteObjectModal.remodal,
+.koraconnect_page_Add_New_KORA_Object div#deleteObjectModal.remodal,
+#form_search div#deleteObjectModal.remodal,
+#TB_window div#deleteObjectModal.remodal {
+  padding: 40px 40px 30px 40px;
+}
+.toplevel_page_KORA_Settings div#projectModal,
+.koraconnect_page_Galleries div#projectModal,
+.koraconnect_page_Library div#projectModal,
+.koraconnect_page_Add_New_KORA_Object div#projectModal,
+#form_search div#projectModal,
+#TB_window div#projectModal,
+.toplevel_page_KORA_Settings div#tokenModal,
+.koraconnect_page_Galleries div#tokenModal,
+.koraconnect_page_Library div#tokenModal,
+.koraconnect_page_Add_New_KORA_Object div#tokenModal,
+#form_search div#tokenModal,
+#TB_window div#tokenModal,
+.toplevel_page_KORA_Settings div#schemeModal,
+.koraconnect_page_Galleries div#schemeModal,
+.koraconnect_page_Library div#schemeModal,
+.koraconnect_page_Add_New_KORA_Object div#schemeModal,
+#form_search div#schemeModal,
+#TB_window div#schemeModal,
+.toplevel_page_KORA_Settings div#deleteModal,
+.koraconnect_page_Galleries div#deleteModal,
+.koraconnect_page_Library div#deleteModal,
+.koraconnect_page_Add_New_KORA_Object div#deleteModal,
+#form_search div#deleteModal,
+#TB_window div#deleteModal,
+.toplevel_page_KORA_Settings div#deleteObjectModal,
+.koraconnect_page_Galleries div#deleteObjectModal,
+.koraconnect_page_Library div#deleteObjectModal,
+.koraconnect_page_Add_New_KORA_Object div#deleteObjectModal,
+#form_search div#deleteObjectModal,
+#TB_window div#deleteObjectModal,
+.toplevel_page_KORA_Settings div#editObjectModal,
+.koraconnect_page_Galleries div#editObjectModal,
+.koraconnect_page_Library div#editObjectModal,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal,
+#form_search div#editObjectModal,
+#TB_window div#editObjectModal {
+  margin: 0 auto;
+  text-align: left;
+  border: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings div#projectModal h2,
+.koraconnect_page_Galleries div#projectModal h2,
+.koraconnect_page_Library div#projectModal h2,
+.koraconnect_page_Add_New_KORA_Object div#projectModal h2,
+#form_search div#projectModal h2,
+#TB_window div#projectModal h2,
+.toplevel_page_KORA_Settings div#tokenModal h2,
+.koraconnect_page_Galleries div#tokenModal h2,
+.koraconnect_page_Library div#tokenModal h2,
+.koraconnect_page_Add_New_KORA_Object div#tokenModal h2,
+#form_search div#tokenModal h2,
+#TB_window div#tokenModal h2,
+.toplevel_page_KORA_Settings div#schemeModal h2,
+.koraconnect_page_Galleries div#schemeModal h2,
+.koraconnect_page_Library div#schemeModal h2,
+.koraconnect_page_Add_New_KORA_Object div#schemeModal h2,
+#form_search div#schemeModal h2,
+#TB_window div#schemeModal h2,
+.toplevel_page_KORA_Settings div#deleteModal h2,
+.koraconnect_page_Galleries div#deleteModal h2,
+.koraconnect_page_Library div#deleteModal h2,
+.koraconnect_page_Add_New_KORA_Object div#deleteModal h2,
+#form_search div#deleteModal h2,
+#TB_window div#deleteModal h2,
+.toplevel_page_KORA_Settings div#deleteObjectModal h2,
+.koraconnect_page_Galleries div#deleteObjectModal h2,
+.koraconnect_page_Library div#deleteObjectModal h2,
+.koraconnect_page_Add_New_KORA_Object div#deleteObjectModal h2,
+#form_search div#deleteObjectModal h2,
+#TB_window div#deleteObjectModal h2 {
+  margin: 0 !important;
+}
+.toplevel_page_KORA_Settings div#projectModal p,
+.koraconnect_page_Galleries div#projectModal p,
+.koraconnect_page_Library div#projectModal p,
+.koraconnect_page_Add_New_KORA_Object div#projectModal p,
+#form_search div#projectModal p,
+#TB_window div#projectModal p,
+.toplevel_page_KORA_Settings div#tokenModal p,
+.koraconnect_page_Galleries div#tokenModal p,
+.koraconnect_page_Library div#tokenModal p,
+.koraconnect_page_Add_New_KORA_Object div#tokenModal p,
+#form_search div#tokenModal p,
+#TB_window div#tokenModal p,
+.toplevel_page_KORA_Settings div#schemeModal p,
+.koraconnect_page_Galleries div#schemeModal p,
+.koraconnect_page_Library div#schemeModal p,
+.koraconnect_page_Add_New_KORA_Object div#schemeModal p,
+#form_search div#schemeModal p,
+#TB_window div#schemeModal p,
+.toplevel_page_KORA_Settings div#deleteModal p,
+.koraconnect_page_Galleries div#deleteModal p,
+.koraconnect_page_Library div#deleteModal p,
+.koraconnect_page_Add_New_KORA_Object div#deleteModal p,
+#form_search div#deleteModal p,
+#TB_window div#deleteModal p {
+  margin: 30px 0 15px 0;
+}
+.toplevel_page_KORA_Settings div#deleteObjectModal p,
+.koraconnect_page_Galleries div#deleteObjectModal p,
+.koraconnect_page_Library div#deleteObjectModal p,
+.koraconnect_page_Add_New_KORA_Object div#deleteObjectModal p,
+#form_search div#deleteObjectModal p,
+#TB_window div#deleteObjectModal p {
+  color: #8c8c8c;
+  margin: 30px 0 0 0;
+}
+.toplevel_page_KORA_Settings div#tokenModal div#redCircle,
+.koraconnect_page_Galleries div#tokenModal div#redCircle,
+.koraconnect_page_Library div#tokenModal div#redCircle,
+.koraconnect_page_Add_New_KORA_Object div#tokenModal div#redCircle,
+#form_search div#tokenModal div#redCircle,
+#TB_window div#tokenModal div#redCircle {
+  width: 129px;
+  height: 98px;
+  position: absolute;
+  top: 198px;
+  left: 36px;
+  border: 1px solid #ffc6c6;
+  border-radius: 50%;
+}
+.toplevel_page_KORA_Settings div.remodal button.remove,
+.koraconnect_page_Galleries div.remodal button.remove,
+.koraconnect_page_Library div.remodal button.remove,
+.koraconnect_page_Add_New_KORA_Object div.remodal button.remove,
+#form_search div.remodal button.remove,
+#TB_window div.remodal button.remove,
+.toplevel_page_KORA_Settings div.remodal button.cancel,
+.koraconnect_page_Galleries div.remodal button.cancel,
+.koraconnect_page_Library div.remodal button.cancel,
+.koraconnect_page_Add_New_KORA_Object div.remodal button.cancel,
+#form_search div.remodal button.cancel,
+#TB_window div.remodal button.cancel {
+  padding: 10px 10px 10px 0;
+  margin: 40px 40px 0 0;
+  border: none;
+  background: none;
+  text-transform: uppercase;
+}
+.toplevel_page_KORA_Settings div.remodal button.remove,
+.koraconnect_page_Galleries div.remodal button.remove,
+.koraconnect_page_Library div.remodal button.remove,
+.koraconnect_page_Add_New_KORA_Object div.remodal button.remove,
+#form_search div.remodal button.remove,
+#TB_window div.remodal button.remove {
+  color: #df7171;
+}
+.toplevel_page_KORA_Settings div.remodal button.cancel,
+.koraconnect_page_Galleries div.remodal button.cancel,
+.koraconnect_page_Library div.remodal button.cancel,
+.koraconnect_page_Add_New_KORA_Object div.remodal button.cancel,
+#form_search div.remodal button.cancel,
+#TB_window div.remodal button.cancel {
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings .remodal-wrapper.remodal-is-opened.largeModal,
+.koraconnect_page_Galleries .remodal-wrapper.remodal-is-opened.largeModal,
+.koraconnect_page_Library .remodal-wrapper.remodal-is-opened.largeModal,
+.koraconnect_page_Add_New_KORA_Object .remodal-wrapper.remodal-is-opened.largeModal,
+#form_search .remodal-wrapper.remodal-is-opened.largeModal,
+#TB_window .remodal-wrapper.remodal-is-opened.largeModal {
+  top: 10%;
+}
+.toplevel_page_KORA_Settings div#editObjectModal.remodal,
+.koraconnect_page_Galleries div#editObjectModal.remodal,
+.koraconnect_page_Library div#editObjectModal.remodal,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal.remodal,
+#form_search div#editObjectModal.remodal,
+#TB_window div#editObjectModal.remodal {
+  padding: 15px 20px 20px 20px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal h2,
+.koraconnect_page_Galleries div#editObjectModal h2,
+.koraconnect_page_Library div#editObjectModal h2,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal h2,
+#form_search div#editObjectModal h2,
+#TB_window div#editObjectModal h2 {
+  display: inline-block;
+  margin: 0 0 15px 15px !important;
+  vertical-align: top;
+}
+.toplevel_page_KORA_Settings div#editObjectModal img#backArrow,
+.koraconnect_page_Galleries div#editObjectModal img#backArrow,
+.koraconnect_page_Library div#editObjectModal img#backArrow,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal img#backArrow,
+#form_search div#editObjectModal img#backArrow,
+#TB_window div#editObjectModal img#backArrow {
+  padding-right: 5px;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings div#editObjectModal button.remodal-close,
+.koraconnect_page_Galleries div#editObjectModal button.remodal-close,
+.koraconnect_page_Library div#editObjectModal button.remodal-close,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal button.remodal-close,
+#form_search div#editObjectModal button.remodal-close,
+#TB_window div#editObjectModal button.remodal-close {
+  top: 0;
+  right: 0;
+  padding: 24.5px;
+  border-left: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings div#editObjectModal img#objectImage,
+.koraconnect_page_Galleries div#editObjectModal img#objectImage,
+.koraconnect_page_Library div#editObjectModal img#objectImage,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal img#objectImage,
+#form_search div#editObjectModal img#objectImage,
+#TB_window div#editObjectModal img#objectImage {
+  width: 104.3%;
+  height: 392px;
+  display: block;
+  object-fit: cover;
+  -o-object-fit: cover;
+  margin: 0 0 20px -19px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=checkbox],
+.koraconnect_page_Galleries div#editObjectModal form input[type=checkbox],
+.koraconnect_page_Library div#editObjectModal form input[type=checkbox],
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=checkbox],
+#form_search div#editObjectModal form input[type=checkbox],
+#TB_window div#editObjectModal form input[type=checkbox] {
+  margin: 0 5px 0 0;
+  border: solid 1px #dedede;
+  outline: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=checkbox]:checked:before,
+.koraconnect_page_Galleries div#editObjectModal form input[type=checkbox]:checked:before,
+.koraconnect_page_Library div#editObjectModal form input[type=checkbox]:checked:before,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=checkbox]:checked:before,
+#form_search div#editObjectModal form input[type=checkbox]:checked:before,
+#TB_window div#editObjectModal form input[type=checkbox]:checked:before {
+  content: "";
+  color: transparent;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=checkbox]:checked,
+.koraconnect_page_Galleries div#editObjectModal form input[type=checkbox]:checked,
+.koraconnect_page_Library div#editObjectModal form input[type=checkbox]:checked,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=checkbox]:checked,
+#form_search div#editObjectModal form input[type=checkbox]:checked,
+#TB_window div#editObjectModal form input[type=checkbox]:checked {
+  background: #454545;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=checkbox]:nth-child(1),
+.koraconnect_page_Galleries div#editObjectModal form input[type=checkbox]:nth-child(1),
+.koraconnect_page_Library div#editObjectModal form input[type=checkbox]:nth-child(1),
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=checkbox]:nth-child(1),
+#form_search div#editObjectModal form input[type=checkbox]:nth-child(1),
+#TB_window div#editObjectModal form input[type=checkbox]:nth-child(1),
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=checkbox]:nth-child(3),
+.koraconnect_page_Galleries div#editObjectModal form input[type=checkbox]:nth-child(3),
+.koraconnect_page_Library div#editObjectModal form input[type=checkbox]:nth-child(3),
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=checkbox]:nth-child(3),
+#form_search div#editObjectModal form input[type=checkbox]:nth-child(3),
+#TB_window div#editObjectModal form input[type=checkbox]:nth-child(3) {
+  margin-bottom: 40px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form label,
+.koraconnect_page_Galleries div#editObjectModal form label,
+.koraconnect_page_Library div#editObjectModal form label,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form label,
+#form_search div#editObjectModal form label,
+#TB_window div#editObjectModal form label {
+  color: #8c8c8c;
+  font-size: 16px;
+  font-weight: normal;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form label.activeLabel,
+.koraconnect_page_Galleries div#editObjectModal form label.activeLabel,
+.koraconnect_page_Library div#editObjectModal form label.activeLabel,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form label.activeLabel,
+#form_search div#editObjectModal form label.activeLabel,
+#TB_window div#editObjectModal form label.activeLabel {
+  color: #454545;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form p,
+.koraconnect_page_Galleries div#editObjectModal form p,
+.koraconnect_page_Library div#editObjectModal form p,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form p,
+#form_search div#editObjectModal form p,
+#TB_window div#editObjectModal form p {
+  color: #8c8c8c;
+  margin: 2px 0 20px 25px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form p.activeParagraph,
+.koraconnect_page_Galleries div#editObjectModal form p.activeParagraph,
+.koraconnect_page_Library div#editObjectModal form p.activeParagraph,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form p.activeParagraph,
+#form_search div#editObjectModal form p.activeParagraph,
+#TB_window div#editObjectModal form p.activeParagraph {
+  color: #454545;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form label:nth-child(2),
+.koraconnect_page_Galleries div#editObjectModal form label:nth-child(2),
+.koraconnect_page_Library div#editObjectModal form label:nth-child(2),
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form label:nth-child(2),
+#form_search div#editObjectModal form label:nth-child(2),
+#TB_window div#editObjectModal form label:nth-child(2),
+.toplevel_page_KORA_Settings div#editObjectModal form label:nth-child(4),
+.koraconnect_page_Galleries div#editObjectModal form label:nth-child(4),
+.koraconnect_page_Library div#editObjectModal form label:nth-child(4),
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form label:nth-child(4),
+#form_search div#editObjectModal form label:nth-child(4),
+#TB_window div#editObjectModal form label:nth-child(4) {
+  display: inline-block;
+  margin-bottom: 40px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form label:nth-child(2),
+.koraconnect_page_Galleries div#editObjectModal form label:nth-child(2),
+.koraconnect_page_Library div#editObjectModal form label:nth-child(2),
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form label:nth-child(2),
+#form_search div#editObjectModal form label:nth-child(2),
+#TB_window div#editObjectModal form label:nth-child(2) {
+  margin-right: 40px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=submit],
+.koraconnect_page_Galleries div#editObjectModal form input[type=submit],
+.koraconnect_page_Library div#editObjectModal form input[type=submit],
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=submit],
+#form_search div#editObjectModal form input[type=submit],
+#TB_window div#editObjectModal form input[type=submit] {
+  margin-top: 20px;
+}
+.toplevel_page_KORA_Settings div#editObjectModal form input[type=submit]:hover,
+.koraconnect_page_Galleries div#editObjectModal form input[type=submit]:hover,
+.koraconnect_page_Library div#editObjectModal form input[type=submit]:hover,
+.koraconnect_page_Add_New_KORA_Object div#editObjectModal form input[type=submit]:hover,
+#form_search div#editObjectModal form input[type=submit]:hover,
+#TB_window div#editObjectModal form input[type=submit]:hover {
+  background: #3894bb;
+}
+@media (max-width: 540px) {
+  .toplevel_page_KORA_Settings div#projectModal img,
+  .koraconnect_page_Galleries div#projectModal img,
+  .koraconnect_page_Library div#projectModal img,
+  .koraconnect_page_Add_New_KORA_Object div#projectModal img,
+  #form_search div#projectModal img,
+  #TB_window div#projectModal img,
+  .toplevel_page_KORA_Settings div#tokenModal img,
+  .koraconnect_page_Galleries div#tokenModal img,
+  .koraconnect_page_Library div#tokenModal img,
+  .koraconnect_page_Add_New_KORA_Object div#tokenModal img,
+  #form_search div#tokenModal img,
+  #TB_window div#tokenModal img,
+  .toplevel_page_KORA_Settings div#schemeModal img,
+  .koraconnect_page_Galleries div#schemeModal img,
+  .koraconnect_page_Library div#schemeModal img,
+  .koraconnect_page_Add_New_KORA_Object div#schemeModal img,
+  #form_search div#schemeModal img,
+  #TB_window div#schemeModal img,
+  .toplevel_page_KORA_Settings div#deleteModal img,
+  .koraconnect_page_Galleries div#deleteModal img,
+  .koraconnect_page_Library div#deleteModal img,
+  .koraconnect_page_Add_New_KORA_Object div#deleteModal img,
+  #form_search div#deleteModal img,
+  #TB_window div#deleteModal img {
+    width: 100%;
+    height: auto;
+  }
+}
+.toplevel_page_KORA_Settings .multiselect,
+.koraconnect_page_Galleries .multiselect,
+.koraconnect_page_Library .multiselect,
+.koraconnect_page_Add_New_KORA_Object .multiselect,
+#form_search .multiselect,
+#TB_window .multiselect {
+  width: 20em;
+  height: 15em;
+  border: solid 1px #c0c0c0;
+  overflow: auto;
+}
+.toplevel_page_KORA_Settings .multiselect label,
+.koraconnect_page_Galleries .multiselect label,
+.koraconnect_page_Library .multiselect label,
+.koraconnect_page_Add_New_KORA_Object .multiselect label,
+#form_search .multiselect label,
+#TB_window .multiselect label {
+  display: block;
+}
+.toplevel_page_KORA_Settings .multiselect-on,
+.koraconnect_page_Galleries .multiselect-on,
+.koraconnect_page_Library .multiselect-on,
+.koraconnect_page_Add_New_KORA_Object .multiselect-on,
+#form_search .multiselect-on,
+#TB_window .multiselect-on {
+  color: #ffffff;
+  background-color: #000099;
+}
+.toplevel_page_KORA_Settings .flexslider,
+.koraconnect_page_Galleries .flexslider,
+.koraconnect_page_Library .flexslider,
+.koraconnect_page_Add_New_KORA_Object .flexslider,
+#form_search .flexslider,
+#TB_window .flexslider {
+  margin: 0;
+  background: #fff;
+  border: none;
+  position: relative;
+  zoom: 1;
+}
+.toplevel_page_KORA_Settings .kgis_loading,
+.koraconnect_page_Galleries .kgis_loading,
+.koraconnect_page_Library .kgis_loading,
+.koraconnect_page_Add_New_KORA_Object .kgis_loading,
+#form_search .kgis_loading,
+#TB_window .kgis_loading {
+  width: 220px;
+}
+.toplevel_page_KORA_Settings #nomore,
+.koraconnect_page_Galleries #nomore,
+.koraconnect_page_Library #nomore,
+.koraconnect_page_Add_New_KORA_Object #nomore,
+#form_search #nomore,
+#TB_window #nomore {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  padding: 20px;
+  margin-top: -25px;
+  margin-left: -75px;
+  width: 200px;
+  height: 50px;
+  background-color: #fff;
+  opacity: .7;
+}
+.toplevel_page_KORA_Settings .kora_help,
+.koraconnect_page_Galleries .kora_help,
+.koraconnect_page_Library .kora_help,
+.koraconnect_page_Add_New_KORA_Object .kora_help,
+#form_search .kora_help,
+#TB_window .kora_help {
+  font-size: 13px;
+  padding: 0 0 10px 0;
+  font-style: italic;
+  color: #999;
+  clear: both;
+}
+.toplevel_page_KORA_Settings .setting_detail,
+.koraconnect_page_Galleries .setting_detail,
+.koraconnect_page_Library .setting_detail,
+.koraconnect_page_Add_New_KORA_Object .setting_detail,
+#form_search .setting_detail,
+#TB_window .setting_detail {
+  font-style: italic;
+}
+.toplevel_page_KORA_Settings #kora-upload,
+.koraconnect_page_Galleries #kora-upload,
+.koraconnect_page_Library #kora-upload,
+.koraconnect_page_Add_New_KORA_Object #kora-upload,
+#form_search #kora-upload,
+#TB_window #kora-upload {
+  margin-right: 5px;
+}
+.toplevel_page_KORA_Settings #kora-library,
+.koraconnect_page_Galleries #kora-library,
+.koraconnect_page_Library #kora-library,
+.koraconnect_page_Add_New_KORA_Object #kora-library,
+#form_search #kora-library,
+#TB_window #kora-library {
+  margin-right: 5px;
+}
+.toplevel_page_KORA_Settings #kora-gallery,
+.koraconnect_page_Galleries #kora-gallery,
+.koraconnect_page_Library #kora-gallery,
+.koraconnect_page_Add_New_KORA_Object #kora-gallery,
+#form_search #kora-gallery,
+#TB_window #kora-gallery {
+  margin-right: 5px;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap p,
+.koraconnect_page_Galleries div#addNewObject.wrap p,
+.koraconnect_page_Library div#addNewObject.wrap p,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap p,
+#form_search div#addNewObject.wrap p,
+#TB_window div#addNewObject.wrap p {
+  margin: 0 0 40px 0;
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap form div#newObjectScheme_chosen,
+.koraconnect_page_Galleries div#addNewObject.wrap form div#newObjectScheme_chosen,
+.koraconnect_page_Library div#addNewObject.wrap form div#newObjectScheme_chosen,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form div#newObjectScheme_chosen,
+#form_search div#addNewObject.wrap form div#newObjectScheme_chosen,
+#TB_window div#addNewObject.wrap form div#newObjectScheme_chosen,
+.toplevel_page_KORA_Settings div#addNewObject.wrap form div#newObjectFields_chosen,
+.koraconnect_page_Galleries div#addNewObject.wrap form div#newObjectFields_chosen,
+.koraconnect_page_Library div#addNewObject.wrap form div#newObjectFields_chosen,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form div#newObjectFields_chosen,
+#form_search div#addNewObject.wrap form div#newObjectFields_chosen,
+#TB_window div#addNewObject.wrap form div#newObjectFields_chosen {
+  width: 100% !important;
+  display: block;
+  margin-bottom: 20px;
+  opacity: 1.0;
+  margin: 20px 0;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap form input#searchObjects,
+.koraconnect_page_Galleries div#addNewObject.wrap form input#searchObjects,
+.koraconnect_page_Library div#addNewObject.wrap form input#searchObjects,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form input#searchObjects,
+#form_search div#addNewObject.wrap form input#searchObjects,
+#TB_window div#addNewObject.wrap form input#searchObjects,
+.toplevel_page_KORA_Settings div#addNewObject.wrap form div#objectsPerPage_chosen,
+.koraconnect_page_Galleries div#addNewObject.wrap form div#objectsPerPage_chosen,
+.koraconnect_page_Library div#addNewObject.wrap form div#objectsPerPage_chosen,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form div#objectsPerPage_chosen,
+#form_search div#addNewObject.wrap form div#objectsPerPage_chosen,
+#TB_window div#addNewObject.wrap form div#objectsPerPage_chosen,
+.toplevel_page_KORA_Settings div#addNewObject.wrap form button#selectAll,
+.koraconnect_page_Galleries div#addNewObject.wrap form button#selectAll,
+.koraconnect_page_Library div#addNewObject.wrap form button#selectAll,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form button#selectAll,
+#form_search div#addNewObject.wrap form button#selectAll,
+#TB_window div#addNewObject.wrap form button#selectAll {
+  height: 55px;
+  display: inline-block;
+  opacity: 1.0;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap form input#searchObjects,
+.koraconnect_page_Galleries div#addNewObject.wrap form input#searchObjects,
+.koraconnect_page_Library div#addNewObject.wrap form input#searchObjects,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form input#searchObjects,
+#form_search div#addNewObject.wrap form input#searchObjects,
+#TB_window div#addNewObject.wrap form input#searchObjects {
+  width: 49% !important;
+  margin-right: -4px;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap form div#objectsPerPage_chosen,
+.koraconnect_page_Galleries div#addNewObject.wrap form div#objectsPerPage_chosen,
+.koraconnect_page_Library div#addNewObject.wrap form div#objectsPerPage_chosen,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form div#objectsPerPage_chosen,
+#form_search div#addNewObject.wrap form div#objectsPerPage_chosen,
+#TB_window div#addNewObject.wrap form div#objectsPerPage_chosen {
+  width: 23.5% !important;
+  margin: 0 2%;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap form button#selectAll,
+.koraconnect_page_Galleries div#addNewObject.wrap form button#selectAll,
+.koraconnect_page_Library div#addNewObject.wrap form button#selectAll,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form button#selectAll,
+#form_search div#addNewObject.wrap form button#selectAll,
+#TB_window div#addNewObject.wrap form button#selectAll {
+  width: 23.5% !important;
+  padding: 22px 10px 18px 10px;
+  margin-left: -4px;
+  color: #57abce;
+  background: white;
+  border: 1px solid #57abce;
+  text-transform: uppercase;
+  vertical-align: top;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap form button#selectAll:hover,
+.koraconnect_page_Galleries div#addNewObject.wrap form button#selectAll:hover,
+.koraconnect_page_Library div#addNewObject.wrap form button#selectAll:hover,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form button#selectAll:hover,
+#form_search div#addNewObject.wrap form button#selectAll:hover,
+#TB_window div#addNewObject.wrap form button#selectAll:hover {
+  background: #f4fcff;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div.kora-objs,
+.koraconnect_page_Galleries div#addNewObject.wrap div.kora-objs,
+.koraconnect_page_Library div#addNewObject.wrap div.kora-objs,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div.kora-objs,
+#form_search div#addNewObject.wrap div.kora-objs,
+#TB_window div#addNewObject.wrap div.kora-objs {
+  width: auto;
+  padding: 10px 20px;
+  margin-top: 20px;
+  border: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+.koraconnect_page_Galleries div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+.koraconnect_page_Library div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+#form_search div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+#TB_window div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd) {
+  width: 49%;
+  float: left;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+.koraconnect_page_Galleries div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+.koraconnect_page_Library div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+#form_search div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+#TB_window div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even) {
+  width: 49%;
+  float: right;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination,
+#form_search div#addNewObject.wrap div#pagination,
+#TB_window div#addNewObject.wrap div#pagination {
+  float: right;
+  margin-bottom: 10px;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination img#prevPage,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination img#prevPage,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination img#prevPage,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination img#prevPage,
+#form_search div#addNewObject.wrap div#pagination img#prevPage,
+#TB_window div#addNewObject.wrap div#pagination img#prevPage,
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination img#nextPage,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination img#nextPage,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination img#nextPage,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination img#nextPage,
+#form_search div#addNewObject.wrap div#pagination img#nextPage,
+#TB_window div#addNewObject.wrap div#pagination img#nextPage,
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination div#pageNums,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination div#pageNums,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination div#pageNums,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination div#pageNums,
+#form_search div#addNewObject.wrap div#pagination div#pageNums,
+#TB_window div#addNewObject.wrap div#pagination div#pageNums {
+  display: inline-block;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination img#prevPage,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination img#prevPage,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination img#prevPage,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination img#prevPage,
+#form_search div#addNewObject.wrap div#pagination img#prevPage,
+#TB_window div#addNewObject.wrap div#pagination img#prevPage,
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination img#nextPage,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination img#nextPage,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination img#nextPage,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination img#nextPage,
+#form_search div#addNewObject.wrap div#pagination img#nextPage,
+#TB_window div#addNewObject.wrap div#pagination img#nextPage {
+  padding: 15px;
+  margin-top: -1px;
+  border: 1px solid #dedede;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination div#pageNums,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination div#pageNums,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination div#pageNums,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination div#pageNums,
+#form_search div#addNewObject.wrap div#pagination div#pageNums,
+#TB_window div#addNewObject.wrap div#pagination div#pageNums {
+  padding: 15px 0;
+  margin-top: -1px;
+  vertical-align: top;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination div#pageNums span,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination div#pageNums span,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination div#pageNums span,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination div#pageNums span,
+#form_search div#addNewObject.wrap div#pagination div#pageNums span,
+#TB_window div#addNewObject.wrap div#pagination div#pageNums span {
+  padding: 0 10px;
+  color: #dedede;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#pagination div#pageNums span.active-page,
+.koraconnect_page_Galleries div#addNewObject.wrap div#pagination div#pageNums span.active-page,
+.koraconnect_page_Library div#addNewObject.wrap div#pagination div#pageNums span.active-page,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#pagination div#pageNums span.active-page,
+#form_search div#addNewObject.wrap div#pagination div#pageNums span.active-page,
+#TB_window div#addNewObject.wrap div#pagination div#pageNums span.active-page {
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings div#addNewObject.wrap div#add-kora-objs input:hover,
+.koraconnect_page_Galleries div#addNewObject.wrap div#add-kora-objs input:hover,
+.koraconnect_page_Library div#addNewObject.wrap div#add-kora-objs input:hover,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div#add-kora-objs input:hover,
+#form_search div#addNewObject.wrap div#add-kora-objs input:hover,
+#TB_window div#addNewObject.wrap div#add-kora-objs input:hover {
+  background: #3894bb;
+}
+@media (max-width: 945px) {
+  .toplevel_page_KORA_Settings div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+  .koraconnect_page_Galleries div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+  .koraconnect_page_Library div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+  .koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+  #form_search div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+  #TB_window div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(odd),
+  .toplevel_page_KORA_Settings div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+  .koraconnect_page_Galleries div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+  .koraconnect_page_Library div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+  .koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+  #form_search div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even),
+  #TB_window div#addNewObject.wrap div.kora-objs div.kora-obj:nth-child(even) {
+    width: 100%;
+    float: none;
+  }
+}
+@media (max-width: 900px) {
+  .toplevel_page_KORA_Settings div#addNewObject.wrap form input#searchObjects,
+  .koraconnect_page_Galleries div#addNewObject.wrap form input#searchObjects,
+  .koraconnect_page_Library div#addNewObject.wrap form input#searchObjects,
+  .koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form input#searchObjects,
+  #form_search div#addNewObject.wrap form input#searchObjects,
+  #TB_window div#addNewObject.wrap form input#searchObjects,
+  .toplevel_page_KORA_Settings div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .koraconnect_page_Galleries div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .koraconnect_page_Library div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form div#objectsPerPage_chosen,
+  #form_search div#addNewObject.wrap form div#objectsPerPage_chosen,
+  #TB_window div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .toplevel_page_KORA_Settings div#addNewObject.wrap form button#selectAll,
+  .koraconnect_page_Galleries div#addNewObject.wrap form button#selectAll,
+  .koraconnect_page_Library div#addNewObject.wrap form button#selectAll,
+  .koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form button#selectAll,
+  #form_search div#addNewObject.wrap form button#selectAll,
+  #TB_window div#addNewObject.wrap form button#selectAll {
+>>>>>>> 0715e1f39e10e6278fc264912e125ae5bfe73842
+    width: 100% !important;
+    display: block;
+    margin: 0;
+  }
+  .toplevel_page_KORA_Settings div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .koraconnect_page_Galleries div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .koraconnect_page_Library div#addNewObject.wrap form div#objectsPerPage_chosen,
+  .koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap form div#objectsPerPage_chosen,
+  #form_search div#addNewObject.wrap form div#objectsPerPage_chosen,
+  #TB_window div#addNewObject.wrap form div#objectsPerPage_chosen {
+    margin: 20px 0;
+  }
+}
+.toplevel_page_KORA_Settings .koraobj_control_label,
+.koraconnect_page_Galleries .koraobj_control_label,
+.koraconnect_page_Library .koraobj_control_label,
+.koraconnect_page_Add_New_KORA_Object .koraobj_control_label,
+#form_search .koraobj_control_label,
+#TB_window .koraobj_control_label {
+  color: rgba(0, 0, 0, 0.6);
+  float: left;
+  margin: 0 5px 0 0;
+}
+.toplevel_page_KORA_Settings .koraobj_control_label:after,
+.koraconnect_page_Galleries .koraobj_control_label:after,
+.koraconnect_page_Library .koraobj_control_label:after,
+.koraconnect_page_Add_New_KORA_Object .koraobj_control_label:after,
+#form_search .koraobj_control_label:after,
+#TB_window .koraobj_control_label:after {
+  content: ":";
+}
+.toplevel_page_KORA_Settings .koraobj_control,
+.koraconnect_page_Galleries .koraobj_control,
+.koraconnect_page_Library .koraobj_control,
+.koraconnect_page_Add_New_KORA_Object .koraobj_control,
+#form_search .koraobj_control,
+#TB_window .koraobj_control {
+  border-bottom: 1px solid #eee;
+  padding: 2px;
+}
+.toplevel_page_KORA_Settings .koraobj_container,
+.koraconnect_page_Galleries .koraobj_container,
+.koraconnect_page_Library .koraobj_container,
+.koraconnect_page_Add_New_KORA_Object .koraobj_container,
+#form_search .koraobj_container,
+#TB_window .koraobj_container {
+  font-size: 11px;
+  width: 97%;
+  float: left;
+  overflow: auto;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 5px 10px 5px 0;
+  line-height: 15px;
+  position: relative;
+  top: 30px;
+}
+.toplevel_page_KORA_Settings .fullrecord_obj,
+.koraconnect_page_Galleries .fullrecord_obj,
+.koraconnect_page_Library .fullrecord_obj,
+.koraconnect_page_Add_New_KORA_Object .fullrecord_obj,
+#form_search .fullrecord_obj,
+#TB_window .fullrecord_obj {
+  float: left;
+}
+.toplevel_page_KORA_Settings #newobj,
+.koraconnect_page_Galleries #newobj,
+.koraconnect_page_Library #newobj,
+.koraconnect_page_Add_New_KORA_Object #newobj,
+#form_search #newobj,
+#TB_window #newobj {
+  float: left;
+  clear: both;
+  margin-top: 20px;
+}
+.toplevel_page_KORA_Settings .noresults,
+.koraconnect_page_Galleries .noresults,
+.koraconnect_page_Library .noresults,
+.koraconnect_page_Add_New_KORA_Object .noresults,
+#form_search .noresults,
+#TB_window .noresults {
+  color: red;
+  margin-top: 20px;
+}
+.toplevel_page_KORA_Settings .kora_upload_insert,
+.koraconnect_page_Galleries .kora_upload_insert,
+.koraconnect_page_Library .kora_upload_insert,
+.koraconnect_page_Add_New_KORA_Object .kora_upload_insert,
+#form_search .kora_upload_insert,
+#TB_window .kora_upload_insert {
+  clear: both;
+}
+.toplevel_page_KORA_Settings #kora_results_container_addnewobj,
+.koraconnect_page_Galleries #kora_results_container_addnewobj,
+.koraconnect_page_Library #kora_results_container_addnewobj,
+.koraconnect_page_Add_New_KORA_Object #kora_results_container_addnewobj,
+#form_search #kora_results_container_addnewobj,
+#TB_window #kora_results_container_addnewobj {
+  position: fixed;
+  top: 100px;
+  right: 5px;
+}
+.toplevel_page_KORA_Settings div#library.wrap h2,
+.koraconnect_page_Galleries div#library.wrap h2,
+.koraconnect_page_Library div#library.wrap h2,
+.koraconnect_page_Add_New_KORA_Object div#library.wrap h2,
+#form_search div#library.wrap h2,
+#TB_window div#library.wrap h2 {
+  margin: 40px 0 20px 0 !important;
+}
+.toplevel_page_KORA_Settings div#library.wrap p,
+.koraconnect_page_Galleries div#library.wrap p,
+.koraconnect_page_Library div#library.wrap p,
+.koraconnect_page_Add_New_KORA_Object div#library.wrap p,
+#form_search div#library.wrap p,
+#TB_window div#library.wrap p {
+  margin: 20px 0;
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings .lib_obj,
+.koraconnect_page_Galleries .lib_obj,
+.koraconnect_page_Library .lib_obj,
+.koraconnect_page_Add_New_KORA_Object .lib_obj,
+#form_search .lib_obj,
+#TB_window .lib_obj {
+  font-size: 11px;
+  width: 250px;
+  float: left;
+  overflow: auto;
+  height: 160px;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 10px 10px 0 0;
+  line-height: 15px;
+}
+.toplevel_page_KORA_Settings .lib_obj img,
+.koraconnect_page_Galleries .lib_obj img,
+.koraconnect_page_Library .lib_obj img,
+.koraconnect_page_Add_New_KORA_Object .lib_obj img,
+#form_search .lib_obj img,
+#TB_window .lib_obj img {
+  width: 100%;
+  height: auto;
+}
+.toplevel_page_KORA_Settings .lib_image,
+.koraconnect_page_Galleries .lib_image,
+.koraconnect_page_Library .lib_image,
+.koraconnect_page_Add_New_KORA_Object .lib_image,
+#form_search .lib_image,
+#TB_window .lib_image {
+  width: 250px;
+  max-height: 130px;
+  overflow: hidden;
+  display: block;
+  background-position: 50% 50%;
+  border: 1px solid #aaa;
+  float: left;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings .lib_obj_library,
+.koraconnect_page_Galleries .lib_obj_library,
+.koraconnect_page_Library .lib_obj_library,
+.koraconnect_page_Add_New_KORA_Object .lib_obj_library,
+#form_search .lib_obj_library,
+#TB_window .lib_obj_library {
+  position: relative;
+  top: 100px;
+  right: 5px;
+  font-size: 11px;
+  width: 100%;
+  float: left;
+  overflow: auto;
+  padding: 8px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  margin: 10px 10px 0 0;
+  line-height: 15px;
+}
+.toplevel_page_KORA_Settings .lib_obj_library img,
+.koraconnect_page_Galleries .lib_obj_library img,
+.koraconnect_page_Library .lib_obj_library img,
+.koraconnect_page_Add_New_KORA_Object .lib_obj_library img,
+#form_search .lib_obj_library img,
+#TB_window .lib_obj_library img {
+  width: 100%;
+  height: auto;
+}
+.toplevel_page_KORA_Settings .lib_image_library,
+.koraconnect_page_Galleries .lib_image_library,
+.koraconnect_page_Library .lib_image_library,
+.koraconnect_page_Add_New_KORA_Object .lib_image_library,
+#form_search .lib_image_library,
+#TB_window .lib_image_library {
+  width: 100px;
+  max-height: 130px;
+  overflow: hidden;
+  display: block;
+  background-position: 50% 50%;
+  border: 1px solid #aaa;
+  float: left;
+  margin-right: 10px;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings .lib_title,
+.koraconnect_page_Galleries .lib_title,
+.koraconnect_page_Library .lib_title,
+.koraconnect_page_Add_New_KORA_Object .lib_title,
+#form_search .lib_title,
+#TB_window .lib_title {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.toplevel_page_KORA_Settings .close_lib,
+.koraconnect_page_Galleries .close_lib,
+.koraconnect_page_Library .close_lib,
+.koraconnect_page_Add_New_KORA_Object .close_lib,
+#form_search .close_lib,
+#TB_window .close_lib {
+  float: left;
+  top: 3px;
+  left: 3px;
+  z-index: 100;
+  background-color: #990000;
+  padding: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .7;
+  text-align: center;
+  line-height: 10px;
+  border-radius: 50%;
+  margin: 0 4px 3px 0;
+}
+.toplevel_page_KORA_Settings .gal_gallery,
+.koraconnect_page_Galleries .gal_gallery,
+.koraconnect_page_Library .gal_gallery,
+.koraconnect_page_Add_New_KORA_Object .gal_gallery,
+#form_search .gal_gallery,
+#TB_window .gal_gallery {
+  position: relative;
+  margin-bottom: 20px;
+}
+.toplevel_page_KORA_Settings .gal_title,
+.koraconnect_page_Galleries .gal_title,
+.koraconnect_page_Library .gal_title,
+.koraconnect_page_Add_New_KORA_Object .gal_title,
+#form_search .gal_title,
+#TB_window .gal_title {
+  position: relative;
+  font-weight: bold;
+  border: 1px solid #dedede;
+  height: 55px;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings .gal_title .galleryTitle,
+.koraconnect_page_Galleries .gal_title .galleryTitle,
+.koraconnect_page_Library .gal_title .galleryTitle,
+.koraconnect_page_Add_New_KORA_Object .gal_title .galleryTitle,
+#form_search .gal_title .galleryTitle,
+#TB_window .gal_title .galleryTitle {
+  position: relative;
+  display: inline-block;
+  font-size: 16px;
+  left: 20px;
+  cursor: initial;
+}
+.toplevel_page_KORA_Settings .gal_title .objectNum,
+.koraconnect_page_Galleries .gal_title .objectNum,
+.koraconnect_page_Library .gal_title .objectNum,
+.koraconnect_page_Add_New_KORA_Object .gal_title .objectNum,
+#form_search .gal_title .objectNum,
+#TB_window .gal_title .objectNum {
+  position: relative;
+  font-size: 13px;
+  display: inline-block;
+  margin-left: 20px;
+  text-align: left;
+  cursor: initial;
+}
+.toplevel_page_KORA_Settings .gal_title .addToGallery,
+.koraconnect_page_Galleries .gal_title .addToGallery,
+.koraconnect_page_Library .gal_title .addToGallery,
+.koraconnect_page_Add_New_KORA_Object .gal_title .addToGallery,
+#form_search .gal_title .addToGallery,
+#TB_window .gal_title .addToGallery {
+  position: absolute;
+  display: inline-block;
+  right: 80px;
+  line-height: 32px;
+}
+.toplevel_page_KORA_Settings .gal_title .addToGallery a,
+.koraconnect_page_Galleries .gal_title .addToGallery a,
+.koraconnect_page_Library .gal_title .addToGallery a,
+.koraconnect_page_Add_New_KORA_Object .gal_title .addToGallery a,
+#form_search .gal_title .addToGallery a,
+#TB_window .gal_title .addToGallery a {
+  text-decoration: none ;
+  color: #57ABCE;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings .gal_title .close,
+.koraconnect_page_Galleries .gal_title .close,
+.koraconnect_page_Library .gal_title .close,
+.koraconnect_page_Add_New_KORA_Object .gal_title .close,
+#form_search .gal_title .close,
+#TB_window .gal_title .close {
+  position: absolute;
+  right: 0;
+  display: inline;
+  width: 55px;
+  height: 55px;
+  border-left: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings .gal_title .close img,
+.koraconnect_page_Galleries .gal_title .close img,
+.koraconnect_page_Library .gal_title .close img,
+.koraconnect_page_Add_New_KORA_Object .gal_title .close img,
+#form_search .gal_title .close img,
+#TB_window .gal_title .close img {
+  width: 17px;
+  height: 17px;
+  margin: 19px;
+}
+.toplevel_page_KORA_Settings .gal_body,
+.koraconnect_page_Galleries .gal_body,
+.koraconnect_page_Library .gal_body,
+.koraconnect_page_Add_New_KORA_Object .gal_body,
+#form_search .gal_body,
+#TB_window .gal_body {
+  position: relative;
+  border: 1px solid #dedede;
+  border-top: none;
+  display: none;
+}
+.toplevel_page_KORA_Settings .gal_body .gal_koraInfo,
+.koraconnect_page_Galleries .gal_body .gal_koraInfo,
+.koraconnect_page_Library .gal_body .gal_koraInfo,
+.koraconnect_page_Add_New_KORA_Object .gal_body .gal_koraInfo,
+#form_search .gal_body .gal_koraInfo,
+#TB_window .gal_body .gal_koraInfo {
+  position: relative;
+}
+.toplevel_page_KORA_Settings .gal_body .gal_koraInfo > p,
+.koraconnect_page_Galleries .gal_body .gal_koraInfo > p,
+.koraconnect_page_Library .gal_body .gal_koraInfo > p,
+.koraconnect_page_Add_New_KORA_Object .gal_body .gal_koraInfo > p,
+#form_search .gal_body .gal_koraInfo > p,
+#TB_window .gal_body .gal_koraInfo > p {
+  position: relative;
+  margin: 20px;
+  display: inline-block;
+}
+.toplevel_page_KORA_Settings .gal_grey,
+.koraconnect_page_Galleries .gal_grey,
+.koraconnect_page_Library .gal_grey,
+.koraconnect_page_Add_New_KORA_Object .gal_grey,
+#form_search .gal_grey,
+#TB_window .gal_grey {
+  color: #dedede;
+}
+.toplevel_page_KORA_Settings .gal_records,
+.koraconnect_page_Galleries .gal_records,
+.koraconnect_page_Library .gal_records,
+.koraconnect_page_Add_New_KORA_Object .gal_records,
+#form_search .gal_records,
+#TB_window .gal_records {
+  width: 100%;
+  position: relative;
+  clear: both;
+}
+.toplevel_page_KORA_Settings .gal_record,
+.koraconnect_page_Galleries .gal_record,
+.koraconnect_page_Library .gal_record,
+.koraconnect_page_Add_New_KORA_Object .gal_record,
+#form_search .gal_record,
+#TB_window .gal_record {
+  /*border: 1px solid #dedede;
+		width: 420px;
+		height: 142px;
+		margin: 20px;
+		position: relative;*/
+  position: relative;
+  width: 450px;
+  height: 150px;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  margin: 10px;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings .gal_record .closePic,
+.koraconnect_page_Galleries .gal_record .closePic,
+.koraconnect_page_Library .gal_record .closePic,
+.koraconnect_page_Add_New_KORA_Object .gal_record .closePic,
+#form_search .gal_record .closePic,
+#TB_window .gal_record .closePic {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border-left: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings .gal_record .closePic img,
+.koraconnect_page_Galleries .gal_record .closePic img,
+.koraconnect_page_Library .gal_record .closePic img,
+.koraconnect_page_Add_New_KORA_Object .gal_record .closePic img,
+#form_search .gal_record .closePic img,
+#TB_window .gal_record .closePic img {
+  /*width: 6px;
+		height: 6px;
+		margin: 8px;*/
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 0 0;
+}
+.toplevel_page_KORA_Settings .gal_record .gal_image,
+.koraconnect_page_Galleries .gal_record .gal_image,
+.koraconnect_page_Library .gal_record .gal_image,
+.koraconnect_page_Add_New_KORA_Object .gal_record .gal_image,
+#form_search .gal_record .gal_image,
+#TB_window .gal_record .gal_image {
+  width: calc(33.80952381%);
+  height: 142px;
+  float: left;
+  position: relative;
+  border-right: 1px solid #dedede;
+  z-index: -1;
+}
+.toplevel_page_KORA_Settings .gal_record .gal_image img,
+.koraconnect_page_Galleries .gal_record .gal_image img,
+.koraconnect_page_Library .gal_record .gal_image img,
+.koraconnect_page_Add_New_KORA_Object .gal_record .gal_image img,
+#form_search .gal_record .gal_image img,
+#TB_window .gal_record .gal_image img {
+  width: 100%;
+  height: auto;
+}
+.toplevel_page_KORA_Settings .gal_record .gal_image .gal_editDetails,
+.koraconnect_page_Galleries .gal_record .gal_image .gal_editDetails,
+.koraconnect_page_Library .gal_record .gal_image .gal_editDetails,
+.koraconnect_page_Add_New_KORA_Object .gal_record .gal_image .gal_editDetails,
+#form_search .gal_record .gal_image .gal_editDetails,
+#TB_window .gal_record .gal_image .gal_editDetails {
+  /*text-align: center;*/
+  height: 31px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  padding: 15px 14px 13px 14px;
+  border-top: 1px solid #dedede;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  cursor: pointer;
+  transition: all 150ms linear 0s;
+}
+.toplevel_page_KORA_Settings .gal_record:hover,
+.koraconnect_page_Galleries .gal_record:hover,
+.koraconnect_page_Library .gal_record:hover,
+.koraconnect_page_Add_New_KORA_Object .gal_record:hover,
+#form_search .gal_record:hover,
+#TB_window .gal_record:hover {
+  border: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .gal_record:hover .gal_image,
+.koraconnect_page_Galleries .gal_record:hover .gal_image,
+.koraconnect_page_Library .gal_record:hover .gal_image,
+.koraconnect_page_Add_New_KORA_Object .gal_record:hover .gal_image,
+#form_search .gal_record:hover .gal_image,
+#TB_window .gal_record:hover .gal_image {
+  border-right: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .gal_record.selected,
+.koraconnect_page_Galleries .gal_record.selected,
+.koraconnect_page_Library .gal_record.selected,
+.koraconnect_page_Add_New_KORA_Object .gal_record.selected,
+#form_search .gal_record.selected,
+#TB_window .gal_record.selected {
+  border: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .gal_record > p,
+.koraconnect_page_Galleries .gal_record > p,
+.koraconnect_page_Library .gal_record > p,
+.koraconnect_page_Add_New_KORA_Object .gal_record > p,
+#form_search .gal_record > p,
+#TB_window .gal_record > p {
+  font-size: 11px;
+  margin: 6px;
+  left: 10px;
+  position: relative;
+}
+.toplevel_page_KORA_Settings .gal_image .close,
+.koraconnect_page_Galleries .gal_image .close,
+.koraconnect_page_Library .gal_image .close,
+.koraconnect_page_Add_New_KORA_Object .gal_image .close,
+#form_search .gal_image .close,
+#TB_window .gal_image .close {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: 100;
+  background-color: red;
+  padding: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .7;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+  border-radius: 50%;
+}
+.toplevel_page_KORA_Settings .gal_image:hover .close,
+.koraconnect_page_Galleries .gal_image:hover .close,
+.koraconnect_page_Library .gal_image:hover .close,
+.koraconnect_page_Add_New_KORA_Object .gal_image:hover .close,
+#form_search .gal_image:hover .close,
+#TB_window .gal_image:hover .close {
+  opacity: 1;
+}
+.toplevel_page_KORA_Settings .gal_display .close,
+.koraconnect_page_Galleries .gal_display .close,
+.koraconnect_page_Library .gal_display .close,
+.koraconnect_page_Add_New_KORA_Object .gal_display .close,
+#form_search .gal_display .close,
+#TB_window .gal_display .close {
+  float: right;
+  top: 3px;
+  left: 3px;
+  z-index: 100;
+  background-color: #990000;
+  padding: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .7;
+  text-align: center;
+  font-size: 20px;
+  line-height: 10px;
+  border-radius: 50%;
+}
+.toplevel_page_KORA_Settings .gal_display .closePic,
+.koraconnect_page_Galleries .gal_display .closePic,
+.koraconnect_page_Library .gal_display .closePic,
+.koraconnect_page_Add_New_KORA_Object .gal_display .closePic,
+#form_search .gal_display .closePic,
+#TB_window .gal_display .closePic {
+  width: 12px;
+  top: 3px;
+  left: 3px;
+  z-index: 100;
+  background-color: #990000;
+  padding: 3px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: .7;
+  text-align: center;
+  font-size: 16px;
+  line-height: 10px;
+  border-radius: 50%;
+  margin-bottom: 2px;
+}
+.toplevel_page_KORA_Settings div#galleries.wrap h2,
+.koraconnect_page_Galleries div#galleries.wrap h2,
+.koraconnect_page_Library div#galleries.wrap h2,
+.koraconnect_page_Add_New_KORA_Object div#galleries.wrap h2,
+#form_search div#galleries.wrap h2,
+#TB_window div#galleries.wrap h2 {
+  margin: 0 0 20px 0 !important;
+}
+.toplevel_page_KORA_Settings #gallery_select,
+.koraconnect_page_Galleries #gallery_select,
+.koraconnect_page_Library #gallery_select,
+.koraconnect_page_Add_New_KORA_Object #gallery_select,
+#form_search #gallery_select,
+#TB_window #gallery_select {
+  clear: both;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  padding: 0;
+  font-size: 14px;
+}
+.toplevel_page_KORA_Settings button#addNewGallery,
+.koraconnect_page_Galleries button#addNewGallery,
+.koraconnect_page_Library button#addNewGallery,
+.koraconnect_page_Add_New_KORA_Object button#addNewGallery,
+#form_search button#addNewGallery,
+#TB_window button#addNewGallery {
+  width: 100%;
+  margin: 0 0 40px 0;
+  padding: 20px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  color: #fff;
+  background: #57ABCE;
+  border: 1px solid #57abce;
+  text-transform: uppercase;
+}
+.toplevel_page_KORA_Settings button#addNewGallery:hover,
+.koraconnect_page_Galleries button#addNewGallery:hover,
+.koraconnect_page_Library button#addNewGallery:hover,
+.koraconnect_page_Add_New_KORA_Object button#addNewGallery:hover,
+#form_search button#addNewGallery:hover,
+#TB_window button#addNewGallery:hover {
+  background: #3894bb;
+}
+.toplevel_page_KORA_Settings h2.header,
+.koraconnect_page_Galleries h2.header,
+.koraconnect_page_Library h2.header,
+.koraconnect_page_Add_New_KORA_Object h2.header,
+#form_search h2.header,
+#TB_window h2.header {
+  font-family: "Helvetica Neue-UltraLight", "Helvetica Neue", Helvetica, sans-serif;
+  font-size: 60px;
+  width: 199px;
+  height: 62px;
+}
+.toplevel_page_KORA_Settings #koraNewGallery p,
+.koraconnect_page_Galleries #koraNewGallery p,
+.koraconnect_page_Library #koraNewGallery p,
+.koraconnect_page_Add_New_KORA_Object #koraNewGallery p,
+#form_search #koraNewGallery p,
+#TB_window #koraNewGallery p {
+  height: 55px;
+  position: relative;
+  display: block;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+}
+.toplevel_page_KORA_Settings input#gal_searchBox,
+.koraconnect_page_Galleries input#gal_searchBox,
+.koraconnect_page_Library input#gal_searchBox,
+.koraconnect_page_Add_New_KORA_Object input#gal_searchBox,
+#form_search input#gal_searchBox,
+#TB_window input#gal_searchBox {
+  margin: 0;
+  position: relative;
+  width: 80%;
+}
+.toplevel_page_KORA_Settings button#gal_search,
+.koraconnect_page_Galleries button#gal_search,
+.koraconnect_page_Library button#gal_search,
+.koraconnect_page_Add_New_KORA_Object button#gal_search,
+#form_search button#gal_search,
+#TB_window button#gal_search {
+  position: relative;
+  width: 20%;
+  height: 55px;
+}
+.toplevel_page_KORA_Settings #confirmOverlay,
+.koraconnect_page_Galleries #confirmOverlay,
+.koraconnect_page_Library #confirmOverlay,
+.koraconnect_page_Add_New_KORA_Object #confirmOverlay,
+#form_search #confirmOverlay,
+#TB_window #confirmOverlay {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #ffffff;
+  background: -moz-linear-gradient(rgba(11, 11, 11, 0.1), rgba(11, 11, 11, 0.6)) repeat-x rgba(11, 11, 11, 0.2);
+  background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(11, 11, 11, 0.1)), to(rgba(11, 11, 11, 0.6))) repeat-x rgba(11, 11, 11, 0.2);
+  z-index: 100000;
+}
+.toplevel_page_KORA_Settings #confirmBox,
+.koraconnect_page_Galleries #confirmBox,
+.koraconnect_page_Library #confirmBox,
+.koraconnect_page_Add_New_KORA_Object #confirmBox,
+#form_search #confirmBox,
+#TB_window #confirmBox {
+  background-color: #ffffff;
+  width: 540px;
+  height: 180px;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  margin: -130px 0 0 -230px;
+}
+.toplevel_page_KORA_Settings #confirmBox .innerBorder,
+.koraconnect_page_Galleries #confirmBox .innerBorder,
+.koraconnect_page_Library #confirmBox .innerBorder,
+.koraconnect_page_Add_New_KORA_Object #confirmBox .innerBorder,
+#form_search #confirmBox .innerBorder,
+#TB_window #confirmBox .innerBorder {
+  width: 532px;
+  height: 172px;
+  box-sizing: border-box;
+  margin: 4px;
+  border: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings #confirmBox .innerBorder p,
+.koraconnect_page_Galleries #confirmBox .innerBorder p,
+.koraconnect_page_Library #confirmBox .innerBorder p,
+.koraconnect_page_Add_New_KORA_Object #confirmBox .innerBorder p,
+#form_search #confirmBox .innerBorder p,
+#TB_window #confirmBox .innerBorder p {
+  font-family: "Helvetica Neue-Light", "Helvetica Neue", Helvetica, sans-serif;
+  position: absolute;
+  left: 46px;
+  top: 20px;
+  font-size: 21px;
+  color: #454545;
+}
+.toplevel_page_KORA_Settings #confirmBox .innerBorder p.confirmClose,
+.koraconnect_page_Galleries #confirmBox .innerBorder p.confirmClose,
+.koraconnect_page_Library #confirmBox .innerBorder p.confirmClose,
+.koraconnect_page_Add_New_KORA_Object #confirmBox .innerBorder p.confirmClose,
+#form_search #confirmBox .innerBorder p.confirmClose,
+#TB_window #confirmBox .innerBorder p.confirmClose {
+  left: 480px;
+  cursor: pointer;
+}
+.toplevel_page_KORA_Settings #confirmButtons,
+.koraconnect_page_Galleries #confirmButtons,
+.koraconnect_page_Library #confirmButtons,
+.koraconnect_page_Add_New_KORA_Object #confirmButtons,
+#form_search #confirmButtons,
+#TB_window #confirmButtons {
+  position: absolute;
+  left: 46px;
+  top: 110px;
+  text-align: left;
+}
+.toplevel_page_KORA_Settings #confirmButtons .confirmButton,
+.koraconnect_page_Galleries #confirmButtons .confirmButton,
+.koraconnect_page_Library #confirmButtons .confirmButton,
+.koraconnect_page_Add_New_KORA_Object #confirmButtons .confirmButton,
+#form_search #confirmButtons .confirmButton,
+#TB_window #confirmButtons .confirmButton {
+  cursor: pointer;
+  margin-right: 50px;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+  padding: 0;
+  border: none;
+  background: none;
+  text-decoration: none;
+}
+.toplevel_page_KORA_Settings #confirmBox .red,
+.koraconnect_page_Galleries #confirmBox .red,
+.koraconnect_page_Library #confirmBox .red,
+.koraconnect_page_Add_New_KORA_Object #confirmBox .red,
+#form_search #confirmBox .red,
+#TB_window #confirmBox .red {
+  color: #df7171;
+}
+.toplevel_page_KORA_Settings #confirmBox .grey,
+.koraconnect_page_Galleries #confirmBox .grey,
+.koraconnect_page_Library #confirmBox .grey,
+.koraconnect_page_Add_New_KORA_Object #confirmBox .grey,
+#form_search #confirmBox .grey,
+#TB_window #confirmBox .grey {
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings .form_upload,
+.koraconnect_page_Galleries .form_upload,
+.koraconnect_page_Library .form_upload,
+.koraconnect_page_Add_New_KORA_Object .form_upload,
+#form_search .form_upload,
+#TB_window .form_upload {
+  /**/
+}
+.toplevel_page_KORA_Settings .form_upload_gallery,
+.koraconnect_page_Galleries .form_upload_gallery,
+.koraconnect_page_Library .form_upload_gallery,
+.koraconnect_page_Add_New_KORA_Object .form_upload_gallery,
+#form_search .form_upload_gallery,
+#TB_window .form_upload_gallery {
+  line-height: 25px;
+  font-family: Verdana, Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  position: fixed;
+  width: 100%;
+  background-color: #fff;
+  float: left;
+  border-bottom: 1px solid #ccc;
+  margin-top: -8px;
+}
+.toplevel_page_KORA_Settings .kora_results_container,
+.koraconnect_page_Galleries .kora_results_container,
+.koraconnect_page_Library .kora_results_container,
+.koraconnect_page_Add_New_KORA_Object .kora_results_container,
+#form_search .kora_results_container,
+#TB_window .kora_results_container {
+  background: white;
+  border: 1px solid #dedede;
+  padding: 10px 20px;
+  margin-bottom: 70px;
+}
+.toplevel_page_KORA_Settings .crop,
+.koraconnect_page_Galleries .crop,
+.koraconnect_page_Library .crop,
+.koraconnect_page_Add_New_KORA_Object .crop,
+#form_search .crop,
+#TB_window .crop {
+  display: block;
+  width: 250px;
+  height: 200px;
+  background-position: 50% 50%;
+}
+.toplevel_page_KORA_Settings .koraobj_tn,
+.koraconnect_page_Galleries .koraobj_tn,
+.koraconnect_page_Library .koraobj_tn,
+.koraconnect_page_Add_New_KORA_Object .koraobj_tn,
+#form_search .koraobj_tn,
+#TB_window .koraobj_tn {
+  width: 100%;
+}
+.toplevel_page_KORA_Settings .control_full_label,
+.koraconnect_page_Galleries .control_full_label,
+.koraconnect_page_Library .control_full_label,
+.koraconnect_page_Add_New_KORA_Object .control_full_label,
+#form_search .control_full_label,
+#TB_window .control_full_label {
+  font-weight: bold;
+  float: left;
+  margin: 0 5px 0 0;
+}
+.toplevel_page_KORA_Settings .control_full_label:after,
+.koraconnect_page_Galleries .control_full_label:after,
+.koraconnect_page_Library .control_full_label:after,
+.koraconnect_page_Add_New_KORA_Object .control_full_label:after,
+#form_search .control_full_label:after,
+#TB_window .control_full_label:after {
+  content: ":";
+}
+.toplevel_page_KORA_Settings .control_full,
+.koraconnect_page_Galleries .control_full,
+.koraconnect_page_Library .control_full,
+.koraconnect_page_Add_New_KORA_Object .control_full,
+#form_search .control_full,
+#TB_window .control_full {
+  padding: 5px 0;
+  border-style: ridge;
+  background-color: #ffff00;
+  opacity: 0.6;
+  border-radius: 25px;
+}
+.toplevel_page_KORA_Settings .container_full,
+.koraconnect_page_Galleries .container_full,
+.koraconnect_page_Library .container_full,
+.koraconnect_page_Add_New_KORA_Object .container_full,
+#form_search .container_full,
+#TB_window .container_full {
+  line-height: 17px;
+}
+.toplevel_page_KORA_Settings .kc_file_name,
+.koraconnect_page_Galleries .kc_file_name,
+.koraconnect_page_Library .kc_file_name,
+.koraconnect_page_Add_New_KORA_Object .kc_file_name,
+#form_search .kc_file_name,
+#TB_window .kc_file_name {
+  clear: both;
+  margin-left: 15px;
+  font-style: italic;
+}
+.toplevel_page_KORA_Settings .kc_file_size,
+.koraconnect_page_Galleries .kc_file_size,
+.koraconnect_page_Library .kc_file_size,
+.koraconnect_page_Add_New_KORA_Object .kc_file_size,
+#form_search .kc_file_size,
+#TB_window .kc_file_size {
+  clear: both;
+  margin-left: 15px;
+  font-style: italic;
+}
+.toplevel_page_KORA_Settings .kc_file_type,
+.koraconnect_page_Galleries .kc_file_type,
+.koraconnect_page_Library .kc_file_type,
+.koraconnect_page_Add_New_KORA_Object .kc_file_type,
+#form_search .kc_file_type,
+#TB_window .kc_file_type {
+  clear: both;
+  margin-left: 15px;
+  font-style: italic;
+}
+@media only screen and (min-width: 960px) {
+  .toplevel_page_KORA_Settings .kgfs_object,
+  .koraconnect_page_Galleries .kgfs_object,
+  .koraconnect_page_Library .kgfs_object,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_object,
+  #form_search .kgfs_object,
+  #TB_window .kgfs_object {
+    float: left;
+    width: 220px;
+    margin: 0 20px 20px 0;
+    font-size: 12px;
+    text-overflow: ellipsis;
+    height: 200px;
+    overflow: hidden;
+  }
+  .toplevel_page_KORA_Settings .kgfs_object_selected,
+  .koraconnect_page_Galleries .kgfs_object_selected,
+  .koraconnect_page_Library .kgfs_object_selected,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_object_selected,
+  #form_search .kgfs_object_selected,
+  #TB_window .kgfs_object_selected {
+    border: 2px solid #A7D7A3;
+  }
+  .toplevel_page_KORA_Settings .kgfs_img,
+  .koraconnect_page_Galleries .kgfs_img,
+  .koraconnect_page_Library .kgfs_img,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_img,
+  #form_search .kgfs_img,
+  #TB_window .kgfs_img {
+    max-height: 120px;
+    overflow: hidden;
+    display: block;
+    background-position: 50% 50%;
+    /*border: 1px solid #aaa;*/
+  }
+  .toplevel_page_KORA_Settings .kgfs_img img,
+  .koraconnect_page_Galleries .kgfs_img img,
+  .koraconnect_page_Library .kgfs_img img,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_img img,
+  #form_search .kgfs_img img,
+  #TB_window .kgfs_img img {
+    width: 220px;
+  }
+  .toplevel_page_KORA_Settings .kgfs_title,
+  .koraconnect_page_Galleries .kgfs_title,
+  .koraconnect_page_Library .kgfs_title,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_title,
+  #form_search .kgfs_title,
+  #TB_window .kgfs_title {
+    font-weight: bold;
+    line-height: 15px;
+    margin: 4px 0 0 0;
+  }
+  .toplevel_page_KORA_Settings .kgfs_desc,
+  .koraconnect_page_Galleries .kgfs_desc,
+  .koraconnect_page_Library .kgfs_desc,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_desc,
+  #form_search .kgfs_desc,
+  #TB_window .kgfs_desc {
+    line-height: 15px;
+    margin: 3px 0 0 0;
+  }
+}
+@media only screen and (min-width: 768px) {
+  .toplevel_page_KORA_Settings .container_full,
+  .koraconnect_page_Galleries .container_full,
+  .koraconnect_page_Library .container_full,
+  .koraconnect_page_Add_New_KORA_Object .container_full,
+  #form_search .container_full,
+  #TB_window .container_full {
+    float: left;
+    width: 47%;
+  }
+  .toplevel_page_KORA_Settings .kc_file_tn,
+  .koraconnect_page_Galleries .kc_file_tn,
+  .koraconnect_page_Library .kc_file_tn,
+  .koraconnect_page_Add_New_KORA_Object .kc_file_tn,
+  #form_search .kc_file_tn,
+  #TB_window .kc_file_tn {
+    float: left;
+    max-width: 47%;
+    padding: 10px;
+    background-color: #ddd;
+    margin-right: 15px;
+  }
+  .toplevel_page_KORA_Settings .kc_file_tn img,
+  .koraconnect_page_Galleries .kc_file_tn img,
+  .koraconnect_page_Library .kc_file_tn img,
+  .koraconnect_page_Add_New_KORA_Object .kc_file_tn img,
+  #form_search .kc_file_tn img,
+  #TB_window .kc_file_tn img {
+    max-height: 70%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 960px) {
+  .toplevel_page_KORA_Settings .kgfs_object,
+  .koraconnect_page_Galleries .kgfs_object,
+  .koraconnect_page_Library .kgfs_object,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_object,
+  #form_search .kgfs_object,
+  #TB_window .kgfs_object {
+    float: left;
+    width: 220px;
+    margin: 0 20px 20px 0;
+    height: 200px;
+    font-size: 11px;
+    text-overflow: ellipsis;
+  }
+  .toplevel_page_KORA_Settings .kgfs_object_selected,
+  .koraconnect_page_Galleries .kgfs_object_selected,
+  .koraconnect_page_Library .kgfs_object_selected,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_object_selected,
+  #form_search .kgfs_object_selected,
+  #TB_window .kgfs_object_selected {
+    border: 2px solid #A7D7A3;
+  }
+  .toplevel_page_KORA_Settings .kgfs_img,
+  .koraconnect_page_Galleries .kgfs_img,
+  .koraconnect_page_Library .kgfs_img,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_img,
+  #form_search .kgfs_img,
+  #TB_window .kgfs_img {
+    min-width: 100%;
+    max-height: 120px;
+    overflow: hidden;
+    display: block;
+    background-position: 50% 50%;
+    border: 1px solid #aaa;
+  }
+  .toplevel_page_KORA_Settings .kgfs_title,
+  .koraconnect_page_Galleries .kgfs_title,
+  .koraconnect_page_Library .kgfs_title,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_title,
+  #form_search .kgfs_title,
+  #TB_window .kgfs_title {
+    font-weight: bold;
+    line-height: 12px;
+    margin: 4px 0 0 0;
+  }
+  .toplevel_page_KORA_Settings .kgfs_desc,
+  .koraconnect_page_Galleries .kgfs_desc,
+  .koraconnect_page_Library .kgfs_desc,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_desc,
+  #form_search .kgfs_desc,
+  #TB_window .kgfs_desc {
+    line-height: 12px;
+    margin: 3px 0 0 0;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .toplevel_page_KORA_Settings .kgfs_object,
+  .koraconnect_page_Galleries .kgfs_object,
+  .koraconnect_page_Library .kgfs_object,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_object,
+  #form_search .kgfs_object,
+  #TB_window .kgfs_object {
+    margin: 0 0 20px 0;
+  }
+  .toplevel_page_KORA_Settings .kgfs_title,
+  .koraconnect_page_Galleries .kgfs_title,
+  .koraconnect_page_Library .kgfs_title,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_title,
+  #form_search .kgfs_title,
+  #TB_window .kgfs_title {
+    font-weight: bold;
+    line-height: 15px;
+    margin: 4px 0 0 0;
+  }
+  .toplevel_page_KORA_Settings .kgfs_desc,
+  .koraconnect_page_Galleries .kgfs_desc,
+  .koraconnect_page_Library .kgfs_desc,
+  .koraconnect_page_Add_New_KORA_Object .kgfs_desc,
+  #form_search .kgfs_desc,
+  #TB_window .kgfs_desc {
+    line-height: 15px;
+    margin: 3px 0 0 0;
+  }
+  .toplevel_page_KORA_Settings .container_full,
+  .koraconnect_page_Galleries .container_full,
+  .koraconnect_page_Library .container_full,
+  .koraconnect_page_Add_New_KORA_Object .container_full,
+  #form_search .container_full,
+  #TB_window .container_full {
+    width: 100%;
+  }
+  .toplevel_page_KORA_Settings .kc_file_tn,
+  .koraconnect_page_Galleries .kc_file_tn,
+  .koraconnect_page_Library .kc_file_tn,
+  .koraconnect_page_Add_New_KORA_Object .kc_file_tn,
+  #form_search .kc_file_tn,
+  #TB_window .kc_file_tn {
+    max-width: 100%;
+    padding: 10px;
+    background-color: #ddd;
+  }
+  .toplevel_page_KORA_Settings .kc_file_tn img,
+  .koraconnect_page_Galleries .kc_file_tn img,
+  .koraconnect_page_Library .kc_file_tn img,
+  .koraconnect_page_Add_New_KORA_Object .kc_file_tn img,
+  #form_search .kc_file_tn img,
+  #TB_window .kc_file_tn img {
+    max-height: 70%;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    width: 100%;
+  }
+}
+.toplevel_page_KORA_Settings .kora-objs,
+.koraconnect_page_Galleries .kora-objs,
+.koraconnect_page_Library .kora-objs,
+.koraconnect_page_Add_New_KORA_Object .kora-objs,
+#form_search .kora-objs,
+#TB_window .kora-objs {
+  margin: 10px 20px 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.toplevel_page_KORA_Settings #library .kora-objs,
+.koraconnect_page_Galleries #library .kora-objs,
+.koraconnect_page_Library #library .kora-objs,
+.koraconnect_page_Add_New_KORA_Object #library .kora-objs,
+#form_search #library .kora-objs,
+#TB_window #library .kora-objs,
+.toplevel_page_KORA_Settings div#addNewObject.wrap div.kora-objs,
+.koraconnect_page_Galleries div#addNewObject.wrap div.kora-objs,
+.koraconnect_page_Library div#addNewObject.wrap div.kora-objs,
+.koraconnect_page_Add_New_KORA_Object div#addNewObject.wrap div.kora-objs,
+#form_search div#addNewObject.wrap div.kora-objs,
+#TB_window div#addNewObject.wrap div.kora-objs {
+  margin-left: 0;
+  margin-right: 0;
+}
+.toplevel_page_KORA_Settings .gal_body .kora-objs,
+.koraconnect_page_Galleries .gal_body .kora-objs,
+.koraconnect_page_Library .gal_body .kora-objs,
+.koraconnect_page_Add_New_KORA_Object .gal_body .kora-objs,
+#form_search .gal_body .kora-objs,
+#TB_window .gal_body .kora-objs {
+  margin: 10px 20px 10px 20px;
+}
+.toplevel_page_KORA_Settings .kora-objs .objSpan,
+.koraconnect_page_Galleries .kora-objs .objSpan,
+.koraconnect_page_Library .kora-objs .objSpan,
+.koraconnect_page_Add_New_KORA_Object .kora-objs .objSpan,
+#form_search .kora-objs .objSpan,
+#TB_window .kora-objs .objSpan {
+  width: 100%;
+  flex-grow: 2;
+}
+.toplevel_page_KORA_Settings .kora-objs .objSpan #selectAll,
+.koraconnect_page_Galleries .kora-objs .objSpan #selectAll,
+.koraconnect_page_Library .kora-objs .objSpan #selectAll,
+.koraconnect_page_Add_New_KORA_Object .kora-objs .objSpan #selectAll,
+#form_search .kora-objs .objSpan #selectAll,
+#TB_window .kora-objs .objSpan #selectAll {
+  margin: 0 0 0 auto;
+  display: block;
+  margin-top: -75px;
+}
+.toplevel_page_KORA_Settings .kora-obj,
+.koraconnect_page_Galleries .kora-obj,
+.koraconnect_page_Library .kora-obj,
+.koraconnect_page_Add_New_KORA_Object .kora-obj,
+#form_search .kora-obj,
+#TB_window .kora-obj {
+  position: relative;
+  width: 100%;
+  height: 144px;
+  border: 1px solid #dedede;
+  cursor: pointer;
+  margin: 10px 0;
+  box-sizing: border-box;
+  font-family: "Helvetica Neue", Helvetica, sans-serif;
+}
+.toplevel_page_KORA_Settings .kora-obj .kora-obj-left,
+.koraconnect_page_Galleries .kora-obj .kora-obj-left,
+.koraconnect_page_Library .kora-obj .kora-obj-left,
+.koraconnect_page_Add_New_KORA_Object .kora-obj .kora-obj-left,
+#form_search .kora-obj .kora-obj-left,
+#TB_window .kora-obj .kora-obj-left {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 142px;
+  border-right: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings .kora-obj-active .kora-obj-left,
+.koraconnect_page_Galleries .kora-obj-active .kora-obj-left,
+.koraconnect_page_Library .kora-obj-active .kora-obj-left,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-active .kora-obj-left,
+#form_search .kora-obj-active .kora-obj-left,
+#TB_window .kora-obj-active .kora-obj-left {
+  border: 5px solid #57abce !important;
+}
+.toplevel_page_KORA_Settings .kora-obj-left > img,
+.koraconnect_page_Galleries .kora-obj-left > img,
+.koraconnect_page_Library .kora-obj-left > img,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-left > img,
+#form_search .kora-obj-left > img,
+#TB_window .kora-obj-left > img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+.toplevel_page_KORA_Settings .kora-obj-left > input,
+.koraconnect_page_Galleries .kora-obj-left > input,
+.koraconnect_page_Library .kora-obj-left > input,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-left > input,
+#form_search .kora-obj-left > input,
+#TB_window .kora-obj-left > input {
+  height: 41px;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 5;
+  padding: 15px 14px 13px 14px;
+  border-top: 1px solid #dedede;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  cursor: pointer;
+  transition: all 150ms linear 0s;
+}
+.toplevel_page_KORA_Settings .kora-obj-active .kora-obj-left > input,
+.koraconnect_page_Galleries .kora-obj-active .kora-obj-left > input,
+.koraconnect_page_Library .kora-obj-active .kora-obj-left > input,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-active .kora-obj-left > input,
+#form_search .kora-obj-active .kora-obj-left > input,
+#TB_window .kora-obj-active .kora-obj-left > input {
+  border-top: 1px solid #57abce !important;
+  background-color: #57abce !important;
+  color: white !important;
+}
+.toplevel_page_KORA_Settings .kora-obj .kora-obj-right,
+.koraconnect_page_Galleries .kora-obj .kora-obj-right,
+.koraconnect_page_Library .kora-obj .kora-obj-right,
+.koraconnect_page_Add_New_KORA_Object .kora-obj .kora-obj-right,
+#form_search .kora-obj .kora-obj-right,
+#TB_window .kora-obj .kora-obj-right {
+  position: absolute;
+  top: 0;
+  left: 142px;
+  right: 0;
+  bottom: 0;
+}
+.toplevel_page_KORA_Settings .kora-obj-active .kora-obj-right,
+.koraconnect_page_Galleries .kora-obj-active .kora-obj-right,
+.koraconnect_page_Library .kora-obj-active .kora-obj-right,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-active .kora-obj-right,
+#form_search .kora-obj-active .kora-obj-right,
+#TB_window .kora-obj-active .kora-obj-right {
+  border: 5px solid #57abce !important;
+}
+.toplevel_page_KORA_Settings .kora-obj-close,
+.koraconnect_page_Galleries .kora-obj-close,
+.koraconnect_page_Library .kora-obj-close,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-close,
+#form_search .kora-obj-close,
+#TB_window .kora-obj-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 23px;
+  height: 23px;
+  z-index: 5;
+  border-left: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: all 150ms linear 0s;
+}
+.toplevel_page_KORA_Settings .kora-obj-close:hover,
+.koraconnect_page_Galleries .kora-obj-close:hover,
+.koraconnect_page_Library .kora-obj-close:hover,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-close:hover,
+#form_search .kora-obj-close:hover,
+#TB_window .kora-obj-close:hover {
+  border-left: 1px solid #57abce;
+  border-bottom: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .kora-obj-fields,
+.koraconnect_page_Galleries .kora-obj-fields,
+.koraconnect_page_Library .kora-obj-fields,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-fields,
+#form_search .kora-obj-fields,
+#TB_window .kora-obj-fields {
+  box-sizing: border-box;
+  padding: 11px;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.toplevel_page_KORA_Settings .kora-obj-fields > li,
+.koraconnect_page_Galleries .kora-obj-fields > li,
+.koraconnect_page_Library .kora-obj-fields > li,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-fields > li,
+#form_search .kora-obj-fields > li,
+#TB_window .kora-obj-fields > li {
+  margin: 0;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.toplevel_page_KORA_Settings .kora-obj-fields > li > span,
+.koraconnect_page_Galleries .kora-obj-fields > li > span,
+.koraconnect_page_Library .kora-obj-fields > li > span,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-fields > li > span,
+#form_search .kora-obj-fields > li > span,
+#TB_window .kora-obj-fields > li > span {
+  color: #8c8c8c;
+}
+.toplevel_page_KORA_Settings .kora-obj:hover,
+.koraconnect_page_Galleries .kora-obj:hover,
+.koraconnect_page_Library .kora-obj:hover,
+.koraconnect_page_Add_New_KORA_Object .kora-obj:hover,
+#form_search .kora-obj:hover,
+#TB_window .kora-obj:hover {
+  border: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .kora-obj:hover .kora-obj-left,
+.koraconnect_page_Galleries .kora-obj:hover .kora-obj-left,
+.koraconnect_page_Library .kora-obj:hover .kora-obj-left,
+.koraconnect_page_Add_New_KORA_Object .kora-obj:hover .kora-obj-left,
+#form_search .kora-obj:hover .kora-obj-left,
+#TB_window .kora-obj:hover .kora-obj-left {
+  border-right: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .kora-obj:hover .kora-obj-left > input,
+.koraconnect_page_Galleries .kora-obj:hover .kora-obj-left > input,
+.koraconnect_page_Library .kora-obj:hover .kora-obj-left > input,
+.koraconnect_page_Add_New_KORA_Object .kora-obj:hover .kora-obj-left > input,
+#form_search .kora-obj:hover .kora-obj-left > input,
+#TB_window .kora-obj:hover .kora-obj-left > input {
+  border-top: 1px solid #57abce;
+}
+.toplevel_page_KORA_Settings .kora-obj-left > input:hover,
+.koraconnect_page_Galleries .kora-obj-left > input:hover,
+.koraconnect_page_Library .kora-obj-left > input:hover,
+.koraconnect_page_Add_New_KORA_Object .kora-obj-left > input:hover,
+#form_search .kora-obj-left > input:hover,
+#TB_window .kora-obj-left > input:hover {
+  background-color: #57abce;
+  color: white;
+}
+.toplevel_page_KORA_Settings #remove-kora-objs,
+.koraconnect_page_Galleries #remove-kora-objs,
+.koraconnect_page_Library #remove-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #remove-kora-objs,
+#form_search #remove-kora-objs,
+#TB_window #remove-kora-objs,
+.toplevel_page_KORA_Settings #add-kora-objs,
+.koraconnect_page_Galleries #add-kora-objs,
+.koraconnect_page_Library #add-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #add-kora-objs,
+#form_search #add-kora-objs,
+#TB_window #add-kora-objs,
+.toplevel_page_KORA_Settings #selected-kora-objs,
+.koraconnect_page_Galleries #selected-kora-objs,
+.koraconnect_page_Library #selected-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #selected-kora-objs,
+#form_search #selected-kora-objs,
+#TB_window #selected-kora-objs {
+  position: fixed;
+  z-index: 99999;
+  /* Chosen boxes have z-index of about 1000, and this is big enough */
+  bottom: 0;
+  left: 0;
+  margin-left: 28px;
+  margin-right: 28px;
+  max-width: inherit;
+  padding-bottom: 10px;
+  background-color: white;
+  -webkit-transform: translateY(100%);
+  -moz-transform: translateY(100%);
+  -ms-transform: translateY(100%);
+  -o-transform: translateY(100%);
+  transform: translateY(100%);
+  -webkit-transition: all 300ms ease 0s;
+  -moz-transition: all 300ms ease 0s;
+  -ms-transition: all 300ms ease 0s;
+  -o-transition: all 300ms ease 0s;
+  transition: all 300ms ease 0s;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings #remove-kora-objs,
+.koraconnect_page_Galleries #remove-kora-objs,
+.koraconnect_page_Library #remove-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #remove-kora-objs,
+#form_search #remove-kora-objs,
+#TB_window #remove-kora-objs,
+.toplevel_page_KORA_Settings #add-kora-objs,
+.koraconnect_page_Galleries #add-kora-objs,
+.koraconnect_page_Library #add-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #add-kora-objs,
+#form_search #add-kora-objs,
+#TB_window #add-kora-objs {
+  width: calc(44%);
+}
+.toplevel_page_KORA_Settings #library #remove-kora-objs,
+.koraconnect_page_Galleries #library #remove-kora-objs,
+.koraconnect_page_Library #library #remove-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #library #remove-kora-objs,
+#form_search #library #remove-kora-objs,
+#TB_window #library #remove-kora-objs {
+  left: auto;
+  width: 100%;
+  margin: 0;
+}
+.toplevel_page_KORA_Settings #selected-kora-objs,
+.koraconnect_page_Galleries #selected-kora-objs,
+.koraconnect_page_Library #selected-kora-objs,
+.koraconnect_page_Add_New_KORA_Object #selected-kora-objs,
+#form_search #selected-kora-objs,
+#TB_window #selected-kora-objs {
+  right: 8px;
+  left: 8px;
+}
+.toplevel_page_KORA_Settings #remove-kora-objs > input,
+.koraconnect_page_Galleries #remove-kora-objs > input,
+.koraconnect_page_Library #remove-kora-objs > input,
+.koraconnect_page_Add_New_KORA_Object #remove-kora-objs > input,
+#form_search #remove-kora-objs > input,
+#TB_window #remove-kora-objs > input {
+  margin-top: 0;
+  background-color: #df7171;
+  border: 1px solid #df7171;
+  color: white;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.toplevel_page_KORA_Settings #add-kora-objs > input,
+.koraconnect_page_Galleries #add-kora-objs > input,
+.koraconnect_page_Library #add-kora-objs > input,
+.koraconnect_page_Add_New_KORA_Object #add-kora-objs > input,
+#form_search #add-kora-objs > input,
+#TB_window #add-kora-objs > input,
+.toplevel_page_KORA_Settings #selected-kora-objs > input,
+.koraconnect_page_Galleries #selected-kora-objs > input,
+.koraconnect_page_Library #selected-kora-objs > input,
+.koraconnect_page_Add_New_KORA_Object #selected-kora-objs > input,
+#form_search #selected-kora-objs > input,
+#TB_window #selected-kora-objs > input {
+  margin-top: 0;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.toplevel_page_KORA_Settings .slide-remove-objs,
+.koraconnect_page_Galleries .slide-remove-objs,
+.koraconnect_page_Library .slide-remove-objs,
+.koraconnect_page_Add_New_KORA_Object .slide-remove-objs,
+#form_search .slide-remove-objs,
+#TB_window .slide-remove-objs,
+.toplevel_page_KORA_Settings .slide-selected-objs,
+.koraconnect_page_Galleries .slide-selected-objs,
+.koraconnect_page_Library .slide-selected-objs,
+.koraconnect_page_Add_New_KORA_Object .slide-selected-objs,
+#form_search .slide-selected-objs,
+#TB_window .slide-selected-objs {
+  -webkit-transform: translateY(0) !important;
+  -moz-transform: translateY(0) !important;
+  -ms-transform: translateY(0) !important;
+  -o-transform: translateY(0) !important;
+  transform: translateY(0) !important;
+}
+@media only screen and (min-width: 942px) {
+  .toplevel_page_KORA_Settings .kora-objs,
+  .koraconnect_page_Galleries .kora-objs,
+  .koraconnect_page_Library .kora-objs,
+  .koraconnect_page_Add_New_KORA_Object .kora-objs,
+  #form_search .kora-objs,
+  #TB_window .kora-objs {
+    justify-content: space-between;
+  }
+  .toplevel_page_KORA_Settings .kora-obj,
+  .koraconnect_page_Galleries .kora-obj,
+  .koraconnect_page_Library .kora-obj,
+  .koraconnect_page_Add_New_KORA_Object .kora-obj,
+  #form_search .kora-obj,
+  #TB_window .kora-obj {
+    width: calc(40%);
+  }
+  .toplevel_page_KORA_Settings .wrap,
+  .koraconnect_page_Galleries .wrap,
+  .koraconnect_page_Library .wrap,
+  .koraconnect_page_Add_New_KORA_Object .wrap,
+  #form_search .wrap,
+  #TB_window .wrap {
+    max-width: 865px;
+  }
+}
+@media only screen and (min-width: 1385px) {
+  .toplevel_page_KORA_Settings .wrap,
+  .koraconnect_page_Galleries .wrap,
+  .koraconnect_page_Library .wrap,
+  .koraconnect_page_Add_New_KORA_Object .wrap,
+  #form_search .wrap,
+  #TB_window .wrap {
+    max-width: 1305px;
+  }
+  .toplevel_page_KORA_Settings .kora-obj,
+  .koraconnect_page_Galleries .kora-obj,
+  .koraconnect_page_Library .kora-obj,
+  .koraconnect_page_Add_New_KORA_Object .kora-obj,
+  #form_search .kora-obj,
+  #TB_window .kora-obj {
+    width: calc(23%);
+  }
+}
+.toplevel_page_KORA_Settings #edit-obj-overlay,
+.koraconnect_page_Galleries #edit-obj-overlay,
+.koraconnect_page_Library #edit-obj-overlay,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-overlay,
+#form_search #edit-obj-overlay,
+#TB_window #edit-obj-overlay {
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.toplevel_page_KORA_Settings #edit-obj-box,
+.koraconnect_page_Galleries #edit-obj-box,
+.koraconnect_page_Library #edit-obj-box,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-box,
+#form_search #edit-obj-box,
+#TB_window #edit-obj-box {
+  width: 800px;
+  border: 1px solid #dedede;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings #edit-obj-header,
+.koraconnect_page_Galleries #edit-obj-header,
+.koraconnect_page_Library #edit-obj-header,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-header,
+#form_search #edit-obj-header,
+#TB_window #edit-obj-header {
+  height: 55px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  padding-left: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 20px;
+}
+.toplevel_page_KORA_Settings #edit-obj-header > div,
+.koraconnect_page_Galleries #edit-obj-header > div,
+.koraconnect_page_Library #edit-obj-header > div,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-header > div,
+#form_search #edit-obj-header > div,
+#TB_window #edit-obj-header > div {
+  height: 100%;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings #edit-obj-player,
+.koraconnect_page_Galleries #edit-obj-player,
+.koraconnect_page_Library #edit-obj-player,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-player,
+#form_search #edit-obj-player,
+#TB_window #edit-obj-player {
+  width: 100%;
+  border-bottom: 1px solid #dedede;
+}
+.toplevel_page_KORA_Settings #edit-obj-player > img,
+.koraconnect_page_Galleries #edit-obj-player > img,
+.koraconnect_page_Library #edit-obj-player > img,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-player > img,
+#form_search #edit-obj-player > img,
+#TB_window #edit-obj-player > img {
+  width: 100%;
+  display: block;
+}
+.toplevel_page_KORA_Settings #edit-obj-form,
+.koraconnect_page_Galleries #edit-obj-form,
+.koraconnect_page_Library #edit-obj-form,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-form,
+#form_search #edit-obj-form,
+#TB_window #edit-obj-form {
+  width: 100%;
+  background-color: white;
+  padding: 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.toplevel_page_KORA_Settings #edit-obj-form > div,
+.koraconnect_page_Galleries #edit-obj-form > div,
+.koraconnect_page_Library #edit-obj-form > div,
+.koraconnect_page_Add_New_KORA_Object #edit-obj-form > div,
+#form_search #edit-obj-form > div,
+#TB_window #edit-obj-form > div {
+  display: flex;
+}

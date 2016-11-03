@@ -77,7 +77,6 @@
                     $dbproj = get_option('kordat_dbproj');
                     $dbscheme = get_option('kordat_dbscheme');
                     $dbtoken = get_option('kordat_dbtoken');
-                   // var_dump($controls);
                     
                     $query_sid_pid = "SELECT schemeid,pid FROM scheme WHERE schemeid = '".$schemeid."';";
                     $stmt = $bd->prepare($query_sid_pid) ;

@@ -7,7 +7,7 @@
     if (isset($_GET['kid']) && isset($_GET['schemeid'])) {
         //get image/video/audio and display item
         $library= $wpdb->prefix . 'koralibrary';
-       // var_dump($_GET['kid']);
+
         $query = "SELECT * FROM  $library WHERE KID = '".$_GET['kid']."'";
         if(!empty($wpdb->get_results($query))) {
            foreach( $wpdb->get_results($query) as $key => $kora_obj) {
@@ -40,7 +40,7 @@
                     $dbproj = get_option('kordat_dbproj');
                     $dbscheme = get_option('kordat_dbscheme');
                     $dbtoken = get_option('kordat_dbtoken');
-                   // var_dump($controls);
+
                     
                     $query_sid_pid = "SELECT schemeid,pid FROM scheme WHERE schemeid = '".$schemeid."';";
                     $stmt = $bd->prepare($query_sid_pid) ;
@@ -59,9 +59,10 @@
                     $stmt->close();
                     
                     $restful = get_option('kordat_dbapi');
+
 			        $restful_url =$restful . KORA_PLUGIN_RESTFUL_SUBPATH;
-			
-			                   
+
+
 			        $i = 0;
                      $fields = 'ALL';
                   
@@ -70,6 +71,7 @@
                      $query = "KID,=,".$target_kid;
                     if (!empty($sid_pid_token)) {
                             $url = $restful_url.'?request=GET&pid='.$sid_pid_token['projectid'].'&sid='.$sid_pid_token['schemeid'].'&token='.$sid_pid_token['token'].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
+
                     }
                
                     //initialize post request to KORA API using curl
@@ -182,7 +184,7 @@
                     echo "</div>";
                     echo ' <input class = "edit_details_submit" type="submit" value="Update Object Details Into KORA Library" alt = "'.$target_kid.'"/>';
                   //  echo '</form>';
-                   //var_dump($control_fields);
+
 
         }
     } else {

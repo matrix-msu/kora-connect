@@ -1,5 +1,5 @@
 <link rel="stylesheet" type="text/css" href="chosen_v1.4.2/chosen.css">
-<link rel="stylesheet" type="text/css" href="koraModal.css">
+<link rel="stylesheet" type="text/css" href="kora.css">
 
 <?php
 	require_once('../../../wp-load.php');
@@ -66,7 +66,9 @@
 
 	//get project name
 	$query_name .= "SELECT name, pid FROM project WHERE pid in(";
+
 	if (is_array($projector_id)) {
+
 			//remove duplicates
 			$projector_id = array_unique($projector_id);
 			$lastScheme = end($projector_id);
@@ -295,7 +297,9 @@
 			echo "<div class='kora-obj' id=".$row->KID.">
 				<div class='kora-obj-left'>";
 				if($row->imagefield!='default'){
-					echo  "	<img src=".str_replace($row->KID,"thumbs/".$row->KID,$url)." alt=".$row->KID." />";
+				    $new_url = str_replace($row->KID,"thumbs/".$row->KID,$url)." alt=".$row->KID;
+                    $new_url = 'http://' . $new_url;
+					echo  "	<img src=".$new_url." />";
 				}
 				else if($row->audiofield!='default'){
 					echo '<video width="142" height="140" controls><source src="'.$url.'" type="audio/mpeg"></video>';

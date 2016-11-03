@@ -246,6 +246,9 @@ require_once( realpath( dirname(__FILE__) . "/dbconfig.php" ) );
     <script src="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.min.js'); ?>"></script>
     <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal.css'); ?>" type="text/css"/>
     <link rel="stylesheet" href="<?php echo plugins_url('kora/remodal_v1.0.6/dist/remodal-default-theme.css'); ?>" type="text/css"/>
+    <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.jquery.min.js'); ?>"></script>
+    <script src="<?php echo plugins_url('kora/chosen_v1.4.2/chosen.proto.min.js'); ?>"></script>
+
 
 <script>
     var addNewObjUrl = "<?php echo $addNewObjUrl;?>";

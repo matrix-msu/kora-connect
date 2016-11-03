@@ -34,7 +34,7 @@ function kora_install() {
 	$table_name = $wpdb->prefix . "koralibrary";
 
     //will need changes depending on what fields are needed
-    $sql = "CREATE TABLE $table_name (
+	$sql = "CREATE TABLE $table_name (
 		  `id` mediumint(9) NOT NULL AUTO_INCREMENT,
 		  `KID` varchar(45) NOT NULL,
 		  `url` varchar(10000) DEFAULT '',
@@ -47,8 +47,8 @@ function kora_install() {
 		  PRIMARY KEY (`id`)
 		) ENGINE=InnoDB AUTO_INCREMENT=349 DEFAULT CHARSET=latin1;";
 
-    require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
-    dbDelta( $sql );
+	require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+	dbDelta( $sql );
 
     //create gallery table
     $table_name = $wpdb->prefix . "koragallery";
@@ -382,44 +382,44 @@ function koragallery_handler($incomingfrompost) {
         "kg_imagecontrol" => "",
         "kg_audiocontrol" => "",
         "kg_videocontrol" => "",
-		"kg_titlecontrol" => "",
-		"kg_desccontrol" => "",
-		"kg_linkbase" => "",
-		"kg_type" => 'flexslider',
-		"kg_imagesize" => 'small',
-		"kg_sort" => "",
-		"kg_order" => "SORT_ASC",
-		"kgfs_animation" => 'slide',
-		"kgfs_direction" => 'horizontal',
-		"kgfs_reverse" => false,
-		"kgfs_animationloop" => true,
-		"kgfs_smoothheight" => false,
-		"kgfs_startat"  => 0,
-		"kgfs_slideshow" => true,
-		"kgfs_slidshowspeed" => 7000,
-		"kgfs_animationspeed" => 600,
-		"kgfs_initdelay" => 0,
-		"kgfs_randomize" => false,
-		"kgfs_pauseonaction" => true,
-		"kgfs_pauseonhover" => false,
-		"kgfs_touch" => true,
-		"kgfs_video" => false,
-		"kgfs_itemwidth" => 150,
-		"kgfs_itemmargin" => 5,
-		"kgfs_minitems" => 0,
-		"kgfs_maxitems" => 0,
-		"kgfs_imageclip" => false,
-		"kgfs_move" => 0,
-		"kgis_pagesize" => 20,
-		"kgis_loadimg" => KORA_PLUGIN_PATHBASE.'/loading.gif',
-		), $incomingfrompost);
+        "kg_titlecontrol" => "",
+        "kg_desccontrol" => "",
+        "kg_linkbase" => KORA_PLUGIN_PATHBASE."fullrecord.php",
+        "kg_type" => 'flexslider',
+        "kg_imagesize" => 'small',
+        "kg_sort" => "",
+        "kg_order" => "SORT_ASC",
+        "kgfs_animation" => 'slide',
+        "kgfs_direction" => 'horizontal',
+        "kgfs_reverse" => false,
+        "kgfs_animationloop" => true,
+        "kgfs_smoothheight" => false,
+        "kgfs_startat"  => 0,
+        "kgfs_slideshow" => true,
+        "kgfs_slidshowspeed" => 7000,
+        "kgfs_animationspeed" => 600,
+        "kgfs_initdelay" => 0,
+        "kgfs_randomize" => false,
+        "kgfs_pauseonaction" => true,
+        "kgfs_pauseonhover" => false,
+        "kgfs_touch" => true,
+        "kgfs_video" => false,
+        "kgfs_itemwidth" => 150,
+        "kgfs_itemmargin" => 5,
+        "kgfs_minitems" => 0,
+        "kgfs_maxitems" => 0,
+        "kgfs_imageclip" => false,
+        "kgfs_move" => 0,
+        "kgis_pagesize" => 20,
+        "kgis_loadimg" => KORA_PLUGIN_PATHBASE.'/loading.gif',
+    ), $incomingfrompost);
 
-	/// THIS DOES THE ACTUAL WORK
-	$wpoutput = korgallery_getrecords($incomingfrompost);
-	if (!is_wp_error($wpoutput))
-	{ return $wpoutput; }
-	else
-	{ return $wpoutput->get_error_message(); }
+    /// THIS DOES THE ACTUAL WORK
+    $wpoutput = korgallery_getrecords($incomingfrompost);
+    if (!is_wp_error($wpoutput))
+    { return $wpoutput; }
+    else
+    { return $wpoutput->get_error_message(); }
 }
 
 function korgallery_getrecords($wpatts) {
@@ -568,7 +568,6 @@ function korgallery_getrecords($wpatts) {
     }
 
     $str_url = implode(";", $url);
-    $str_url = 'http://' . $str_url;
     $server_output=array();
     switch ($kg_type)
     {
@@ -586,7 +585,6 @@ function korgallery_getrecords($wpatts) {
                 array_push($server_output,$server_output1);
 
             }
-
             return "<div class='kora_gallery_pagination' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n";
             break;
 
@@ -605,8 +603,6 @@ function korgallery_getrecords($wpatts) {
 
 
             }
-
-
             return "<div class='kora_gallery_infscroll1' kgictrl='$kg_ictrl' kgactrl='$kg_actrl' kgvctrl='$kg_vctrl' kg_pagesize = '$kg_pagesize' kgisize='$kg_isize' kgtctrl='$kg_tctrl' kgdctrl='$kg_dctrl' kglbase='$kg_lbase' kgfs_imageclip='$kgfs_imageclip' kgresturl='$str_url' kgfbase='$files_url' $kg_divtag_opts kgfield = '$fields'>\n\n
 </div>";
             break;

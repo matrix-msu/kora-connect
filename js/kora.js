@@ -38,7 +38,6 @@ jQuery(document).ready(function ($) {
         var pagesize = parseInt(kg_pagesize);
 
         for (var i = 0; i < tarresturl.length; i++) {
-            console.log(tarresturl);
             $.getJSON(
                 tarresturl[i],
                 function (data) {
@@ -195,7 +194,7 @@ jQuery(document).ready(function ($) {
         var mch;
         var re = /([0-9][0-9]?) ([0-9][0-9]?) ([0-9][0-9][0-9][0-9])( CE|BCE)?/;
         for (var i = 0; i < tarresturl.length; i++) {
-            tarresturl[i] = 'http://' + tarresturl[i];
+
             $.getJSON(
                 tarresturl[i],
                 function (data) {
