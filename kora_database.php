@@ -370,7 +370,6 @@ function koragallery_handler($incomingfrompost) {
     //...................
     $project=get_option('kordat_dbproj');
     $scheme=get_option('kordat_dbscheme');
-
     /// PROCESS INCOMING ATTS OR SET DEFAULTS
     $incomingfrompost = shortcode_atts(array(
         'pid' => $project[0],
@@ -485,7 +484,6 @@ function korgallery_getrecords($wpatts) {
 
     if ($kg_type == 'infscroll')
     {
-
         $display = 'json';
         $kg_divtag_opts = '';
         foreach ($wpatts as $k => $v)
@@ -592,7 +590,6 @@ function korgallery_getrecords($wpatts) {
 
         case 'infscroll':
             ///initialize post request to KORA API using curl
-
             foreach($url as $value){
 
                 $ch = curl_init($value);

@@ -1,4 +1,4 @@
-$(document).ready(function() {
+jQuery(document).ready(function ($) {
 
 
     var divs = [];
@@ -89,7 +89,7 @@ $(document).ready(function() {
     
 		if( koraObj.hasClass('kora-obj-active') ) {
 			selectedCount++;
-      divs.push(controldiv);
+            divs.push(controldiv);
 
 		}
 		

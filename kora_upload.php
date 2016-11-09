@@ -297,6 +297,7 @@
         $pid = $pids;
         //echo $sid." ".$pid."<br>";
          if (in_array($sid, $dbscheme) && in_array($pid, $dbproj)){
+
             $pos = array_search($pid, $dbproj);
              $val = $sid."-".$pid."-".$dbtoken[$pos];
              array_push($sid_pid_token,$val);
@@ -352,12 +353,12 @@
             	$url = $restful_url.'?request=GET&pid='.$val[1].'&sid='.$val[0].'&token='.$val[2].'&display='.urlencode($display).'&fields='.urlencode($fields).'&query='.urlencode($query);
             }
           }
-
 ///initialize post request to KORA API using curl
 $ch = curl_init($url);
 // because CURLOPT_RETURNTRANSFER is set, the curl_exec will return the result or the boolean FALSE.
 // if it were not set, the return would be boolean TRUE or FALSE.
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+
 curl_setopt($ch, CURLOPT_USERPWD, $user.':'.$pass);
 $curl_result = curl_exec($ch);
 // second parameter of json_decode is boolean to indeicate if the return should be php associative array
@@ -370,11 +371,10 @@ if (!empty($kora_objects)) { // check is the php array made from JSON is empty. 
     <div id="pagination" alt = "<?php echo $total_obj; ?>">
     <label for="select_all_search"   class="select_all_btn" style = "height:54px; width: 300px">Select All <?php echo $total_obj; ?> From Search</label>
 <?php	echo "<div class='kora_results_container kora-objs'>";
-	
 	foreach ($kora_objects as $kora_object_kid => $kora_object) {
 		//var_dump($kora_object);
 		if ($kora_object[$image_control]) {
-           $thumb_src = get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid'].'/thumbs/'.$kora_object[$image_control]['localName'];
+           $thumb_src = get_option('kordat_dbapi').'files/'.$val[1].'/'.$val[0].'/thumbs/'.$kora_object[$image_control]['localName'];
            $media_type = "image";
        } else if ($kora_object[$video_control]) {
            $videoFile = mysql_escape_string(get_option('kordat_dbapi').'files/'.$sid_pid_token['projectid'].'/'.$sid_pid_token['schemeid']."/".$record['Video File']['localName']);

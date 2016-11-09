@@ -60,19 +60,45 @@ define('WP_USE_THEMES', true);
 		foreach ($server_output as $kid => $koraobj) {
 
 			$decKID = explode("-", $k);
-			if ($koraobj["Video File"] != '') {
+
+			if ($koraobj["Video File"] != '' || $koraobj['Video'] != '' || $koraobj['video file'] != '' || $koraobj['video'] != '') {
+			    if ($koraobj["Video File"] != ""){
+			        $localName = $koraobj["Video File"]['localName'];
+                }
+                else if ($koraobj["video file"] != ""){
+                    $localName = $koraobj["video file"]['localName'];
+                }
+                else if ($koraobj["Video"] != ""){
+                    $localName = $koraobj["Video"]['localName'];
+                }
+                else if ($koraobj["video"] != ""){
+                    $localName = $koraobj["video"]['localName'];
+                }
 				$prevHTML = '<div class="control_full_value">';
 				$prevHTML .= '<div class="kc_file_tn">';
-				$prevHTML .= '<video controls><source src="' . kora_url . 'files/' . hexdec($decKID[0]) . '/' . hexdec($decKID[1]) . '/' .  $koraobj["Video File"]['localName'] . '"></video>';
+				$prevHTML .= '<video controls><source src="' . $restful . '/files/' . hexdec($decKID[0]) . '/' . hexdec($decKID[1]) . '/' .  $localName . '"></video>';
 				$prevHTML .= '</div></div>';
 				echo($prevHTML);
-			} else if ($koraobj["Audio File"] != '') {
+			}
+            if ($koraobj["Audio File"] != '' || $koraobj['Audio'] != '' || $koraobj['audio file'] != '' || $koraobj['audio'] != '') {
+                if ($koraobj["Audio File"] != ""){
+                    $localName = $koraobj["Audio File"]['localName'];
+                }
+                else if ($koraobj["audio file"] != ""){
+                    $localName = $koraobj["audio file"]['localName'];
+                }
+                else if ($koraobj["Audio"] != ""){
+                    $localName = $koraobj["Audio"]['localName'];
+                }
+                else if ($koraobj["audio"] != ""){
+                    $localName = $koraobj["audio"]['localName'];
+                }
 				$prevHTML .= '<div class="control_full_value">';
 				$prevHTML .= '<div class="kc_file_tn">';
 				$prevHTML .= '<audio controls><source src="' . kora_url . 'files/' . hexdec($decKID[0]) . '/' . hexdec($decKID[1]) . '/' .  $koraobj["Audio File"]['localName'] . '"></audio>';
 				$prevHTML .= '</div></div>';
 				echo($prevHTML);
-			} else if ($koraobj["image"] != '' ) {
+			} if ($koraobj["image"] != '' ) {
 				$prevHTML = '<div class="control_full_value">';
 				$prevHTML .= '<div class="kc_file_tn">';
 
@@ -80,7 +106,7 @@ define('WP_USE_THEMES', true);
 				$prevHTML .= '</div></div>';
 				echo($prevHTML);
 			}
-			else if ($koraobj['Image'] != "") {
+			if ($koraobj['Image'] != "") {
                 $prevHTML = '<div class="control_full_value">';
                 $prevHTML .= '<div class="kc_file_tn">';
 

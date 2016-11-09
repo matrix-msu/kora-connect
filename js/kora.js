@@ -36,7 +36,7 @@ jQuery(document).ready(function ($) {
         var sum = 0;
         var pos = 0;
         var pagesize = parseInt(kg_pagesize);
-
+        var re = /([0-9][0-9]?) ([0-9][0-9]?) ([0-9][0-9][0-9][0-9])( CE|BCE)?/;
         for (var i = 0; i < tarresturl.length; i++) {
             $.getJSON(
                 tarresturl[i],
@@ -47,7 +47,7 @@ jQuery(document).ready(function ($) {
                         pics.push(htmlobj);
                         JSON.stringify(pics);
                         mch = re.exec(pics[sum]);
-                        switch (mch[1]) {
+                        switch (mch) {
                             case '1':
                                 pics[sum] = pics[sum].replace(mch[0], mch[3] + " January " + mch[2]);
                                 break;
@@ -210,7 +210,7 @@ jQuery(document).ready(function ($) {
                         pics.push(htmlobj);
                         JSON.stringify(pics);
                         mch = re.exec(pics[sum]);
-                        switch (mch[1]) {
+                        switch (mch) {
                             case '1':
                                 pics[sum] = pics[sum].replace(mch[0], mch[3] + " January " + mch[2]);
                                 break;
@@ -256,7 +256,6 @@ jQuery(document).ready(function ($) {
                     console.log("error");
                 })
         }
-
         var i = 0;
         var count = 0;
         if(pics.length>0){
@@ -450,7 +449,7 @@ jQuery(document).ready(function ($) {
             }
             retval += "</div>";
         }
-        if (actrl_!='default' && (typeof obj_[actrl_].localName !== 'undefined') && (obj_[actrl_].localName != '')) {
+        if (typeof obj_[actrl_] != 'undefined' && actrl_!='default' && (typeof obj_[actrl_].localName !== 'undefined') && (obj_[actrl_].localName != '')) {
             audiosrc= '<video class="koraobj_tn koraobj_tn_large"  width="218" height="128" controls><source src="'+ fbase_ +pid+'/'+sid+'/'+obj_[actrl_].localName+'" type="audio/mpeg"></video>';
           
              retval += "<div class='kgfs_img'>";
@@ -467,7 +466,7 @@ jQuery(document).ready(function ($) {
             }
             retval += "</div>";
         }
-        if (vctrl_!='default' && (typeof obj_[vctrl_].localName !== 'undefined') && (obj_[vctrl_].localName != '')) {
+        if (typeof obj_[vctrl_] != 'undefined' && vctrl_!='default' && (typeof obj_[vctrl_].localName !== 'undefined') && (obj_[vctrl_].localName != '')) {
             videosrc= '<video class="koraobj_tn koraobj_tn_large" width="218" height="128" controls><source src="'+ fbase_ + pid+'/'+sid+'/'+obj_[vctrl_].localName+'" type="video/mp4"></video>';
           
              retval += "<div class='kgfs_img'>";

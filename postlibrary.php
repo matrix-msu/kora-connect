@@ -298,7 +298,7 @@
 				<div class='kora-obj-left'>";
 				if($row->imagefield!='default'){
 				    $new_url = str_replace($row->KID,"thumbs/".$row->KID,$url)." alt=".$row->KID;
-                    $new_url = 'http://' . $new_url;
+                    $new_url = $new_url;
 					echo  "	<img src=".$new_url." />";
 				}
 				else if($row->audiofield!='default'){

@@ -49,6 +49,17 @@ body > .control_full_value {
         padding-top: 4%;
         padding-bottom: 4%;
     }
+
+    .kc_file_tn video {
+        display: block;
+        height: auto;
+        margin: 0 auto;
+        margin-bottom: 50px;
+        width: 60%;
+        padding-top: 4%;
+        padding-bottom: 4%;
+    }
+
     .control_full:first-child {
         margin-top: 0px;
     }
